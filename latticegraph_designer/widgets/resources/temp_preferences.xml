@@ -1,0 +1,9 @@
+<SETTINGS>
+
+<THEME name="Current theme">
+  <CHECKBOX value="False" />
+  <LINEEDIT value="" />
+  <SPINBOX value="10" />
+</THEME>
+
+</SETTINGS>

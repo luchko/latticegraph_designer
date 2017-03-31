@@ -1,0 +1,811 @@
+#\#CIF_1.1
+ 
+#  CIF produced by WinGX routine CIF_UPDATE
+#  Created on 2014-04-03 at 23:16:31
+#  Using CIFtbx version 3.0.4  1 Sep 2006
+ 
+#  Dictionary name : cif_core.dic
+#  Dictionary vers : 2.4.3
+#  Request file    : c:\wingx\files\archive.reqdat
+#  CIF files read  : ch157a_298k_c ch157a_298k
+ 
+#------------------ SECTION 1. GLOBAL INFORMATION ---------------------------#
+ 
+data_global
+
+# publcif _publ_body_element loop start
+loop_
+_publ_body_element
+_publ_body_title
+_publ_body_contents
+
+ subsection Refinement
+;
+Crystal data, data collection and structure refinement details are summarized
+in Table 1.
+;
+
+ section 'Results and discussion' .
+# publcif _publ_body_element loop end
+ 
+#------------------ AUDIT DETAILS -------------------------------------------#
+ 
+_audit_creation_date            2014-04-03
+_audit_creation_method          'WinGX routine CIF_UPDATE'
+_audit_conform_dict_name        cif_core.dic
+_audit_conform_dict_version     2.4
+_audit_conform_dict_location    ftp://ftp.iucr.org/pub/cif_core.dic
+_audit_update_record            
+;
+?
+
+2014-04-03 # Formatted by publCIF
+;
+
+ 
+#==============================================================================
+#
+# SUBMISSION DETAILS
+# Name and address of author for correspondence
+ 
+_publ_contact_author_name       'Lanza, Arianna'
+_publ_contact_author_address
+;
+Departement f\"ur Chemie und Biochemie
+Universit\"at Bern
+Freiestrasse 3
+3012 Bern
+Switzerland
+;
+_publ_contact_author_email       'arianna.lanza@dcb.unibe.ch'
+_publ_contact_author_fax         ' '
+_publ_contact_author_phone       '+41 031 631 47 91'
+ 
+ 
+_publ_contact_letter
+;
+  
+This CIF is submitted as part of a journal submission
+to Angewandte Chemie
+;
+ 
+ 
+#==============================================================================
+#
+# TITLE AND AUTHOR LIST
+ 
+_publ_section_title
+;
+New Magnetic Frameworks of [(CuF2(H2O)2)x(pyz)]
+;
+
+_publ_section_title_footnote
+.
+ 
+ 
+loop_
+_publ_author_name
+_publ_author_address
+_publ_author_footnote
+_publ_author_email
+'Lanza, Arianna'
+;
+Departement f\"ur Chemie und Biochemie
+Universit\"at Bern
+Freiestrasse 3, 3012 Bern
+Switzerland
+;
+.
+;
+arianna.lanza@dcb.unibe.ch
+;
+'Fiolka, Christoph'
+;
+Departement f\"ur Chemie und Biochemie
+Universit\"at Bern
+Freiestrasse 3, 3012 Bern
+Switzerland
+;
+.
+;
+christoph.fiolka@dcb.unibe.ch
+;
+'Fisch, Martin'
+;
+Departement f\"ur Chemie und Biochemie
+Universit\"at Bern
+Freiestrasse 3, 3012 Bern
+Switzerland
+;
+.
+;
+martin.fisch@dcb.unibe.ch
+;
+'Casati, Nicola'
+;
+Paul Scherrer Institute
+CH-5232 Villigen,
+Switzerland
+;
+.
+;
+nicola.casati@psi.ch
+;
+'Skoulatos, Markos'
+;
+Paul Scherrer Institute
+CH-5232 Villigen,
+Switzerland
+;
+.
+;
+markos.skoulatos@psi.ch
+;
+'R\"uegg, Christian'
+;
+Paul Scherrer Institute
+CH-5232 Villigen,
+Switzerland
+;
+.
+;
+christian.rueegg@psi.ch
+;
+'Kr\"amer, Karl W.'
+;
+Departement f\"ur Chemie und Biochemie
+Universit\"at Bern
+Freiestrasse 3, 3012 Bern
+Switzerland
+;
+.
+;
+karl.kraemer@dcb.unibe.ch
+;
+'Macchi, Piero'
+;
+Departement f\"ur Chemie und Biochemie
+Universit\"at Bern
+Freiestrasse 3, 3012 Bern
+Switzerland
+;
+.
+;
+piero.macchi@dcb.unibe.ch
+;
+
+
+
+
+ 
+#------------------  SECTION 2. COMPOUND(S) DETAILS -------------------------#
+
+data_1epsilon
+
+_audit_creation_date                    2014-04-17T14:16:31-00:00
+_audit_creation_method            'WinGX routine CIF_UPDATE'
+ 
+#----------------------------------------------------------------------------#
+#                   CHEMICAL INFORMATION                                     #
+#----------------------------------------------------------------------------#
+
+_chemical_name_systematic
+;
+ ?
+;
+_chemical_name_common             '\e-[CuF2(H2O)2(pyz)]'
+_chemical_melting_point           ?
+_chemical_formula_moiety          'C4 D8 Cu F2 N2 O2'
+_chemical_formula_sum
+ 'C4 D8 Cu F2 N2 O2' 
+_chemical_formula_weight          225.71
+
+#----------------------------------------------------------------------------#
+#                   UNIT CELL INFORMATION                                    #
+#----------------------------------------------------------------------------#
+
+_space_group_crystal_system       triclinic
+_space_group_name_H-M_alt         'A -1'
+_space_group_name_Hall            '-a 1'
+loop_
+ _space_group_symop_operation_xyz
+ 'x, y, z'
+ 'x, y+1/2, z+1/2'
+ '-x, -y, -z'
+ '-x, -y+1/2, -z+1/2'
+ 
+_cell_length_a                    6.813(4)
+_cell_length_b                    7.1823(11)
+_cell_length_c                    7.4463(12)
+_cell_angle_alpha                 84.344(15)
+_cell_angle_beta                  116.72(4)
+_cell_angle_gamma                 78.85(3)
+_cell_volume                      312.1(2)
+_cell_formula_units_Z             2
+_cell_measurement_temperature   297.5(4) 
+_cell_measurement_reflns_used   540
+_cell_measurement_theta_min     3.8090
+_cell_measurement_theta_max     25.8970
+
+#----------------------------------------------------------------------------#
+#                   CRYSTAL INFORMATION                                      #
+#----------------------------------------------------------------------------#
+ 
+_exptl_crystal_description        plate 
+_exptl_crystal_colour             blue 
+_exptl_crystal_size_max           0.150 
+_exptl_crystal_size_mid           0.080 
+_exptl_crystal_size_min           0.050          
+_exptl_crystal_density_diffrn     2.402          
+_exptl_crystal_F_000              218
+
+#----------------------------------------------------------------------------#
+#                   ABSORPTION CORRECTION                                    #
+#----------------------------------------------------------------------------#
+
+_exptl_absorpt_coefficient_mu     3.485
+_exptl_absorpt_correction_type            'multi-scan'
+
+_exptl_absorpt_process_details
+;
+CrysAlisPro, Agilent Technologies,
+Version 1.171.36.32 (release 02-08-2013 CrysAlis171 .NET)
+(compiled Aug  2 2013,16:46:58)
+Empirical absorption correction using spherical harmonics,
+ implemented in SCALE3 ABSPACK scaling algorithm.
+;
+_exptl_absorpt_correction_T_min                   0.48475
+_exptl_absorpt_correction_T_max                   1.00000
+
+#----------------------------------------------------------------------------#
+#                   DATA COLLECTION                                          #
+#----------------------------------------------------------------------------#
+
+_diffrn_ambient_temperature 297.5(4) 
+_diffrn_ambient_pressure	  3300000
+_diffrn_radiation_wavelength      0.71073
+_diffrn_radiation_type            MoK\a
+_diffrn_radiation_source 'SuperNova (Mo) X-ray Source'
+_diffrn_radiation_monochromator 'mirror'
+_diffrn_measurement_device_type 'SuperNova, Single source at offset, Eos'
+_diffrn_detector_area_resol_mean 16.0965
+_diffrn_measurement_method '\w and \p scans' 
+_diffrn_reflns_number             831
+_diffrn_reflns_av_unetI/netI      0.0465
+_diffrn_reflns_av_R_equivalents   0.0675
+_diffrn_reflns_limit_h_min        -5
+_diffrn_reflns_limit_h_max        5
+_diffrn_reflns_limit_k_min        -8
+_diffrn_reflns_limit_k_max        8
+_diffrn_reflns_limit_l_min        -9
+_diffrn_reflns_limit_l_max        9
+_diffrn_reflns_theta_min          3.828
+_diffrn_reflns_theta_max          27.357
+_diffrn_reflns_theta_full         25.242
+_diffrn_measured_fraction_theta_max   0.257
+_diffrn_measured_fraction_theta_full  0.285
+_diffrn_reflns_Laue_measured_fraction_max    0.257
+_diffrn_reflns_Laue_measured_fraction_full   0.285
+_diffrn_reflns_point_group_measured_fraction_max   0.257
+_diffrn_reflns_point_group_measured_fraction_full  0.285
+_reflns_number_total              182
+_reflns_number_gt                 171
+_reflns_threshold_expression      'I > 2\s(I)'
+_reflns_Friedel_coverage          0.000
+_reflns_Friedel_fraction_max      .
+_reflns_Friedel_fraction_full     .
+ 
+#----------------------------------------------------------------------------#
+#                   COMPUTER PROGRAMS USED                                   #
+#----------------------------------------------------------------------------#
+ 
+_computing_data_collection
+;
+CrysAlisPro, Agilent Technologies,
+Version 1.171.36.32 (release 02-08-2013 CrysAlis171 .NET)
+(compiled Aug  2 2013,16:46:58)
+;
+_computing_cell_refinement
+;
+CrysAlisPro, Agilent Technologies,
+Version 1.171.36.32 (release 02-08-2013 CrysAlis171 .NET)
+(compiled Aug  2 2013,16:46:58)
+;
+_computing_data_reduction
+;
+CrysAlisPro, Agilent Technologies,
+Version 1.171.36.32 (release 02-08-2013 CrysAlis171 .NET)
+(compiled Aug  2 2013,16:46:58)
+;
+
+_computing_structure_solution     'SHELXS-2012 (Sheldrick, 2012)'
+_computing_structure_refinement   'SHELXL-2012 (Sheldrick, 2012)'
+
+#----------------------------------------------------------------------------#
+#                   STRUCTURE SOLUTION			                     #
+#----------------------------------------------------------------------------#
+
+
+_atom_sites_solution_primary      direct
+_atom_sites_solution_secondary    difmap
+_atom_sites_solution_hydrogens    mixed
+
+#----------------------------------------------------------------------------#
+#                   REFINEMENT INFORMATION                                   #
+#----------------------------------------------------------------------------#
+
+_refine_special_details
+;
+All atoms are treated isotropically.
+;
+_refine_ls_structure_factor_coef  Fsqd
+_refine_ls_matrix_type            full
+_refine_ls_weighting_scheme       calc
+_refine_ls_weighting_details
+;
+ w=1/[\s^2^(Fo^2^)+(0.1114P)^2^]
+ where P=(Fo^2^+2Fc^2^)/3
+;
+_refine_ls_hydrogen_treatment     mixed
+_refine_ls_extinction_method      none
+_refine_ls_extinction_coef        .
+_refine_ls_number_reflns          182
+_refine_ls_number_parameters      28
+_refine_ls_number_restraints      1
+_refine_ls_R_factor_all           0.0568
+_refine_ls_R_factor_gt            0.0556
+_refine_ls_wR_factor_ref          0.1440
+_refine_ls_wR_factor_gt           0.1429
+_refine_ls_goodness_of_fit_ref    1.100
+_refine_ls_restrained_S_all       1.096
+_refine_ls_shift/su_max           0.000
+_refine_ls_shift/su_mean          0.000
+_refine_diff_density_max    0.769
+_refine_diff_density_min   -0.900
+_refine_diff_density_rms    0.130
+
+#----------------------------------------------------------------------------#
+#                   ATOMIC TYPES, COORDINATES AND THERMAL PARAMETERS         #
+#----------------------------------------------------------------------------#
+ 
+loop_
+    _atom_type_symbol
+    _atom_type_description
+    _atom_type_scat_dispersion_real
+    _atom_type_scat_dispersion_imag
+    _atom_type_scat_source
+C C 0.0033 0.0016 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+D D 0 0 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+N N 0.0061 0.0033 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+O O 0.0106 0.006 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+F F 0.0171 0.0103 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+Cu Cu 0.3201 1.2651 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+ 
+ 
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_U_iso_or_equiv
+ _atom_site_adp_type
+ _atom_site_occupancy
+ _atom_site_site_symmetry_order  
+ _atom_site_calc_flag
+ _atom_site_refinement_flags_posn
+ _atom_site_refinement_flags_adp
+ _atom_site_refinement_flags_occupancy
+ _atom_site_disorder_assembly
+ _atom_site_disorder_group
+Cu1 Cu 0.0000 0.0000 0.0000 0.0157(8) Uiso 1 2 d S . P . .
+F1 F 0.021(3) -0.2633(9) -0.0144(12) 0.0189(14) Uiso 1 1 d . . . . .
+O1 O -0.198(4) 0.0613(13) -0.3628(17) 0.021(2) Uiso 1 1 d D . . . .
+N1 N 0.302(4) -0.0204(12) 0.0093(19) 0.0134(19) Uiso 1 1 d . . . . .
+C1 C 0.470(6) 0.0380(18) 0.157(2) 0.019(3) Uiso 1 1 d . . . . .
+D1 D 0.4553 0.0641 0.2714 0.022 Uiso 1 1 calc R U . . .
+C2 C 0.338(5) -0.0605(16) -0.147(2) 0.018(2) Uiso 1 1 d . . . . .
+D2 D 0.2314 -0.1048 -0.2512 0.022 Uiso 1 1 calc R U . . .
+D1A D -0.19(4) -0.021(18) -0.39(2) 0.022 Uiso 1 1 d . U . . .
+D1B D -0.134(19) 0.106(18) -0.366(18) 0.022 Uiso 1 1 d D U . . .
+
+#----------------------------------------------------------------------------#
+#                   MOLECULAR GEOMETRY                                       #
+#----------------------------------------------------------------------------# 
+_geom_special_details
+;
+ All esds (except the esd in the dihedral angle between two l.s. planes)
+ are estimated using the full covariance matrix.  The cell esds are taken
+ into account individually in the estimation of esds in distances, angles
+ and torsion angles; correlations between esds in cell parameters are only
+ used when they are defined by crystal symmetry.  An approximate (isotropic)
+ treatment of cell esds is used for estimating esds involving l.s. planes.
+;
+ 
+loop_
+ _geom_bond_atom_site_label_1
+ _geom_bond_atom_site_label_2
+ _geom_bond_distance
+ _geom_bond_site_symmetry_2
+ _geom_bond_publ_flag
+Cu1 F1 1.886(5) . ?
+Cu1 F1 1.886(5) 3 ?
+Cu1 N1 2.00(2) . ?
+Cu1 N1 2.00(2) 3 ?
+Cu1 O1 2.360(12) 3 ?
+Cu1 O1 2.360(12) . ?
+N1 C2 1.340(14) . ?
+N1 C1 1.36(3) . ?
+C1 C2 1.38(4) 3_655 ?
+C2 C1 1.38(4) 3_655 ?
+ 
+loop_
+ _geom_angle_atom_site_label_1
+ _geom_angle_atom_site_label_2
+ _geom_angle_atom_site_label_3
+ _geom_angle
+ _geom_angle_site_symmetry_1
+ _geom_angle_site_symmetry_3
+ _geom_angle_publ_flag
+F1 Cu1 F1 180.0 . 3 ?
+F1 Cu1 N1 91.6(5) . . ?
+F1 Cu1 N1 88.4(5) 3 . ?
+F1 Cu1 N1 88.4(5) . 3 ?
+F1 Cu1 N1 91.6(5) 3 3 ?
+N1 Cu1 N1 180.0 . 3 ?
+F1 Cu1 O1 94.8(3) . 3 ?
+F1 Cu1 O1 85.2(3) 3 3 ?
+N1 Cu1 O1 87.2(7) . 3 ?
+N1 Cu1 O1 92.8(7) 3 3 ?
+F1 Cu1 O1 85.2(3) . . ?
+F1 Cu1 O1 94.8(3) 3 . ?
+N1 Cu1 O1 92.8(7) . . ?
+N1 Cu1 O1 87.2(7) 3 . ?
+O1 Cu1 O1 180.0(3) 3 . ?
+C2 N1 C1 115(2) . . ?
+C2 N1 Cu1 122.3(19) . . ?
+C1 N1 Cu1 121.9(11) . . ?
+C2 C1 N1 123.1(11) 3_655 . ?
+N1 C2 C1 122(2) . 3_655 ?
+ 
+loop_
+ _geom_hbond_atom_site_label_D 
+ _geom_hbond_atom_site_label_H 
+ _geom_hbond_atom_site_label_A 
+ _geom_hbond_distance_DH 
+ _geom_hbond_distance_HA 
+ _geom_hbond_distance_DA 
+ _geom_hbond_angle_DHA 
+ _geom_hbond_site_symmetry_A 
+C1 D1 O1  0.93 2.43 3.02(2) 121.3 3
+C2 D2 F1  0.93 2.27 3.20(3) 175.0 4_544
+C2 D2 O1  0.93 2.63 3.15(4) 115.3 .
+O1 D1A F1  0.64(9) 2.14(16) 2.692(15) 146(24) 4_544
+O1 D1B F1  0.60(2) 2.11(6) 2.655(18) 154(14) 2_554
+
+
+data_2
+ 
+_audit_creation_date                    2014-04-03T23:16:31-00:00
+_audit_creation_method                  'WinGX routine CIF_UPDATE'
+ 
+#----------------------------------------------------------------------------#
+#                   CHEMICAL INFORMATION                                     #
+#----------------------------------------------------------------------------#
+ 
+_chemical_name_systematic
+?
+_chemical_formula_sum                   'C2 H6 Cu F2 N O2'
+_chemical_formula_weight                177.62
+ 
+#----------------------------------------------------------------------------#
+#                   UNIT CELL INFORMATION                                    #
+#----------------------------------------------------------------------------#
+ 
+_space_group_crystal_system             monoclinic
+_space_group_name_H-M_alt               'I 1 2/c 1'
+_space_group_name_Hall                  -i_2yc
+_space_group_IT_number                  15
+loop_
+    _space_group_symop_operation_xyz
+'x, y, z'
+'-x, y, -z+1/2'
+'x+1/2, y+1/2, z+1/2'
+'-x+1/2, y+1/2, -z+1'
+'-x, -y, -z'
+'x, -y, z-1/2'
+'-x+1/2, -y+1/2, -z+1/2'
+'x+1/2, -y+1/2, z'
+ 
+_cell_length_a                          21.0200(3)
+_cell_length_b                          7.55300(10)
+_cell_length_c                          6.88100(10)
+_cell_angle_alpha                       90
+_cell_angle_beta                        98.456(2)
+_cell_angle_gamma                       90
+_cell_volume                            1080.58(3)
+_cell_formula_units_Z                   8
+_cell_measurement_temperature           298(2)
+_cell_measurement_reflns_used           3358
+_cell_measurement_theta_min             2.853
+_cell_measurement_theta_max             31.274
+ 
+#----------------------------------------------------------------------------#
+#                   CRYSTAL INFORMATION                                      #
+#----------------------------------------------------------------------------#
+ 
+_exptl_crystal_size_max                 1
+_exptl_crystal_size_mid                 0.225
+_exptl_crystal_size_min                 0.165
+_exptl_crystal_density_diffrn           2.184
+_exptl_crystal_F_000                    704
+_exptl_special_details
+?
+ 
+#----------------------------------------------------------------------------#
+#                   ABSORPTION CORRECTION                                    #
+#----------------------------------------------------------------------------#
+ 
+_exptl_absorpt_coefficient_mu           3.994
+_exptl_absorpt_correction_type          multi-scan
+_exptl_absorpt_process_details
+;
+        CrysAlisPro, Agilent Technologies,
+        Version 1.171.36.32 (release 02-08-2013 CrysAlis171 .NET)
+        (compiled Aug  2 2013,16:46:58)
+        Empirical absorption correction using spherical harmonics,
+ implemented in SCALE3 ABSPACK scaling algorithm.
+;
+_exptl_absorpt_correction_T_min         0.2246
+_exptl_absorpt_correction_T_max         1
+ 
+#----------------------------------------------------------------------------#
+#                   DATA COLLECTION                                          #
+#----------------------------------------------------------------------------#
+ 
+_diffrn_ambient_temperature             298(2)
+_diffrn_radiation_wavelength            0.71073
+_diffrn_radiation_type                  MoK\a
+_diffrn_radiation_monochromator         mirror
+_diffrn_detector_area_resol_mean        16.0965
+_diffrn_orient_matrix_ub_11             -0.0021909
+_diffrn_orient_matrix_ub_12             -0.0408592
+_diffrn_orient_matrix_ub_13             -0.0304746
+_diffrn_orient_matrix_ub_21             -0.065578
+_diffrn_orient_matrix_ub_22             0.0662433
+_diffrn_orient_matrix_ub_23             -0.0141745
+_diffrn_orient_matrix_ub_31             0.0809869
+_diffrn_orient_matrix_ub_32             0.0525485
+_diffrn_orient_matrix_ub_33             -0.0058392
+_diffrn_measurement_device_type
+                                       'SuperNova, Single source at offset, Eos'
+_diffrn_measurement_method              '\w scans'
+_diffrn_reflns_av_R_equivalents         0.018
+_diffrn_reflns_av_unetI/netI            0.026
+_diffrn_reflns_number                   6919
+_diffrn_reflns_limit_h_min              -30
+_diffrn_reflns_limit_h_max              30
+_diffrn_reflns_limit_k_min              -11
+_diffrn_reflns_limit_k_max              10
+_diffrn_reflns_limit_l_min              -9
+_diffrn_reflns_limit_l_max              10
+_diffrn_reflns_theta_min                1.959
+_diffrn_reflns_theta_max                31.738
+_diffrn_reflns_theta_full               25.242
+_diffrn_measured_fraction_theta_full
+                                        0.999
+_diffrn_measured_fraction_theta_max
+                                        0.953
+_diffrn_reflns_Laue_measured_fraction_full
+                                        0.999
+_diffrn_reflns_Laue_measured_fraction_max
+                                        0.953
+_diffrn_reflns_point_group_measured_fraction_full
+                                        0.999
+_diffrn_reflns_point_group_measured_fraction_max
+                                        0.953
+_reflns_number_total                    1747
+_reflns_number_gt                       1307
+_reflns_threshold_expression            'I > 2\s(I)'
+ 
+#----------------------------------------------------------------------------#
+#                   COMPUTER PROGRAMS USED                                   #
+#----------------------------------------------------------------------------#
+ 
+_computing_data_collection
+;
+        CrysAlisPro, Agilent Technologies,
+        Version 1.171.36.32 (release 02-08-2013 CrysAlis171 .NET)
+        (compiled Aug  2 2013,16:46:58)
+;
+_computing_cell_refinement
+;
+        CrysAlisPro, Agilent Technologies,
+        Version 1.171.36.32 (release 02-08-2013 CrysAlis171 .NET)
+        (compiled Aug  2 2013,16:46:58)
+;
+_computing_data_reduction
+;
+        CrysAlisPro, Agilent Technologies,
+        Version 1.171.36.32 (release 02-08-2013 CrysAlis171 .NET)
+        (compiled Aug  2 2013,16:46:58)
+;
+_computing_structure_refinement         'SHELXL-2012 (Sheldrick, 2012)'
+ 
+#----------------------------------------------------------------------------#
+#                   STRUCTURE SOLUTION
+#----------------------------------------------------------------------------#
+ 
+_atom_sites_solution_hydrogens          mixed
+ 
+#----------------------------------------------------------------------------#
+#                   REFINEMENT INFORMATION                                   #
+#----------------------------------------------------------------------------#
+ 
+_refine_special_details
+?
+_refine_ls_structure_factor_coef        Fsqd
+_refine_ls_matrix_type                  full
+_refine_ls_weighting_scheme             calc
+_refine_ls_weighting_details
+;
+ w=1/[\s^2^(Fo^2^)+(0.0302P)^2^+0.2890P]
+ where P=(Fo^2^+2Fc^2^)/3
+;
+_refine_ls_hydrogen_treatment           mixed
+_refine_ls_extinction_method            SHELXL
+_refine_ls_extinction_expression
+                                    Fc^*^=kFc[1+0.001xFc^2^\l^3^/sin(2\q)]^-1/4^
+_refine_ls_extinction_coef              0.0119(5)
+_refine_ls_number_reflns                1747
+_refine_ls_number_parameters            90
+_refine_ls_number_restraints            0
+_refine_ls_R_factor_all                 0.0268
+_refine_ls_R_factor_gt                  0.0194
+_refine_ls_wR_factor_ref                0.0642
+_refine_ls_wR_factor_gt                 0.0568
+_refine_ls_goodness_of_fit_ref          1.079
+_refine_ls_restrained_S_all             1.079
+_refine_ls_shift/su_max                 0.001
+_refine_ls_shift/su_mean                0
+_refine_diff_density_max                0.366
+_refine_diff_density_min                -0.441
+_refine_diff_density_rms                0.076
+ 
+#----------------------------------------------------------------------------#
+#                   ATOMIC TYPES, COORDINATES AND THERMAL PARAMETERS         #
+#----------------------------------------------------------------------------#
+ 
+loop_
+    _atom_type_symbol
+    _atom_type_description
+    _atom_type_scat_dispersion_real
+    _atom_type_scat_dispersion_imag
+    _atom_type_scat_source
+C C 0.0033 0.0016 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+H H 0 0 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+N N 0.0061 0.0033 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+O O 0.0106 0.006 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+F F 0.0171 0.0103 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+Cu Cu 0.3201 1.2651 'International Tables Vol C Tables 4.2.6.8 and 6.1.1.4'
+ 
+loop_
+    _atom_site_label
+    _atom_site_type_symbol
+    _atom_site_fract_x
+    _atom_site_fract_y
+    _atom_site_fract_z
+    _atom_site_U_iso_or_equiv
+    _atom_site_adp_type
+    _atom_site_occupancy
+    _atom_site_calc_flag
+    _atom_site_disorder_assembly
+    _atom_site_disorder_group
+Cu1 Cu 0.07873(2) 0.24919(2) 0.86413(3) 0.01701(9) Uani 1 d . .
+O1 O 0.03755(6) 0.24672(14) 0.5842(2) 0.0196(2) Uani 1 d . .
+F1 F 0.07970(4) -0.00145(13) 0.87043(12) 0.0289(2) Uani 1 d . .
+F2 F 0.07490(4) 0.50031(13) 0.86657(11) 0.0250(2) Uani 1 d . .
+N1 N 0.18617(7) 0.25478(14) 0.7834(3) 0.0297(3) Uani 1 d . .
+O2 O 0.11229(7) 0.25109(15) 1.1462(2) 0.0239(3) Uani 1 d . .
+C1 C 0.20677(7) 0.3506(2) 0.6439(2) 0.0380(4) Uani 1 d . .
+H1 H 0.1777 0.4231 0.5658 0.046 Uiso 1 calc . .
+C2 C 0.23009(7) 0.1538(2) 0.8891(3) 0.0415(4) Uani 1 d . .
+H2 H 0.2179 0.0838 0.9885 0.05 Uiso 1 calc . .
+H2A H 0.1016(11) 0.322(3) 1.186(3) 0.036(7) Uiso 1 d . .
+H2B H 0.1040(11) 0.175(3) 1.188(4) 0.044(7) Uiso 1 d . .
+H1A H 0.0477(11) 0.178(3) 0.544(4) 0.034(7) Uiso 1 d . .
+H1B H 0.0452(11) 0.320(3) 0.540(4) 0.039(7) Uiso 1 d . .
+ 
+loop_
+    _atom_site_aniso_label
+    _atom_site_aniso_U_11
+    _atom_site_aniso_U_22
+    _atom_site_aniso_U_33
+    _atom_site_aniso_U_23
+    _atom_site_aniso_U_13
+    _atom_site_aniso_U_12
+Cu1 0.02331(13) 0.01168(12) 0.01669(12) -0.00014(5) 0.00507(8) -0.00018(5)
+O1 0.0258(6) 0.0154(6) 0.0188(6) 0.0001(4) 0.0074(4) 0.0007(3)
+F1 0.0504(6) 0.0132(4) 0.0253(5) 0.0000(3) 0.0134(4) 0.0009(3)
+F2 0.0385(5) 0.0128(4) 0.0244(5) -0.0008(3) 0.0073(4) -0.0010(3)
+N1 0.0209(6) 0.0368(9) 0.0327(8) 0.0061(5) 0.0080(6) 0.0050(4)
+O2 0.0359(7) 0.0178(6) 0.0191(6) 0.0005(4) 0.0072(5) -0.0002(4)
+C1 0.0266(7) 0.0492(10) 0.0393(9) 0.0147(8) 0.0079(6) 0.0117(7)
+C2 0.0302(8) 0.0530(11) 0.0438(10) 0.0231(8) 0.0144(7) 0.0102(7)
+ 
+ 
+#----------------------------------------------------------------------------#
+#                   MOLECULAR GEOMETRY                                       #
+#----------------------------------------------------------------------------#
+ 
+_geom_special_details
+;
+ All esds (except the esd in the dihedral angle between two l.s. planes)
+ are estimated using the full covariance matrix.  The cell esds are taken
+ into account individually in the estimation of esds in distances, angles
+ and torsion angles; correlations between esds in cell parameters are only
+ used when they are defined by crystal symmetry.  An approximate (isotropic)
+ treatment of cell esds is used for estimating esds involving l.s. planes.
+;
+loop_
+    _geom_bond_atom_site_label_1
+    _geom_bond_atom_site_label_2
+    _geom_bond_distance
+    _geom_bond_site_symmetry_2
+    _geom_bond_publ_flag
+Cu1 F1 1.8936(10) . ?
+Cu1 F2 1.8987(10) . ?
+Cu1 O2 1.9653(14) . ?
+Cu1 O1 1.9922(13) . ?
+Cu1 N1 2.4041(15) . ?
+N1 C1 1.325(2) . ?
+N1 C2 1.329(2) . ?
+C1 C2 1.379(2) 7_556 ?
+C2 C1 1.379(2) 7_556 ?
+ 
+loop_
+    _geom_angle_atom_site_label_1
+    _geom_angle_atom_site_label_2
+    _geom_angle_atom_site_label_3
+    _geom_angle
+    _geom_angle_site_symmetry_1
+    _geom_angle_site_symmetry_3
+    _geom_angle_publ_flag
+F1 Cu1 F2 177.25(4) . . ?
+F1 Cu1 O2 89.06(4) . . ?
+F2 Cu1 O2 89.63(4) . . ?
+F1 Cu1 O1 90.83(4) . . ?
+F2 Cu1 O1 90.28(4) . . ?
+O2 Cu1 O1 175.34(5) . . ?
+F1 Cu1 N1 90.89(4) . . ?
+F2 Cu1 N1 91.54(4) . . ?
+O2 Cu1 N1 90.86(6) . . ?
+O1 Cu1 N1 93.80(6) . . ?
+C1 N1 C2 115.80(14) . . ?
+C1 N1 Cu1 126.53(11) . . ?
+C2 N1 Cu1 117.67(11) . . ?
+N1 C1 C2 122.07(15) . 7_556 ?
+N1 C2 C1 122.13(15) . 7_556 ?
+ 
+loop_
+    _geom_hbond_atom_site_label_D
+    _geom_hbond_atom_site_label_H
+    _geom_hbond_atom_site_label_A
+    _geom_hbond_distance_DH
+    _geom_hbond_distance_HA
+    _geom_hbond_distance_DA
+    _geom_hbond_angle_DHA
+    _geom_hbond_site_symmetry_A
+C1 H1 F2 0.93 2.45 3.3224(17) 155.7 6_565
+O2 H2A F2 0.66(2) 1.96(2) 2.6064(15) 165(3) 6_566
+O2 H2B F1 0.68(2) 1.93(2) 2.5915(15) 163(3) 6_556
+O1 H1A F1 0.64(2) 1.98(2) 2.6009(15) 167(3) 6
+O1 H1B F2 0.66(2) 1.97(2) 2.6184(15) 167(3) 6_565
+ 
+# The following lines are used to test the character set of files sent by
+# network email or other means. They are not part of the CIF data set
+# abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+# !@#$%^&*()_+{}:"~<>?|\-=[];'`,./
+ 
+# END of CIF
+

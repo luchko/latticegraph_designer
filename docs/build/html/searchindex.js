@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["index"],envversion:50,filenames:["index.rst"],objects:{},objnames:{},objtypes:{},terms:{automodul:[],index:0,lattice_graph_wizard:[],member:[],modul:0,page:0,search:0},titles:["Welcome to 3D Heisenberg model wizard&#8217;s documentation!"],titleterms:{document:0,heisenberg:0,indic:0,model:0,tabl:0,welcom:0,wizard:0}})

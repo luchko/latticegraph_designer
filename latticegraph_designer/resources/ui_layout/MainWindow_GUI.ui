@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>716</width>
+    <height>555</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Lattice graph designer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>latticegraph_designer/resources/images/icon.png</normaloff>latticegraph_designer/resources/images/icon.png</iconset>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_fileNameXML">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Library file: </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_LG_name">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Lattice graph name:  None</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="mplWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>450</width>
+          <height>450</height>
+         </size>
+        </property>
+        <layout class="QGridLayout" name="mplLayout">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="spacing">
+          <number>0</number>
+         </property>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>240</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btnEditXML">
+         <property name="statusTip">
+          <string>Open lattice graph XML code editor.</string>
+         </property>
+         <property name="text">
+          <string>Edit  XML code...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_2" native="true">
+         <property name="statusTip">
+          <string/>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>10</height>
+             </size>
+            </property>
+            <property name="statusTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Crystal cluster size:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="text">
+               <string>L:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinBox_sizeL">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="statusTip">
+               <string>Change crystal cluster size displayed on mpl paine.</string>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>9</number>
+              </property>
+              <property name="value">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="text">
+               <string>W:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinBox_sizeW">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="statusTip">
+               <string>Change crystal cluster size displayed on mpl paine.</string>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>9</number>
+              </property>
+              <property name="value">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="text">
+               <string>H:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinBox_sizeH">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="statusTip">
+               <string>Change crystal cluster size displayed on mpl paine.</string>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>9</number>
+              </property>
+              <property name="value">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_4" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="btnDel">
+              <property name="statusTip">
+               <string>Delete selected active edge.</string>
+              </property>
+              <property name="text">
+               <string>Delete Edge</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnClear">
+              <property name="statusTip">
+               <string>Delete all edges.</string>
+              </property>
+              <property name="text">
+               <string>Clear edges</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QPushButton" name="btnChangeType">
+              <property name="statusTip">
+               <string>Change active edges type.</string>
+              </property>
+              <property name="text">
+               <string>Change Edge type</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinBox_type">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="statusTip">
+               <string>Change active edges type.</string>
+              </property>
+              <property name="minimum">
+               <number>0</number>
+              </property>
+              <property name="maximum">
+               <number>20</number>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnLength">
+            <property name="statusTip">
+             <string>Manipulate and add new edges according to the distance between two vertices.</string>
+            </property>
+            <property name="text">
+             <string>Manipulate edges by length...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_3" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>id,  type,  (s-t),  offset  -  dist</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="listEdges">
+            <property name="statusTip">
+             <string>Edges list.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_output">
+         <property name="statusTip">
+          <string>Switch on/off displaying manipulation actions into terminal window.</string>
+         </property>
+         <property name="text">
+          <string>Output actions to terminal</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>716</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="action_ImportCryst"/>
+    <addaction name="separator"/>
+    <addaction name="action_ImportXML"/>
+    <addaction name="action_SaveXML"/>
+    <addaction name="action_SaveXML_as"/>
+    <addaction name="separator"/>
+    <addaction name="action_ExportIMG"/>
+    <addaction name="action_ExportAnim"/>
+    <addaction name="separator"/>
+    <addaction name="action_Quit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="action_Doc"/>
+    <addaction name="separator"/>
+    <addaction name="action_About"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="action_EditXML"/>
+    <addaction name="separator"/>
+    <addaction name="action_AddSimEdges"/>
+    <addaction name="action_AddDistEdges"/>
+    <addaction name="separator"/>
+    <addaction name="action_ChangeType"/>
+    <addaction name="action_DelEdge"/>
+    <addaction name="action_ClearEdges"/>
+    <addaction name="separator"/>
+    <addaction name="action_Pref"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_ImportXML">
+   <property name="text">
+    <string>Open Lattice Graph...</string>
+   </property>
+   <property name="statusTip">
+    <string>Import LATTICEGRAPH from the ALPS  library  *.xml file.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_SaveXML_as">
+   <property name="text">
+    <string>Save Lattice Graph As...</string>
+   </property>
+   <property name="statusTip">
+    <string>Export LATTICEGRAPH to new ALPS  library  *.xml file.</string>
+   </property>
+  </action>
+  <action name="action_ExportIMG">
+   <property name="text">
+    <string>Export image</string>
+   </property>
+   <property name="statusTip">
+    <string>Save image of the Heisenberg model.</string>
+   </property>
+  </action>
+  <action name="action_ExportAnim">
+   <property name="text">
+    <string>Export GIF animation...</string>
+   </property>
+   <property name="statusTip">
+    <string>Save rotating animation of the Heisenberg model.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="action_ImportCryst">
+   <property name="text">
+    <string>Import Crystal Structure...</string>
+   </property>
+   <property name="statusTip">
+    <string>Define the crystal unit cell and lattice or import data from the *.cif file.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="action_Quit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="statusTip">
+    <string>Close application.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_Dependencies">
+   <property name="text">
+    <string>Dependencies</string>
+   </property>
+  </action>
+  <action name="action_AboutALPS">
+   <property name="text">
+    <string>About ALPS</string>
+   </property>
+   <property name="statusTip">
+    <string>Display ALPS project info.</string>
+   </property>
+  </action>
+  <action name="actionSelect_similar_edge">
+   <property name="text">
+    <string>Select similar edges</string>
+   </property>
+  </action>
+  <action name="action_SelectSimEdges">
+   <property name="text">
+    <string>Select similar edges</string>
+   </property>
+   <property name="statusTip">
+    <string>Select all edges that have the same distance between two vertices as selected one</string>
+   </property>
+  </action>
+  <action name="action_AddDistEdges">
+   <property name="text">
+    <string>Manipulate edges by length...</string>
+   </property>
+   <property name="statusTip">
+    <string>Manipulate and add new edges according to the distance between two vertices.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="action_AddSimEdges">
+   <property name="text">
+    <string>Search for similar edges</string>
+   </property>
+   <property name="statusTip">
+    <string>Search and add new edges that have the same distance between two vertices  as selected one.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="action_ChangeType">
+   <property name="text">
+    <string>Change Edges type...</string>
+   </property>
+   <property name="statusTip">
+    <string>Change active edges type.</string>
+   </property>
+  </action>
+  <action name="action_DelEdge">
+   <property name="text">
+    <string>Delete Edge</string>
+   </property>
+   <property name="statusTip">
+    <string>Delete selected active edge.</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="action_EditXML">
+   <property name="text">
+    <string>Edit XML code...</string>
+   </property>
+   <property name="statusTip">
+    <string>Open lattice graph XML code editor.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="action_Pref">
+   <property name="text">
+    <string>Preferences...</string>
+   </property>
+   <property name="statusTip">
+    <string>Open preferences manager.</string>
+   </property>
+  </action>
+  <action name="action_SaveXML">
+   <property name="text">
+    <string>Save Lattice Graph</string>
+   </property>
+   <property name="statusTip">
+    <string>Export LATTICEGRAPH to the ALPS  library  *.xml file.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_ClearEdges">
+   <property name="text">
+    <string>Clear edges</string>
+   </property>
+   <property name="statusTip">
+    <string>Delete all edges.</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Del</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>About...</string>
+   </property>
+   <property name="statusTip">
+    <string>Display application info.</string>
+   </property>
+  </action>
+  <action name="action_Doc">
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+   <property name="statusTip">
+    <string>Open app documentation.</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

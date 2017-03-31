@@ -1,0 +1,367 @@
+data_I
+_chemical_formula_sum                    'C6 H19 Cu3 F2 N9 O7'
+_symmetry_cell_setting                   cubic
+_symmetry_space_group_name_H-M           'F d -3 c'
+_symmetry_space_group_name_Hall          '-F 4ud;2vw;3'
+_symmetry_Int_Tables_number              228
+
+loop_
+ _space_group_symop_id
+ _space_group_symop_operation_xyz
+ 1   x,y,z
+ 2   -x,-y+1/2,z+1/2
+ 3   -x+1/2,y+1/2,-z
+ 4   x+1/2,-y,-z+1/2
+ 5   z,x,y
+ 6   z+1/2,-x,-y+1/2
+ 7   -z,-x+1/2,y+1/2
+ 8   -z+1/2,x+1/2,-y
+ 9   y,z,x
+ 10  -y+1/2,z+1/2,-x
+ 11  y+1/2,-z,-x+1/2
+ 12  -y,-z+1/2,x+1/2
+ 13  y+3/4,x+1/4,-z+3/4
+ 14  -y+1/4,-x+1/4,-z+1/4
+ 15  y+1/4,-x+3/4,z+3/4
+ 16  -y+3/4,x+3/4,z+1/4
+ 17  x+3/4,z+1/4,-y+3/4
+ 18  -x+3/4,z+3/4,y+1/4
+ 19  -x+1/4,-z+1/4,-y+1/4
+ 20  x+1/4,-z+3/4,y+3/4
+ 21  z+3/4,y+1/4,-x+3/4
+ 22  z+1/4,-y+3/4,x+3/4
+ 23  -z+3/4,y+3/4,x+1/4
+ 24  -z+1/4,-y+1/4,-x+1/4
+ 25  -x+3/4,-y+3/4,-z+3/4
+ 26  x+3/4,y+1/4,-z+1/4
+ 27  x+1/4,-y+1/4,z+3/4
+ 28  -x+1/4,y+3/4,z+1/4
+ 29  -z+3/4,-x+3/4,-y+3/4
+ 30  -z+1/4,x+3/4,y+1/4
+ 31  z+3/4,x+1/4,-y+1/4
+ 32  z+1/4,-x+1/4,y+3/4
+ 33  -y+3/4,-z+3/4,-x+3/4
+ 34  y+1/4,-z+1/4,x+3/4
+ 35  -y+1/4,z+3/4,x+1/4
+ 36  y+3/4,z+1/4,-x+1/4
+ 37  -y,-x+1/2,z
+ 38  y+1/2,x+1/2,z+1/2
+ 39  -y+1/2,x,-z
+ 40  y,-x,-z+1/2
+ 41  -x,-z+1/2,y
+ 42  x,-z,-y+1/2
+ 43  x+1/2,z+1/2,y+1/2
+ 44  -x+1/2,z,-y
+ 45  -z,-y+1/2,x
+ 46  -z+1/2,y,-x
+ 47  z,-y,-x+1/2
+ 48  z+1/2,y+1/2,x+1/2
+ 49  x,y+1/2,z+1/2
+ 50  -x,-y,z
+ 51  -x+1/2,y,-z+1/2
+ 52  x+1/2,-y+1/2,-z
+ 53  z,x+1/2,y+1/2
+ 54  z+1/2,-x+1/2,-y
+ 55  -z,-x,y
+ 56  -z+1/2,x,-y+1/2
+ 57  y,z+1/2,x+1/2
+ 58  -y+1/2,z,-x+1/2
+ 59  y+1/2,-z+1/2,-x
+ 60  -y,-z,x
+ 61  y+3/4,x+3/4,-z+1/4
+ 62  -y+1/4,-x+3/4,-z+3/4
+ 63  y+1/4,-x+1/4,z+1/4
+ 64  -y+3/4,x+1/4,z+3/4
+ 65  x+3/4,z+3/4,-y+1/4
+ 66  -x+3/4,z+1/4,y+3/4
+ 67  -x+1/4,-z+3/4,-y+3/4
+ 68  x+1/4,-z+1/4,y+1/4
+ 69  z+3/4,y+3/4,-x+1/4
+ 70  z+1/4,-y+1/4,x+1/4
+ 71  -z+3/4,y+1/4,x+3/4
+ 72  -z+1/4,-y+3/4,-x+3/4
+ 73  -x+3/4,-y+1/4,-z+1/4
+ 74  x+3/4,y+3/4,-z+3/4
+ 75  x+1/4,-y+3/4,z+1/4
+ 76  -x+1/4,y+1/4,z+3/4
+ 77  -z+3/4,-x+1/4,-y+1/4
+ 78  -z+1/4,x+1/4,y+3/4
+ 79  z+3/4,x+3/4,-y+3/4
+ 80  z+1/4,-x+3/4,y+1/4
+ 81  -y+3/4,-z+1/4,-x+1/4
+ 82  y+1/4,-z+3/4,x+1/4
+ 83  -y+1/4,z+1/4,x+3/4
+ 84  y+3/4,z+3/4,-x+3/4
+ 85  -y,-x,z+1/2
+ 86  y+1/2,x,z
+ 87  -y+1/2,x+1/2,-z+1/2
+ 88  y,-x+1/2,-z
+ 89  -x,-z,y+1/2
+ 90  x,-z+1/2,-y
+ 91  x+1/2,z,y
+ 92  -x+1/2,z+1/2,-y+1/2
+ 93  -z,-y,x+1/2
+ 94  -z+1/2,y+1/2,-x+1/2
+ 95  z,-y+1/2,-x
+ 96  z+1/2,y,x
+ 97  x+1/2,y,z+1/2
+ 98  -x+1/2,-y+1/2,z
+ 99  -x,y+1/2,-z+1/2
+ 100 x,-y,-z
+ 101 z+1/2,x,y+1/2
+ 102 z,-x,-y
+ 103 -z+1/2,-x+1/2,y
+ 104 -z,x+1/2,-y+1/2
+ 105 y+1/2,z,x+1/2
+ 106 -y,z+1/2,-x+1/2
+ 107 y,-z,-x
+ 108 -y+1/2,-z+1/2,x
+ 109 y+1/4,x+1/4,-z+1/4
+ 110 -y+3/4,-x+1/4,-z+3/4
+ 111 y+3/4,-x+3/4,z+1/4
+ 112 -y+1/4,x+3/4,z+3/4
+ 113 x+1/4,z+1/4,-y+1/4
+ 114 -x+1/4,z+3/4,y+3/4
+ 115 -x+3/4,-z+1/4,-y+3/4
+ 116 x+3/4,-z+3/4,y+1/4
+ 117 z+1/4,y+1/4,-x+1/4
+ 118 z+3/4,-y+3/4,x+1/4
+ 119 -z+1/4,y+3/4,x+3/4
+ 120 -z+3/4,-y+1/4,-x+3/4
+ 121 -x+1/4,-y+3/4,-z+1/4
+ 122 x+1/4,y+1/4,-z+3/4
+ 123 x+3/4,-y+1/4,z+1/4
+ 124 -x+3/4,y+3/4,z+3/4
+ 125 -z+1/4,-x+3/4,-y+1/4
+ 126 -z+3/4,x+3/4,y+3/4
+ 127 z+1/4,x+1/4,-y+3/4
+ 128 z+3/4,-x+1/4,y+1/4
+ 129 -y+1/4,-z+3/4,-x+1/4
+ 130 y+3/4,-z+1/4,x+1/4
+ 131 -y+3/4,z+3/4,x+3/4
+ 132 y+1/4,z+1/4,-x+3/4
+ 133 -y+1/2,-x+1/2,z+1/2
+ 134 y,x+1/2,z
+ 135 -y,x,-z+1/2
+ 136 y+1/2,-x,-z
+ 137 -x+1/2,-z+1/2,y+1/2
+ 138 x+1/2,-z,-y
+ 139 x,z+1/2,y
+ 140 -x,z,-y+1/2
+ 141 -z+1/2,-y+1/2,x+1/2
+ 142 -z,y,-x+1/2
+ 143 z+1/2,-y,-x
+ 144 z,y+1/2,x
+ 145 x+1/2,y+1/2,z
+ 146 -x+1/2,-y,z+1/2
+ 147 -x,y,-z
+ 148 x,-y+1/2,-z+1/2
+ 149 z+1/2,x+1/2,y
+ 150 z,-x+1/2,-y+1/2
+ 151 -z+1/2,-x,y+1/2
+ 152 -z,x,-y
+ 153 y+1/2,z+1/2,x
+ 154 -y,z,-x
+ 155 y,-z+1/2,-x+1/2
+ 156 -y+1/2,-z,x+1/2
+ 157 y+1/4,x+3/4,-z+3/4
+ 158 -y+3/4,-x+3/4,-z+1/4
+ 159 y+3/4,-x+1/4,z+3/4
+ 160 -y+1/4,x+1/4,z+1/4
+ 161 x+1/4,z+3/4,-y+3/4
+ 162 -x+1/4,z+1/4,y+1/4
+ 163 -x+3/4,-z+3/4,-y+1/4
+ 164 x+3/4,-z+1/4,y+3/4
+ 165 z+1/4,y+3/4,-x+3/4
+ 166 z+3/4,-y+1/4,x+3/4
+ 167 -z+1/4,y+1/4,x+1/4
+ 168 -z+3/4,-y+3/4,-x+1/4
+ 169 -x+1/4,-y+1/4,-z+3/4
+ 170 x+1/4,y+3/4,-z+1/4
+ 171 x+3/4,-y+3/4,z+3/4
+ 172 -x+3/4,y+1/4,z+1/4
+ 173 -z+1/4,-x+1/4,-y+3/4
+ 174 -z+3/4,x+1/4,y+1/4
+ 175 z+1/4,x+3/4,-y+1/4
+ 176 z+3/4,-x+3/4,y+3/4
+ 177 -y+1/4,-z+1/4,-x+3/4
+ 178 y+3/4,-z+3/4,x+3/4
+ 179 -y+3/4,z+1/4,x+1/4
+ 180 y+1/4,z+3/4,-x+1/4
+ 181 -y+1/2,-x,z
+ 182 y,x,z+1/2
+ 183 -y,x+1/2,-z
+ 184 y+1/2,-x+1/2,-z+1/2
+ 185 -x+1/2,-z,y
+ 186 x+1/2,-z+1/2,-y+1/2
+ 187 x,z,y+1/2
+ 188 -x,z+1/2,-y
+ 189 -z+1/2,-y,x
+ 190 -z,y+1/2,-x
+ 191 z+1/2,-y+1/2,-x+1/2
+ 192 z,y,x+1/2
+
+_cell_length_a                           24.7568(7)
+_cell_length_b                           24.7568(7)
+_cell_length_c                           24.7568(7)
+_cell_angle_alpha                        90
+_cell_angle_beta                         90
+_cell_angle_gamma                        90
+_cell_volume                             15173.5(7)
+
+
+_cell_formula_units_Z                    32
+
+loop_
+ _atom_type_symbol
+ _atom_type_scat_dispersion_real
+ _atom_type_scat_dispersion_imag
+ _atom_type_scat_source
+ C    0.0191  0.0096
+ 'International Tables Vol C tables 4.2.6.8 and 6.1.1.1'
+ H    0.0000  0.0000
+ 'International Tables Vol C tables 4.2.6.8 and 6.1.1.1'
+ Cu  -1.9960  0.6029
+ 'International Tables Vol C tables 4.2.6.8 and 6.1.1.1'
+ F    0.0754  0.0552
+ 'International Tables Vol C tables 4.2.6.8 and 6.1.1.1'
+ N    0.0329  0.0188
+ 'International Tables Vol C tables 4.2.6.8 and 6.1.1.1'
+ O    0.0516  0.0335
+ 'International Tables Vol C tables 4.2.6.8 and 6.1.1.1'
+
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_adp_type
+ _atom_site_U_iso_or_equiv
+ _atom_site_site_symmetry_multiplicity
+ _atom_site_occupancy
+ _atom_site_calc_flag
+ _atom_site_refinement_flags
+ _atom_site_disorder_assembly
+ _atom_site_disorder_group
+  Cu1 Cu 0.6815 0.375 -0.0685 Uani 0.0282 96 1 d . . .
+  F1 F 0.7473 0.3053 -0.1312 Uani 0.124 192 0.333 d . . .
+  O1 O 0.625 0.375 -0.125 Uani 0.134 32 1 d . . .
+  O2 O 0.7333 0.313 -0.1259 Uani 0.0587 192 0.667 d . . .
+  O3 O 0.8476 0.3476 -0.1524 Uani 0.1325 64 1 d . . .
+  N1 N 0.7386 0.375 -0.0114 Uani 0.0215 96 1 d . . .
+  N2 N 0.7144 0.4384 -0.1043 Uani 0.0261 192 1 d . . .
+  C1 C 0.758 0.4672 -0.0933 Uani 0.0242 192 1 d . . .
+
+loop_
+ _atom_site_aniso_label
+ _atom_site_aniso_type_symbol
+ _atom_site_aniso_U_11
+ _atom_site_aniso_U_22
+ _atom_site_aniso_U_33
+ _atom_site_aniso_U_12
+ _atom_site_aniso_U_13
+ _atom_site_aniso_U_23
+ Cu1 Cu 0.029125 0.026361 0.029125 -0.018754 -0.022791 0.018754
+ F1 F 0.209866 0.09315 0.068962 0.044898 -0.038222 -0.038285
+ O1 O 0.134011 0.134011 0.134011 -0.128205 -0.128205 0.128205
+ O2 O 0.060299 0.071756 0.044122 0.014625 -0.009501 -0.007235
+ O3 O 0.132459 0.132459 0.132459 0.056387 0.056387 0.056387
+ N1 N 0.022076 0.020462 0.022076 -0.002826 -0.012203 0.002826
+ N2 N 0.024902 0.025709 0.027697 -0.014469 -0.015214 0.012699
+ C1 C 0.022604 0.024188 0.025678 -0.012513 -0.00444 0.001087
+
+loop_
+ _jana_atom_site_ADP_C_label
+ _jana_atom_site_ADP_C_type_symbol
+ _jana_atom_site_ADP_C_111
+ _jana_atom_site_ADP_C_112
+ _jana_atom_site_ADP_C_113
+ _jana_atom_site_ADP_C_122
+ _jana_atom_site_ADP_C_123
+ _jana_atom_site_ADP_C_133
+ _jana_atom_site_ADP_C_222
+ _jana_atom_site_ADP_C_223
+ _jana_atom_site_ADP_C_233
+ _jana_atom_site_ADP_C_333
+ ? ? ? ? ? ? ? ? ? ? ? ?
+
+loop_
+ _jana_atom_site_ADP_D_label
+ _jana_atom_site_ADP_D_type_symbol
+ _jana_atom_site_ADP_D_1111
+ _jana_atom_site_ADP_D_1112
+ _jana_atom_site_ADP_D_1113
+ _jana_atom_site_ADP_D_1122
+ _jana_atom_site_ADP_D_1123
+ _jana_atom_site_ADP_D_1133
+ _jana_atom_site_ADP_D_1222
+ _jana_atom_site_ADP_D_1223
+ _jana_atom_site_ADP_D_1233
+ _jana_atom_site_ADP_D_1333
+ _jana_atom_site_ADP_D_2222
+ _jana_atom_site_ADP_D_2223
+ _jana_atom_site_ADP_D_2233
+ _jana_atom_site_ADP_D_2333
+ _jana_atom_site_ADP_D_3333
+ ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
+
+loop_
+ _jana_atom_site_ADP_E_label
+ _jana_atom_site_ADP_E_type_symbol
+ _jana_atom_site_ADP_E_11111
+ _jana_atom_site_ADP_E_11112
+ _jana_atom_site_ADP_E_11113
+ _jana_atom_site_ADP_E_11122
+ _jana_atom_site_ADP_E_11123
+ _jana_atom_site_ADP_E_11133
+ _jana_atom_site_ADP_E_11222
+ _jana_atom_site_ADP_E_11223
+ _jana_atom_site_ADP_E_11233
+ _jana_atom_site_ADP_E_11333
+ _jana_atom_site_ADP_E_12222
+ _jana_atom_site_ADP_E_12223
+ _jana_atom_site_ADP_E_12233
+ _jana_atom_site_ADP_E_12333
+ _jana_atom_site_ADP_E_13333
+ _jana_atom_site_ADP_E_22222
+ _jana_atom_site_ADP_E_22223
+ _jana_atom_site_ADP_E_22233
+ _jana_atom_site_ADP_E_22333
+ _jana_atom_site_ADP_E_23333
+ _jana_atom_site_ADP_E_33333
+ ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
+
+loop_
+ _jana_atom_site_ADP_F_label
+ _jana_atom_site_ADP_F_type_symbol
+ _jana_atom_site_ADP_F_111111
+ _jana_atom_site_ADP_F_111112
+ _jana_atom_site_ADP_F_111113
+ _jana_atom_site_ADP_F_111122
+ _jana_atom_site_ADP_F_111123
+ _jana_atom_site_ADP_F_111133
+ _jana_atom_site_ADP_F_111222
+ _jana_atom_site_ADP_F_111223
+ _jana_atom_site_ADP_F_111233
+ _jana_atom_site_ADP_F_111333
+ _jana_atom_site_ADP_F_112222
+ _jana_atom_site_ADP_F_112223
+ _jana_atom_site_ADP_F_112233
+ _jana_atom_site_ADP_F_112333
+ _jana_atom_site_ADP_F_113333
+ _jana_atom_site_ADP_F_122222
+ _jana_atom_site_ADP_F_122223
+ _jana_atom_site_ADP_F_122233
+ _jana_atom_site_ADP_F_122333
+ _jana_atom_site_ADP_F_123333
+ _jana_atom_site_ADP_F_133333
+ _jana_atom_site_ADP_F_222222
+ _jana_atom_site_ADP_F_222223
+ _jana_atom_site_ADP_F_222233
+ _jana_atom_site_ADP_F_222333
+ _jana_atom_site_ADP_F_223333
+ _jana_atom_site_ADP_F_233333
+ _jana_atom_site_ADP_F_333333
+ ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
+

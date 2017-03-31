@@ -1,0 +1,190 @@
+<SETTINGS>
+
+<THEME name="Default theme">
+  <VISIBLEARROWS value="True" />
+  <VISIBLELATTICE value="True" />
+  <COLORBACKGROUND value="#000000" />
+  <COLORLATTICE value="#b5ff93" />
+  <COLORACTIVATE value="#00ff00" />
+  <EDGES>
+    <SIZE size="23" />
+    <PREFERENCE bool="True" color="#00aaff" label="type 0" />
+    <PREFERENCE bool="True" color="#ff0000" label="type 1" />
+    <PREFERENCE bool="True" color="#fafa00" label="type 2" />
+    <PREFERENCE bool="True" color="#ffaaff" label="type 3" />
+    <PREFERENCE bool="True" color="#00007f" label="type 4" />
+    <PREFERENCE bool="True" color="#ffaa7f" label="type 5" />
+    <PREFERENCE bool="True" color="#a3ff82" label="type 6" />
+    <PREFERENCE bool="True" color="#ffffff" label="type 7" />
+    <PREFERENCE bool="True" color="#aa007f" label="type 8" />
+    <PREFERENCE bool="True" color="#55aa7f" label="type 9" />
+  </EDGES>
+  <VERTICES>
+    <SIZE size="26" />
+    <PREFERENCE bool="True" color="#ffaa00" label="type 0" />
+    <PREFERENCE bool="True" color="#ff00ff" label="type 1" />
+    <PREFERENCE bool="True" color="#5500ff" label="type 2" />
+    <PREFERENCE bool="True" color="#fff9ae" label="type 3" />
+    <PREFERENCE bool="True" color="#aa5500" label="type 4" />
+    <PREFERENCE bool="True" color="#ff0000" label="type 5" />
+    <PREFERENCE bool="True" color="#55ffff" label="type 6" />
+    <PREFERENCE bool="True" color="#ffffff" label="type 7" />
+    <PREFERENCE bool="True" color="#ffaaff" label="type 8" />
+    <PREFERENCE bool="True" color="#55ff00" label="type 9" />
+  </VERTICES>
+</THEME>
+
+<THEME name="Current theme">
+  <VISIBLEARROWS value="True" />
+  <VISIBLELATTICE value="True" />
+  <COLORBACKGROUND value="#000000" />
+  <COLORLATTICE value="#b5ff93" />
+  <COLORACTIVATE value="#00ff00" />
+  <EDGES>
+    <SIZE size="23" />
+    <PREFERENCE bool="True" color="#00aaff" label="type 0" />
+    <PREFERENCE bool="True" color="#ff0000" label="type 1" />
+    <PREFERENCE bool="True" color="#fafa00" label="type 2" />
+    <PREFERENCE bool="True" color="#ffaaff" label="type 3" />
+    <PREFERENCE bool="True" color="#00007f" label="type 4" />
+    <PREFERENCE bool="True" color="#ffaa7f" label="type 5" />
+    <PREFERENCE bool="True" color="#a3ff82" label="type 6" />
+    <PREFERENCE bool="True" color="#ffffff" label="type 7" />
+    <PREFERENCE bool="True" color="#aa007f" label="type 8" />
+    <PREFERENCE bool="True" color="#55aa7f" label="type 9" />
+  </EDGES>
+  <VERTICES>
+    <SIZE size="26" />
+    <PREFERENCE bool="True" color="#ffaa00" label="type 0" />
+    <PREFERENCE bool="True" color="#ff00ff" label="type 1" />
+    <PREFERENCE bool="True" color="#5500ff" label="type 2" />
+    <PREFERENCE bool="True" color="#fff9ae" label="type 3" />
+    <PREFERENCE bool="True" color="#aa5500" label="type 4" />
+    <PREFERENCE bool="True" color="#ff0000" label="type 5" />
+    <PREFERENCE bool="True" color="#55ffff" label="type 6" />
+    <PREFERENCE bool="True" color="#ffffff" label="type 7" />
+    <PREFERENCE bool="True" color="#ffaaff" label="type 8" />
+    <PREFERENCE bool="True" color="#55ff00" label="type 9" />
+  </VERTICES>
+</THEME>
+
+<LATTICEGRAPH name="default example - double layer lattice">
+    <FINITELATTICE>
+      <LATTICE dimension="3" name="simple rectangular cubic lattice">
+        <BASIS>
+          <VECTOR>1.0 0.0 0.0</VECTOR>
+          <VECTOR>0.0 1.0 0.0</VECTOR>
+          <VECTOR>0.0 0.0 1.1</VECTOR>
+        </BASIS>
+      </LATTICE>
+      <PARAMETER name="L" />
+      <PARAMETER default="L" name="W" />
+      <PARAMETER default="W" name="H" />
+      <EXTENT dimension="1" size="L" />
+      <EXTENT dimension="2" size="W" />
+      <EXTENT dimension="3" size="H" />
+      <BOUNDARY type="periodic" />
+    </FINITELATTICE>
+    <UNITCELL dimension="3" edges="6" name="double layer" vertices="2">
+      <VERTEX id="1" type="0">
+        <COORDINATE>0.0 0.0 0.0</COORDINATE>
+      </VERTEX>
+      <VERTEX id="2" type="0">
+        <COORDINATE>0.1 0.1 0.35</COORDINATE>
+      </VERTEX>
+      <EDGE id="1" type="0">
+        <SOURCE vertex="1" />
+        <TARGET offset="1 0 0" vertex="1" />
+      </EDGE>
+      <EDGE id="2" type="0">
+        <SOURCE vertex="1" />
+        <TARGET offset="0 1 0" vertex="1" />
+      </EDGE>
+      <EDGE id="3" type="0">
+        <SOURCE vertex="2" />
+        <TARGET offset="1 0 0" vertex="2" />
+      </EDGE>
+      <EDGE id="4" type="0">
+        <SOURCE vertex="2" />
+        <TARGET offset="0 1 0" vertex="2" />
+      </EDGE>
+      <EDGE id="5" type="1">
+        <SOURCE vertex="1" />
+        <TARGET offset="0 0 0" vertex="2" />
+      </EDGE>
+      <EDGE id="6" type="2">
+        <SOURCE vertex="2" />
+        <TARGET offset="0 0 1" vertex="1" />
+      </EDGE>
+    </UNITCELL>
+</LATTICEGRAPH>
+
+<THEME name="Light theme">
+  <VISIBLEARROWS value="True" />
+  <VISIBLELATTICE value="True" />
+  <COLORBACKGROUND value="#ffffff" />
+  <COLORLATTICE value="#000000" />
+  <COLORACTIVATE value="#00ff00" />
+  <EDGES>
+    <SIZE size="23" />
+    <PREFERENCE bool="True" color="#0000ff" label="type 0" />
+    <PREFERENCE bool="True" color="#ff0000" label="type 1" />
+    <PREFERENCE bool="True" color="#d9d900" label="type 2" />
+    <PREFERENCE bool="True" color="#ff00ff" label="type 3" />
+    <PREFERENCE bool="True" color="#37d4ca" label="type 4" />
+    <PREFERENCE bool="True" color="#ffaa7f" label="type 5" />
+    <PREFERENCE bool="True" color="#a3ff82" label="type 6" />
+    <PREFERENCE bool="True" color="#ffffff" label="type 7" />
+    <PREFERENCE bool="True" color="#aa007f" label="type 8" />
+    <PREFERENCE bool="True" color="#55aa7f" label="type 9" />
+  </EDGES>
+  <VERTICES>
+    <SIZE size="26" />
+    <PREFERENCE bool="True" color="#ffaa00" label="type 0" />
+    <PREFERENCE bool="True" color="#ff00ff" label="type 1" />
+    <PREFERENCE bool="True" color="#5500ff" label="type 2" />
+    <PREFERENCE bool="True" color="#fff9ae" label="type 3" />
+    <PREFERENCE bool="True" color="#aa5500" label="type 4" />
+    <PREFERENCE bool="True" color="#ff0000" label="type 5" />
+    <PREFERENCE bool="True" color="#55ffff" label="type 6" />
+    <PREFERENCE bool="True" color="#ffffff" label="type 7" />
+    <PREFERENCE bool="True" color="#ffaaff" label="type 8" />
+    <PREFERENCE bool="True" color="#55ff00" label="type 9" />
+  </VERTICES>
+</THEME>
+
+<THEME name="Dark theme">
+  <VISIBLEARROWS value="True" />
+  <VISIBLELATTICE value="True" />
+  <COLORBACKGROUND value="#000000" />
+  <COLORLATTICE value="#b5ff93" />
+  <COLORACTIVATE value="#00ff00" />
+  <EDGES>
+    <SIZE size="23" />
+    <PREFERENCE bool="True" color="#00aaff" label="type 0" />
+    <PREFERENCE bool="True" color="#ff0000" label="type 1" />
+    <PREFERENCE bool="True" color="#fafa00" label="type 2" />
+    <PREFERENCE bool="True" color="#ffaaff" label="type 3" />
+    <PREFERENCE bool="True" color="#00007f" label="type 4" />
+    <PREFERENCE bool="True" color="#ffaa7f" label="type 5" />
+    <PREFERENCE bool="True" color="#a3ff82" label="type 6" />
+    <PREFERENCE bool="True" color="#ffffff" label="type 7" />
+    <PREFERENCE bool="True" color="#aa007f" label="type 8" />
+    <PREFERENCE bool="True" color="#55aa7f" label="type 9" />
+  </EDGES>
+  <VERTICES>
+    <SIZE size="26" />
+    <PREFERENCE bool="True" color="#ffaa00" label="type 0" />
+    <PREFERENCE bool="True" color="#ff00ff" label="type 1" />
+    <PREFERENCE bool="True" color="#5500ff" label="type 2" />
+    <PREFERENCE bool="True" color="#fff9ae" label="type 3" />
+    <PREFERENCE bool="True" color="#aa5500" label="type 4" />
+    <PREFERENCE bool="True" color="#ff0000" label="type 5" />
+    <PREFERENCE bool="True" color="#55ffff" label="type 6" />
+    <PREFERENCE bool="True" color="#ffffff" label="type 7" />
+    <PREFERENCE bool="True" color="#ffaaff" label="type 8" />
+    <PREFERENCE bool="True" color="#55ff00" label="type 9" />
+  </VERTICES>
+</THEME>
+
+</SETTINGS>
