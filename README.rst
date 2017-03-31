@@ -28,8 +28,8 @@ GUI is based on PyQt. Program is compatible with Python 2.7 or Python 3.3+ and P
 
 -------------------------
 
-Main features:
-==============
+Features:
+=========
 
 - import and visualisation of the lattice graph saved in the ALPS lattice graph xml format.
 - import crystal structure providing unit cell parameters, sites coordinates and space group symmetry operations.
