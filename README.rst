@@ -21,7 +21,7 @@ GUI is based on PyQt. Program is compatible with Python 2.7 or Python 3.3+ and P
 
 -------------------------
 
-.. figure:: ./img_scr/screenshot.png
+.. figure:: ./img_scr/demo.gif
    :align:   center
    :figwidth: 100 %
    :alt: alternate text
