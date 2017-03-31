@@ -48,7 +48,7 @@ Quickstart
 Installation (cross-platform way from source)
 ---------------------------------------------
 
-1. Download a source of the last stable package version.
+1. `Download a source <https://github.com/luchko/latticegraph_designer/archive/master.zip>`_ of the last stable package version.
 2. Open the terminal.
 3. Move to the package root directory.
 4. In your command prompt type:
@@ -76,6 +76,6 @@ You may want to do this for fixing bugs, adding the new features, learning how t
 Contacts:
 =========
 
-About the feature extension or bugs report you can create issue or feature request at [LINK] or feel free to contact me directly by e-mail:
+About the feature extension or bugs report you can `create the issue or feature request <https://github.com/luchko/latticegraph_designer/issues>`_ or feel free to contact me directly by e-mail:
 
 	**Ivan Luchko** - luchko.ivan@gmail.com
