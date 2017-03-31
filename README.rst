@@ -1,9 +1,7 @@
--
-
-Lattice graph designer (alpha version)
+Lattice graph designer 1.0a1
 **************************************
 
-- Git-hub repo: [LINK]
+- Git-hub repo: https://github.com/luchko/latticegraph_designer
 - Documentation: [Links to the project's ReadTheDocs page]
 - Free software: MIT license
 
