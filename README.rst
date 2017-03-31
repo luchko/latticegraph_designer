@@ -15,7 +15,7 @@ Build status
 Overview
 ========
 
-Lattice graph designer is a tool which allows to visualize and create a lattice graph model using the intuitive GUI and interactive 3D drag-and-drop graph manipulation pane. It was primarily created for the `ALPS project <http://alps.comp-phys.org/>`_ to deal with a lattice graph of the Heisenberg model defined in `ALPS xml graph format <http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO>`_. Support of the other formats and projects can be extended.
+Lattice graph designer is a tool which allows to visualize and create a lattice graph model using the intuitive GUI and interactive 3D drag-and-drop graph manipulation pane. It was primarily created for the `ALPS project <http://alps.comp-phys.org/>`_ to deal with a lattice graph of the `Heisenberg model <https://en.wikipedia.org/wiki/Heisenberg_model_(quantum)>`_ defined in `ALPS xml graph format <http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO>`_. Support of the other formats and projects can be extended.
 
 GUI is based on `PyQt <https://riverbankcomputing.com/software/pyqt/intro>`_. Program is compatible with Python 2.7 or Python 3.3+ and PyQt4 4.6+ or PyQt5 5.2+.
 
@@ -33,13 +33,13 @@ Features:
 
 - import and visualisation of the lattice graph saved in the ALPS lattice graph xml format.
 - import the crystal structure providing the unit cell parameters, sites coordinates and the space group symmetry operations.
-- import the crystal structure from the CIF file.
-- export the lattice graph to the ALPS compatible xml file.
+- import the crystal structure from the `CIF file <https://en.wikipedia.org/wiki/Crystallographic_Information_File>`_.
+- export the lattice graph to the `ALPS compatible xml file <http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO>`_.
 - interactive 3D drag-and-drop graph manipulation pane based on `matplotlib <http://matplotlib.org/>`_
 - manipulation edges (add, remove, change type) referring to the distance between vertices they connect.
 - xml code editor (highlighting, synchronization with manipulation pane)
 - exporting the figure of the lattice graph model.
-- animation manager allows to animate a 3D model and save the animation in mp4 or gif format.
+- `animation manager <https://github.com/luchko/mpl_animationmanager>`_ allows to animate a 3D model and save the animation in mp4 or gif format.
 - preferences manager allows setting the visual theme of the lattice graph displayed on the manipulation pane.
 
 Quickstart
@@ -48,7 +48,7 @@ Quickstart
 Installation (cross-platform way from source)
 ---------------------------------------------
 
-1. Download a source of the last stable package version [LINK]
+1. Download a source of the last stable package version.
 2. Open the terminal.
 3. Move to the package root directory.
 4. In your command prompt type:
