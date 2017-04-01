@@ -59,9 +59,12 @@ Installation (cross-platform way from source)
 
     ``graphdesigner [pathToYourLatticeGraphFile.xml]``
 
-   **note:** If *pathToYourLatticeGraphFile.xml* is not provided program will load a default example. You can open a lattice graph file later.
+:note: 
+    If ``pathToYourLatticeGraphFile.xml`` is not provided program will load a default example. 
+    You can open a lattice graph file later.
 
 6. Optionally you can lock your tool's link on the launcher for quick access.
+
 
 Running from source
 -------------------
