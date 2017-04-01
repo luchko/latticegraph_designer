@@ -31,10 +31,10 @@ GUI is based on `PyQt <https://riverbankcomputing.com/software/pyqt/intro>`_. Pr
 Features:
 =========
 
-- import and visualisation of the lattice graph saved in the ALPS lattice graph xml format.
+- import and visualisation of the lattice graph saved in the `ALPS compatible lattice graph xml format  <http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO>`_.
 - import the crystal structure providing the unit cell parameters, sites coordinates and the space group symmetry operations.
 - import the crystal structure from the `CIF file <https://en.wikipedia.org/wiki/Crystallographic_Information_File>`_.
-- export the lattice graph to the `ALPS compatible xml file <http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO>`_.
+- export the lattice graph to the ALPS compatible xml file.
 - interactive 3D drag-and-drop graph manipulation pane based on `matplotlib <http://matplotlib.org/>`_
 - manipulation edges (add, remove, change type) referring to the distance between vertices they connect.
 - xml code editor (highlighting, synchronization with manipulation pane)
