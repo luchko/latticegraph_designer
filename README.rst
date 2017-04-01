@@ -55,7 +55,7 @@ Installation (cross-platform way from source)
 
     ``python setup.py install``
 
-5. Further, in order to launch the program in your prompt type:
+5. Further, in order to launch the program in your command prompt type:
 
     ``graphdesigner [pathToYourLatticeGraphFile.xml]``
 
@@ -63,7 +63,7 @@ Installation (cross-platform way from source)
         If ``pathToYourLatticeGraphFile.xml`` is not provided program will load a default example. 
         You can open a lattice graph file later.
 
-6. Optionally you can lock your tool's link on the launcher for quick access.
+6. Optionally you can lock a tool's link on the launcher for quick access.
 
 
 Running from source
