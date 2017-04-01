@@ -49,13 +49,12 @@ Installation (cross-platform way from source)
 ---------------------------------------------
 
 1. `Download a source <https://github.com/luchko/latticegraph_designer/archive/master.zip>`_ of the last stable package version.
-2. Open the terminal.
-3. Move to the package root directory.
-4. In your command prompt type:
+2. Open the terminal and move to the package root directory.
+3. In your command prompt type:
 
     ``python setup.py install``
 
-5. Further, in order to launch the program in your command prompt type:
+4. Further, in order to launch the program in your command prompt type:
 
     ``graphdesigner [pathToYourLatticeGraphFile.xml]``
 
@@ -63,7 +62,7 @@ Installation (cross-platform way from source)
         If ``pathToYourLatticeGraphFile.xml`` is not provided program will load a default example. 
         You can open a lattice graph file later.
 
-6. Optionally you can lock a tool's link on the launcher for quick access.
+5. Optionally you can lock a tool's link on the launcher for quick access.
 
 
 Running from source
