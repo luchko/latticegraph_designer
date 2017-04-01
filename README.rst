@@ -68,8 +68,9 @@ Running from source
 
 The fastest way to run LatticeGraph designer is to get the source code using git, install Python and PyQt, and run these commands:
 
-1. Install dependencies.
-2. python bootstrap.py
+1. Make sure that all dependencies are installed.
+2. `Download a source <https://github.com/luchko/latticegraph_designer/archive/master.zip>`_ of the last stable package version.
+3. Run ``python bootstrap.py`` from the package root directory.
 
 You may want to do this for fixing bugs, adding the new features, learning how the tool works or just getting a taste of it.
 
