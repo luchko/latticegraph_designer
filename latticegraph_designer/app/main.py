@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Copyright (c) 2017, Ivan Luchko and Project Contributors 
-Licensed under the terms of the MIT License 
+Licensed under the terms of the MIT License
+https://github.com/luchko/latticegraph_designer
 
 This module contains the definition of the app MainWindow.
     
@@ -448,7 +449,7 @@ ALPS xml graph format</a>.
 Support of the other formats and projects can be extended.
 <br><br>
 For bug reports and feature requests, please go to our 
-<a href="https://github.com/">Github website</a>.
+<a href="https://github.com/luchko/latticegraph_designer">Github website</a>.
 '''
         
         self.msg.setText(text)

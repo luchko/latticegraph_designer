@@ -69,7 +69,7 @@ class Edge(object):
                 elif self.offset[j] > 0:
                     break
     
-    def recomput_length(self, UC, lattice):
+    def recompute_length(self, UC, lattice):
         '''compute Euclidian length of edges with given lattice'''
         
         sourceCoord = lattice.convert_to_Cartesian(UC.vertices[self.source].coords)
@@ -204,7 +204,7 @@ class UnitCell(object):
         self.vertices[vertex.id] = vertex	
         self.num_vertices += 1        
 	
-    def add_edge(self, edge):
+    def add_edge(self, edge, RECOMPUTE_LENGTH=True):
         '''add edge to the UC and returns its id or None if edge is duplicate'''
         
         edge.standart_form()
@@ -216,8 +216,10 @@ class UnitCell(object):
             self.edges[edge.id] = edge	
             self.num_edges += 1
             self.new_id += 1
+            
+            if RECOMPUTE_LENGTH:
+                edge.recompute_length(self, self.lattice)
 
-            edge.recomput_length(self, self.lattice)
             if self.lengthDic.get(edge.length) is None:
                 self.lengthDic[edge.length] = [edge.id]
             else:
@@ -314,7 +316,7 @@ class UnitCell(object):
         self.lattice = lattice
         self.lengthDic = {}
         for key, edge in self.edges.items():
-            length = round(edge.recomput_length(self, lattice), 4)
+            length = round(edge.recompute_length(self, lattice), 4)
             if self.lengthDic.get(length) is None:
                 self.lengthDic[length] = [key]
             else:
@@ -445,7 +447,7 @@ class ClusterEdges(object):
         edge = Edge(0,0,(self.vertices.ids[sourse_ind],self.vertices.ids[target_ind]),
                     self.get_site(target_ind)-self.get_site(sourse_ind))
         
-        edge.recomput_length(self.UC, self.lattice)
+        edge.recompute_length(self.UC, self.lattice)
 
         _id = self.UC.add_edge(edge) # also brings edge to the standard form
         
@@ -544,8 +546,8 @@ class ClusterEdges(object):
             offset = self.d_sites[int(ind2/n_vert),:]-self.d_sites[int(ind1/n_vert),:]
             source_target = (ind1 % n_vert + 1,ind2 % n_vert + 1)
             edge = Edge(0, _type, source_target, offset)
-            edge.recomput_length(self.UC, self.lattice)
-            self.UC.add_edge(edge)
+            edge.length = dist
+            self.UC.add_edge(edge, RECOMPUTE_LENGTH=False)
             
         self.process_edges(self.size)
             

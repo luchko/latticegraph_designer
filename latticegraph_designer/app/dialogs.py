@@ -914,7 +914,7 @@ class DialogDistSearch(QDialog, MyDistToolBox):
             init_data.append({"bool": True, 
                               "type":self.parent.UC.edges[ids[0]].type, 
                               "dist":length,
-                              "err":0.1,
+                              "err":1,
                               "found":len(ids)})
         init_data.append({}) # add one empty item
         self.listWidget.set_data(init_data)
@@ -942,13 +942,13 @@ class DialogDistSearch(QDialog, MyDistToolBox):
                 
                 # show message                        
                 dist = dataDic["dist"]
-                num = len(self.parent.UC.lengthDic[dist])
+                edgesList = self.parent.UC.lengthDic.get(dist)
+                num = 0 if edgesList is None else len(edgesList)
                 msg = ' {0} edges were found with dist={1:.3f}'.format(num,dist)    
                 self.parent.statusBar().showMessage(msg, 2000)
                 if self.parent.TEXT_MODE:
                     print(msg)
 
-                
         # make chnages on mpl_pane
         self.parent.gee.create_artists_graph()
         self.parent.gee.set_artists_properties()
