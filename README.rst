@@ -55,7 +55,7 @@ Installation (cross-platform way from source)
 
     ``python setup.py install``
 
-5. Further, in order to launch the program type:
+5. Further, in order to launch the program in your prompt type:
 
     ``graphdesigner [pathToYourLatticeGraphFile.xml]``
 
