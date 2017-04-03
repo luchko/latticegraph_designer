@@ -8,8 +8,7 @@ NOTE: Documentation is curently in development!!!
    :maxdepth: 2
    includeme
    
-.. contents:: 
-    :local:
+.. contents:: :local:
     :depth: 2
    
 .. include:: ../README.rst
