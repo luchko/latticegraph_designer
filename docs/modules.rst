@@ -1,5 +1,5 @@
-latticegraph_designer
-=====================
+API
+===
 
 .. toctree::
    :maxdepth: 4
