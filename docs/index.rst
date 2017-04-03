@@ -8,6 +8,7 @@ NOTE: Documentation is curently in development!!!
 .. toctree::
    :maxdepth: 2
 
+   modules
    includeme
 
 .. contents:: 
