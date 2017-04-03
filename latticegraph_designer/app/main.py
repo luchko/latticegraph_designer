@@ -62,6 +62,7 @@ def getPathString(output):
 # import python libs
 import os
 import sys
+import webbrowser
 import xml.etree.ElementTree as ET
 from matplotlib.figure import Figure
     
@@ -159,7 +160,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # configure menuHelo
         self.action_About.triggered.connect(self.about_callback)
         self.action_Doc.triggered.connect(self.doc_callback)
-        self.action_AboutALPS.triggered.connect(self.aboutALPS_callback)
         
     def setup_mpl_canvas(self):
         '''
@@ -459,14 +459,9 @@ For bug reports and feature requests, please go to our
         
     def doc_callback(self):
         '''open documentation'''
-        QNotImplemented()
-        pass
+        webbrowser.open_new_tab("https://latticegraph-designer.readthedocs.io")
+       
  
-    def aboutALPS_callback(self):
-        '''display ALPS help'''
-        QNotImplemented()
-        pass
-
 
 def run():
     '''run the application'''
