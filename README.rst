@@ -24,8 +24,8 @@ GUI is based on `PyQt <https://riverbankcomputing.com/software/pyqt/intro>`_. Pr
 
 -------------------------
 
-Features:
-=========
+Features
+========
 
 - import and visualisation of the lattice graph saved in the `ALPS compatible lattice graph xml format  <http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO>`_.
 - import the crystal structure providing the unit cell parameters, sites coordinates and the space group symmetry operations.
@@ -72,8 +72,8 @@ The fastest way to run LatticeGraph designer is to get the source code using git
 
 You may want to do this for fixing bugs, adding the new features, learning how the tool works or just getting a taste of it.
 
-Contacts:
-=========
+Contacts
+========
 
 About the feature extension or bugs report you can `create the issue or feature request <https://github.com/luchko/latticegraph_designer/issues>`_ or feel free to contact me directly by e-mail:
 
