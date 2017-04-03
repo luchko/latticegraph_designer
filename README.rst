@@ -1,6 +1,14 @@
 Lattice graph designer 1.0a1
 **************************************
 
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+        :target: ./LICENSE.txt
+        :alt: License
+
+.. image:: https://readthedocs.org/projects/latticegraph-designer/badge/?version=latest
+        :target: http://latticegraph-designer.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
 - Git-hub repo: https://github.com/luchko/latticegraph_designer
 - Documentation: https://latticegraph-designer.readthedocs.io
 - Free software: MIT license
