@@ -9,4 +9,7 @@ NOTE: Documentation is curently in development!!!
 
    includeme
    
+.. contents:: a title for the contents
+    :depth: 2
+   
 .. include:: ../README.rst
