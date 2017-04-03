@@ -20,6 +20,10 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../'))
 
+# import PyQt
+import mock 
+MOCK_MODULES = ['PyQt4', 'PyQt4.QtGui', 'PyQt4.QtCore']
+sys.modules.update((mod_name, mock.MagicMock()) for mod_name in MOCK_MODULES)
 
 import latticegraph_designer
 import latticegraph_designer.app
