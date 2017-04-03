@@ -10,6 +10,5 @@ NOTE: Documentation is curently in development!!!
    includeme
 
 .. contents:: 
-   :local:
    
 .. include:: ../README.rst
