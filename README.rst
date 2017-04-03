@@ -2,7 +2,7 @@ Lattice graph designer 1.0a1
 **************************************
 
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
-        :target: ./LICENSE.txt
+        :target: https://github.com/luchko/latticegraph_designer/blob/master/LICENSE.txt
         :alt: License
 
 .. image:: https://readthedocs.org/projects/latticegraph-designer/badge/?version=latest
@@ -19,7 +19,7 @@ GUI is based on `PyQt <https://riverbankcomputing.com/software/pyqt/intro>`_. Pr
 
 -------------------------
 
-.. figure:: ./img_scr/demo.gif
+.. figure:: https://github.com/luchko/latticegraph_designer/blob/master/img_scr/demo.gif
    :align:   center
    :figwidth: 100 %
    :alt: alternate text
