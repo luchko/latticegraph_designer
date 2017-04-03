@@ -19,9 +19,7 @@ GUI is based on `PyQt <https://riverbankcomputing.com/software/pyqt/intro>`_. Pr
 
 -------------------------
 
-.. figure:: https://github.com/luchko/latticegraph_designer/blob/master/img_scr/demo.gif
-   :align:   center
-   :figwidth: 100 %
+.. figure:: https://github.com/luchko/latticegraph_designer/blob/master/img_scr/demo.gif?raw=true
    :alt: alternate text
 
 -------------------------
