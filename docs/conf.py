@@ -26,8 +26,6 @@ MOCK_MODULES = ['PyQt4', 'PyQt4.QtGui', 'PyQt4.QtCore', 'PyQt4.uic']
 sys.modules.update((mod_name, mock.MagicMock()) for mod_name in MOCK_MODULES)
 
 import latticegraph_designer
-import latticegraph_designer.app
-import latticegraph_designer.widgets
 
 
 # -- General configuration ------------------------------------------------
