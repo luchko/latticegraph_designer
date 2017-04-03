@@ -1,4 +1,5 @@
-.. Welcome to the Lattice graph designer's documentation!
+Welcome to the Lattice graph designer's documentation!
+======================================================
 
 NOTE: Documentation is curently in development!!!
 -------------------------------------------------
