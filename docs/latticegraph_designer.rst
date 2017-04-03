@@ -1,5 +1,5 @@
-latticegraph_designer package
-=============================
+API: latticegraph_designer package
+==================================
 
 Subpackages
 -----------
