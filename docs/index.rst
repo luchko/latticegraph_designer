@@ -8,7 +8,6 @@ NOTE: Documentation is curently in development!!!
 .. toctree::
    :maxdepth: 3
    
-   includeme
-   latticegraph_designer
-   
+   readme
+  
 .. include:: ../README.rst
