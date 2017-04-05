@@ -1,5 +1,5 @@
 <LATTICES>
-  <LATTICEGRAPH name="anisotropic double layer cubic lattice">
+  <LATTICEGRAPH name="test">
     <FINITELATTICE>
       <LATTICE dimension="3" name="simple rectangular cubic lattice">
         <BASIS>
@@ -15,7 +15,7 @@
       <EXTENT dimension="2" size="W" />
       <EXTENT dimension="3" size="H" />
       <BOUNDARY type="periodic" />
-    </FINITELATTICE>t
+    </FINITELATTICE>
     <UNITCELL dimension="3" edges="6" name="double layer" vertices="2">
       <VERTEX id="1" type="0">
         <COORDINATE>0.0 0.0 0.0</COORDINATE>

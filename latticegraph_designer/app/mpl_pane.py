@@ -98,8 +98,8 @@ class GraphEdgesEditor(object):
                             displayed                           
             display_lattice: if 'True' display lattice of the classter
             display_arrows: if 'True' display unit cell arrows
-        
         '''        
+        
         self.parent = parent        
         
         self.ax = ax
@@ -118,7 +118,7 @@ class GraphEdgesEditor(object):
         
         # initialize theme
         if parent is None:        
-            self.prefFileName = "preferences.xml"
+            self.prefFileName = "./latticegraph_designer/resources/preferences.xml"
             self.SETTINGS = ET.parse(self.prefFileName).getroot()
             self.CURRENT_THEME = DealXML.get_child_by_name(self.SETTINGS,"THEME","Current theme") 
         else: # create bindings
@@ -543,6 +543,7 @@ class GraphEdgesEditor(object):
         '''create new edge (or not if condition is not fulfilled)'''
         
         newEdge_id = self.edges.add_edge(self.v_source_ind,self.v_target_ind)
+                
         if newEdge_id is not None:
             
             if self.USE_COLLECTIONS:
@@ -615,11 +616,11 @@ class GraphEdgesEditor(object):
                         
             if self.display_report:
                 print(msg)
-  
-            self.canvas.draw()        
-            
+              
             self.e_activeDist_ids = []
             self.e_active_ind = None            
+            self.canvas.draw()        
+            
             if self.parent is not None:
                 self.parent.statusBar().showMessage(msg, 2000)
                 self.parent.unitCellChanged.emit()
@@ -639,6 +640,8 @@ class GraphEdgesEditor(object):
         
         self.e_activeDist_ids = []
         self.e_active_ind = None            
+        self.canvas.draw() 
+        
         if self.parent is not None:
             self.parent.statusBar().showMessage(msg, 2000) 
             self.parent.unitCellChanged.emit()
@@ -652,7 +655,7 @@ class GraphEdgesEditor(object):
         else:
             self.searchDistEdge_callback(self.e_active_ind)
             self.e_active_ind = None
-        
+                    
     def searchDistEdge_callback(self, ind):
         '''search for edges with the length as edge with id=ind'''
 

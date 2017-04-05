@@ -88,7 +88,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     latticeVisibleChanged = pyqtSignal(object) # used to bind with mpl.event
     arrowsVisibleChanged = pyqtSignal(object) # used to bind with mpl.event
     
-    def __init__(self, fileName=None):
+    def __init__(self, fileName=None, TEXT_MODE=True):
         
         super(MainWindow, self).__init__()
         self.setupUi(self)
@@ -96,13 +96,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.prefFileName = "latticegraph_designer/resources/preferences.xml"
         self.SETTINGS = ET.parse(self.prefFileName).getroot()
         self.CURRENT_THEME = DealXML.get_child_by_name(self.SETTINGS,"THEME","Current theme") 
+        self.TEXT_MODE = TEXT_MODE
         
         self.size = (2,2,2)
         self.spinBox_sizeL.setValue(self.size[0])
         self.spinBox_sizeW.setValue(self.size[1])
         self.spinBox_sizeH.setValue(self.size[2])
         self.spinBox_type.clear()
-        self.TEXT_MODE = self.radioButton_output.isChecked()
+        self.radioButton_output.setChecked(TEXT_MODE)
 
         self.setup_mpl_canvas()
         
@@ -136,7 +137,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
  
         self.setup_menu()
         
-        print(self.gee.__doc__)
+        if self.TEXT_MODE:
+            print(self.gee.__doc__)
 
     def setup_menu(self):
         '''setup slot for menu actions'''

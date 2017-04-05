@@ -120,7 +120,6 @@ class DialogExportLG(QDilaog, Ui_DialogExportLG):
     '''exporting Lattice Graph providing Boundary and Lattice Graph name'''
     def __init__(self, parent, LG_name, boundary):
         super(DialogExportLG, self).__init__()
-        self.setAttribute(Qt.WA_DeleteOnClose)
         self.setupUi(self)
         
         boundaty_list = ["periodic","open"]
@@ -455,7 +454,7 @@ class DialogImportCryst(QDilaog, Ui_DialogImportCryst):
         self.parent.unitCellChanged.emit()    
 
     def process_cif_callback(self):
-        '''parse lattice parameters from cif file'''
+        '''get fileName from file dialog and process cif file'''
         
         output = QFileDialog.getOpenFileName(self, 
                                'Open Crystallographic Information File',
@@ -465,15 +464,24 @@ class DialogImportCryst(QDilaog, Ui_DialogImportCryst):
         if fileName == "":
             return
         else:
-            abc, angles, UC_data, sg_data = self.parse_cif_file(fileName)
+            self.process_cif(fileName)        
+
+    def process_cif(self, fileName, TESTING=False):
+        '''parse lattice parameters from cif file'''
+        
+        abc, angles, UC_data, sg_data = self.parse_cif_file(fileName)
         
         # select atoms sites to consider in model
         
         self.dlg = DialogSelectSites(data = UC_data)
-        if not self.dlg.exec_():
+        
+        if TESTING:
+            self.dlg.ok_callback() 
+        
+        elif not self.dlg.exec_():
             return
-        else:
-            sitesDatatext = self.dlg.atomsText
+        
+        sitesDatatext = self.dlg.atomsText
         
         # initialize widget
         
@@ -1135,6 +1143,7 @@ if __name__ == '__main__':
             self.addToQue(self.myQDlg)            
         
         def testQDialogExportAnim(self):
+            
             from widgets.QDialogExportAnim import DialogExportAnim
             self.myQDlg = DialogExportAnim(self.ax)
             self.myQDlg.stop_callback()
