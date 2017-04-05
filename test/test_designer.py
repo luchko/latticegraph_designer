@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-"""Weak testing usuing unittest and QTest"""
+"""Very weak testing of the basic functionality using unittest and QTest"""
 
 __author__ = "Ivan Luchko (luchko.ivan@gmail.com)"
 __version__ = "1.0a1"
