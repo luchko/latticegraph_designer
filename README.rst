@@ -62,7 +62,7 @@ Dependencies
 - in case you use conda type: ``$ conda install pyqt=4`` (or 5)
 - otherwise follow the links `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_ (a bit eassier).
 
-**in Order to install all other dependencies type***
+**in Order to install all other dependencies type**
 
 ``$ pip install -r requirements.txt``
 
