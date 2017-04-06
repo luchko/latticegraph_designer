@@ -50,24 +50,12 @@ Features
 Dependencies
 ============
 
-**Important note**: Most if not all the dependencies listed below come
-with *Anaconda*, *WinPython* and *Python(x,y)*, so you don't need to install
-them separately when installing one of these Scientific Python
-distributions.
-
-Build dependencies
--------------------
-
-When installing Spyder from its source package, the only requirement is to have
-a Python version greater than 2.7 (Python 3.2 is not supported anymore).
-
-Runtime dependencies
----------------------
-
 - **Python** 2.7 or 3.3+
 - **PyQt5** 5.2+ or **PyQt4** 4.6+: PyQt5 is recommended.
 - **NumPy**
 - **Matplotlib**
+
+**Important note**: *Most if not all the dependencies listed below come with *Anaconda*, *WinPython* and *Python(x,y)*, so you don't need to install them separately when installing one of these Scientific Python distributions.*
 
 Installation and launching
 ==========================
@@ -81,20 +69,23 @@ Using ``conda`` `scientific package manager <https://conda.io/docs/index.html>`_
 
 *Not implemented yet*
 
+**Note:** *All dependencies are installed by ``conda`` automatically.*
+
 Using ``pip`` package manager from `PyPI <https://pypi.python.org/pypi>`_
 --------------------------------------------------------------------------
 
 *Not implemented yet*
 
-**Important note:** This does not install the graphical Python libraries (i.e. PyQt5 or PyQt4). Those have to be installed separately after installing Python.
-
 In order to install the Lattice graph designer in your command prompt type:
 
     ``pip install latticegraph_designer``
 
+**Important note:** *This install all dependencies except PyQt4 or PyQt5. Those have to be installed separately after installing Python.*
+
 Installation from source
 ------------------------
-**Note:** This is temporary installation way untill using ``conda`` or ``pip`` is implemented.
+
+**Note:** *This is temporary installation way untill the using of* ``conda`` *or* ``pip`` *is not implemented.*
 
 - `Download a source <https://github.com/luchko/latticegraph_designer/archive/master.zip>`_ of the last stable package version.
 - Open the terminal and move to the package root directory.
