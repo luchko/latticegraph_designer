@@ -55,16 +55,14 @@ Dependencies
 - **NumPy**
 - **Matplotlib**
 
-**Important note**: *Most dependencies listed above are installed automatically, however in some cases you need to istall them separately*
+**Important note**: *Most dependencies listed above are installed automatically, however in some cases you might need to istall them separately (read in next section)*
 
-Install **PyQt4** or **PyQt5**:
------------------------------
+**Install PyQt4 or PyQt5**
 
 - in case you use conda type: ``$ conda install pyqt=4`` (or 5)
 - otherwise follow the links `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_ (a bit eassier).
 
-in Order to install all other dependencies type:
-------------------------------------------------
+**in Order to install all other dependencies type***
 
 ``$ pip install -r requirements.txt``
 
