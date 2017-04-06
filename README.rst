@@ -69,19 +69,43 @@ Runtime dependencies
 - **NumPy**
 - **Matplotlib**
 
-Installation
-============
+Installation and launching
+==========================
 
-Installation (cross-platform way from source)
----------------------------------------------
+This section explains how to install the latest stable release of Lattice graph designer. If you prefer testing the development version, please use the bootstrap script (see next section).
 
-1. `Download a source <https://github.com/luchko/latticegraph_designer/archive/master.zip>`_ of the last stable package version.
-2. Open the terminal and move to the package root directory.
-3. In your command prompt type:
+The easiest way to install package in cross-platform way is:
+
+Using `conda scientific package manager <https://conda.io/docs/index.html>`_ (recommended way)
+----------------------------------------------------------------------------------------------
+
+*Not implemented yet*
+
+Using ``pip`` package manager from `PyPI <https://pypi.python.org/pypi>`_
+--------------------------------------------------------------------------
+
+*Not implemented yet*
+
+**Important note:** This does not install the graphical Python libraries (i.e. PyQt5 or PyQt4). Those have to be installed separately after installing Python.
+
+In order to install the Lattice graph designer in your command prompt type:
+
+    ``pip install latticegraph_designer``
+
+Installation from source
+------------------------
+**Note:** This is temporary installation way untill using ``conda`` or ``pip`` is implemented.
+
+- `Download a source <https://github.com/luchko/latticegraph_designer/archive/master.zip>`_ of the last stable package version.
+- Open the terminal and move to the package root directory.
+- In your command prompt type:
 
     ``python setup.py install``
 
-4. Further, in order to launch the program in your command prompt type:
+Launching the program
+----------------------
+
+After completing the installation you can launch the program simply typping in your command prompt:
 
     ``graphdesigner [pathToYourLatticeGraphFile.xml]``
 
@@ -89,8 +113,7 @@ Installation (cross-platform way from source)
         If ``pathToYourLatticeGraphFile.xml`` is not provided program will load a default example. 
         You can open a lattice graph file later.
 
-5. Optionally you can lock a tool's link on the launcher for quick access.
-
+- Optionally you can lock a tool's link on the launcher for quick access.
 
 Running from source
 -------------------
