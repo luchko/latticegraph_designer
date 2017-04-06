@@ -51,7 +51,7 @@ Dependencies
 ============
 
 - **Python** 2.7 or 3.3+
-- **PyQt4** or **PyQt5** 5.2+ : PyQt4 is recommended.
+- **PyQt4** 4.6+ or **PyQt5** 5.2+ : PyQt4 is recommended.
 - **NumPy**
 - **Matplotlib**
 
