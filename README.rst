@@ -55,7 +55,7 @@ Dependencies
 - **NumPy**
 - **Matplotlib**
 
-**Important note**: *Most dependencies listed above are installed automatically, however in some cases you might need to istall them separately (read in next section)*
+**Important note**: *Most dependencies listed above are installed automatically, however in some cases you might need to istall them separately (see next section).*
 
 **Install PyQt4 or PyQt5**
 
@@ -73,9 +73,7 @@ or, incase you use ``conda``
 Installation and launching
 ==========================
 
-This section explains how to install and launch the latest stable release of the Lattice graph designer. If you prefer testing the development version, please use the bootstrap script (see next section).
-
-The easiest way to install package in cross-platform way is:
+This section explains how to install and launch the latest stable release of the Lattice graph designer in one of the cross-platform ways listed bellow. If you prefer testing the development version, please use the bootstrap script (see next section).
 
 Using ``conda`` `scientific package manager <https://conda.io/docs/index.html>`_ (recommended way)
 ---------------------------------------------------------------------------------------------------
