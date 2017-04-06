@@ -72,12 +72,12 @@ Runtime dependencies
 Installation and launching
 ==========================
 
-This section explains how to install the latest stable release of Lattice graph designer. If you prefer testing the development version, please use the bootstrap script (see next section).
+This section explains how to install and launch the latest stable release of the Lattice graph designer. If you prefer testing the development version, please use the bootstrap script (see next section).
 
 The easiest way to install package in cross-platform way is:
 
-Using `conda scientific package manager <https://conda.io/docs/index.html>`_ (recommended way)
-----------------------------------------------------------------------------------------------
+Using ``conda`` `scientific package manager <https://conda.io/docs/index.html>`_ (recommended way)
+---------------------------------------------------------------------------------------------------
 
 *Not implemented yet*
 
