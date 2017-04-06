@@ -58,8 +58,8 @@ Dependencies
 **Important note**: *Most dependencies listed above are installed automatically, however in some cases you need to istall them separately*
 
 - Install **PyQt4** or **PyQt5**:
-	- in case you use conda: ``$ conda install pyqt=4`` (or 5)
-	- otherwise follow the links to install `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_ (a bit eassier).
+	- in case you use conda type: ``$ conda install pyqt=4`` (or 5)
+	- otherwise follow the links `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_ (a bit eassier).
 
 - in Order to install all other dependencies type:
 
@@ -90,7 +90,7 @@ Using ``pip`` package manager from `PyPI <https://pypi.python.org/pypi>`_
 
 In order to install the Lattice graph designer type in your command prompt:
 
-    ``pip install latticegraph_designer``
+    ``$ pip install latticegraph_designer``
 
 **Important note:** *This also installs all dependencies except PyQt4 or PyQt5. Those have to be installed separately after installing Python.*
 
@@ -103,18 +103,18 @@ Installation from source
 - Open the terminal and move to the package root directory.
 - In your command prompt type:
 
-    ``python setup.py install``
+    ``$ python setup.py install``
 
 Launching the program
 ----------------------
 
 After completing the installation you can launch the program simply typping in your command prompt:
 
-    ``graphdesigner [pathToYourLatticeGraphFile.xml]``
+	``$ graphdesigner [pathToYourLatticeGraphFile.xml]``
 
-    :note: 
-        If ``pathToYourLatticeGraphFile.xml`` is not provided the program will load a default example. 
-        You can open a lattice graph file later.
+	:note: 
+        	If ``pathToYourLatticeGraphFile.xml`` is not provided the program will load a default example. 
+        	You can open a lattice graph file later.
 
 - Optionally you can lock a tool's link on the launcher for quick access.
 
@@ -125,7 +125,7 @@ The fastest way to run LatticeGraph designer is to get the source code using git
 
 1. Make sure that all dependencies are installed.
 2. `Download a source <https://github.com/luchko/latticegraph_designer/archive/master.zip>`_ of the last stable package version.
-3. Run ``python bootstrap.py`` from the package root directory.
+3. Run ``$ python bootstrap.py`` from the package root directory.
 
 You may want to do this for fixing bugs, adding the new features, learning how the tool works or just getting a taste of it.
 
@@ -134,7 +134,7 @@ Running ``unittest``
 
 After making any changes in the source code you can run ``unitittest`` to make sure that nothing is broken by typing in your command prompt:
 
-	``python setup.py test``
+	``$ python setup.py test``
 
 Contacts
 ========
