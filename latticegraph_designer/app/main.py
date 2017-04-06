@@ -76,7 +76,8 @@ from latticegraph_designer.app.dialogs import (QNotImplemented, DialogExportLG,
                                                DialogDistSearch, DialogChangeEdgeType)
      
 # import UI layout created in designer
-ui_folder = 'latticegraph_designer/resources/ui_layout/'
+ui_folder = os.path.dirname(__file__)+'/../resources/ui_layout/'
+#ui_folder = 'latticegraph_designer/resources/ui_layout/'
 Ui_MainWindow, QMainWindow = loadUiType(ui_folder+'MainWindow_GUI.ui')
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -93,7 +94,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
         
-        self.prefFileName = "latticegraph_designer/resources/preferences.xml"
+        self.prefFileName = os.path.dirname(__file__)+'/../resources/preferences.xml'
         self.SETTINGS = ET.parse(self.prefFileName).getroot()
         self.CURRENT_THEME = DealXML.get_child_by_name(self.SETTINGS,"THEME","Current theme") 
         self.TEXT_MODE = TEXT_MODE

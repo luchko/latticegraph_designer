@@ -32,11 +32,12 @@ except ImportError:
 if pyQtVersion == "PyQt4":
     from PyQt4.uic import loadUiType
     from PyQt4.QtCore import pyqtSignal, Qt
-    from PyQt4.QtGui import QApplication, QFileDialog, QMessageBox
+    from PyQt4.QtGui import QApplication, QFileDialog, QMessageBox, QIcon
 else:
     from PyQt5.uic import loadUiType
     from PyQt5.QtCore import pyqtSignal, Qt
     from PyQt5.QtWidgets import QApplication, QFileDialog, QMessageBox
+    from PyQt5.QtGui import QIcon
     
 def getPathString(output):
     '''
@@ -55,7 +56,9 @@ from matplotlib import animation
 import matplotlib.pyplot as plt
 
 # import UI created in designer
-ui_folder = 'mpl_animationmanager/'
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+ui_folder = os.path.dirname(__file__)+"/"
+#ui_folder = 'mpl_animationmanager/'
 Ui_QDialogAnimManager, QDilaog = loadUiType(ui_folder+'QDialogAnimManager.ui')
 
 # classes definition
@@ -91,6 +94,13 @@ class QDialogAnimManager(QDilaog, Ui_QDialogAnimManager):
         self.setAttribute(Qt.WA_DeleteOnClose)
         self.setupUi(self)
         
+        # add button icons
+        img_folder = os.path.join(os.path.dirname(__file__), 'images')
+        self.btnAsk.setIcon(QIcon(os.path.join(img_folder, 'info.png')))
+        self.btnStart.setIcon(QIcon(os.path.join(img_folder, 'play.png')))
+        self.btnPause.setIcon(QIcon(os.path.join(img_folder, 'pause.png')))
+        self.btnStop.setIcon(QIcon(os.path.join(img_folder, 'stop.png')))
+                
         self.filepath = str(self.lineEdit_name.text())
         self.setup_writers_comboBox()
                 

@@ -31,6 +31,7 @@ from latticegraph_designer.app.main import MainWindow
 from latticegraph_designer.app.dialogs import (DialogImportCryst, DialogDistSearch)
 app = QApplication(sys.argv)
 
+test_folder = "latticegraph_designer/test/"
 
 def printgraph(libFile):
     
@@ -122,14 +123,14 @@ class MainWindowTest(unittest.TestCase):
      
     def test_ImportXML(self):
         
-        fn_input = os.path.abspath("test/testLib_input.xml")
+        fn_input = os.path.abspath(test_folder+"testLib_input.xml")
         self.mainWindow.importXML_fromFile(fn_input)
         self.assertEqual(self.mainWindow.cluster.UC.num_vertices, 2)
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 6)
 
     def test_ImportCIF(self):
         
-        fn_cif = os.path.abspath("test/test.cif")        
+        fn_cif = os.path.abspath(test_folder+"test.cif")        
         self.dlgImportCryst = DialogImportCryst(self.mainWindow)
         self.dlgImportCryst.process_cif(fn_cif, TESTING=True)
         
@@ -168,7 +169,7 @@ class MainWindowTest(unittest.TestCase):
         self.dlgDistSearch.remove_item_callback()
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 4)
         # export to XML lib
-        self.ExportXML(os.path.abspath("test/testLib_output.xml"))        
+        self.ExportXML(os.path.abspath(test_folder+"testLib_output.xml"))        
  
     def ExportXML(self, fn_output):
         
@@ -180,9 +181,9 @@ class MainWindowTest(unittest.TestCase):
     def test_ExportXML(self):
         
         self.test_ImportXML()
-        fn_output = os.path.abspath("test/testLib_output.xml")
+        fn_output = os.path.abspath(test_folder+"testLib_output.xml")
         self.ExportXML(fn_output)        
-        fn_benchmark = os.path.abspath("test/testLib_output_benchmark.xml")
+        fn_benchmark = os.path.abspath(test_folder+"testLib_output_benchmark.xml")
         self.assertEqual(printgraph(fn_output), printgraph(fn_benchmark))
 
 

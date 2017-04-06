@@ -76,6 +76,7 @@ def getPathString(output):
     return str(output if pyQtVersion == "PyQt4" else output[0])
 
 # import python libs
+import os
 import numpy as np
 import xml.etree.ElementTree as ET
 
@@ -89,7 +90,8 @@ from latticegraph_designer.widgets import (QColorButton, XMLHighlighter,
                                            DialogPreferences, WidgetPreferences)
 
 # import UI layout created in designer
-ui_folder = 'latticegraph_designer/resources/ui_layout/'
+ui_folder = os.path.dirname(__file__)+'/../resources/ui_layout/'
+#ui_folder = 'latticegraph_designer/resources/ui_layout/'
 Ui_DialogExportLG, QDilaog = loadUiType(ui_folder+'dialog_exportLG.ui')
 Ui_DialogSelectLG, QDilaog = loadUiType(ui_folder+'dialog_select_LATTICEGRAPH.ui')
 Ui_DialogChangeEdgeType, QDilaog = loadUiType(ui_folder+'dialog_changeEdgeType.ui')

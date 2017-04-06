@@ -2,5 +2,5 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from app import main
+from latticegraph_designer.app import main
 sys.exit(main.run())

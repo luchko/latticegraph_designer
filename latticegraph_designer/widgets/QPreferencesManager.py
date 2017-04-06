@@ -44,11 +44,13 @@ else:
     from PyQt5.QtWidgets import (QWidget, QMessageBox) 
 
 # import python libs
+import os
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
 # import UI created in designer
-ui_folder = 'latticegraph_designer/resources/ui_layout/'
+ui_folder = os.path.dirname(__file__)+'/../resources/ui_layout/'
+#ui_folder = 'latticegraph_designer/resources/ui_layout/'
 Ui_DialogPreferences, QDialog = loadUiType(ui_folder+'dialog_preferences.ui')
 Ui_DialogAddTheme, QDialog = loadUiType(ui_folder+'dialog_addTheme.ui')
 

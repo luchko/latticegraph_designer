@@ -1,0 +1,19 @@
+include docs/*
+include examples/*
+include scripts/*
+
+include latticegraph_designer/resources/images/*.png
+include latticegraph_designer/resources/ui_layout/*.ui
+include latticegraph_designer/resources/preferences.xml
+
+include latticegraph_designer/test/*.cif
+include latticegraph_designer/test/*.xml
+
+include mpl_animationmanager/*.ui
+include mpl_animationmanager/images/*.png
+
+include bootstrap.py
+include LICENSE.txt
+include MANIFEST.in
+include README.rst
+include requirements.txt
