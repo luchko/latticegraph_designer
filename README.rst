@@ -6,6 +6,10 @@ Lattice graph designer 1.0a1
         :target: https://pypi.python.org/pypi/latticegraph-designer
         :alt: PyPi
 
+.. image:: https://img.shields.io/pypi/status/latticegraph-designer.svg
+        :target: https://pypi.python.org/pypi/latticegraph-designer
+        :alt: status
+
 .. image:: https://img.shields.io/pypi/l/latticegraph_designer.svg
         :target: https://github.com/luchko/latticegraph_designer/blob/master/LICENSE.txt
         :alt: License
