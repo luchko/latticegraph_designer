@@ -55,8 +55,20 @@ Dependencies
 - **NumPy**
 - **Matplotlib**
 
-**Important note**: *Most if not all the dependencies listed below come with *Anaconda*, *WinPython* and *Python(x,y)*, so you don't need to install them separately when installing one of these Scientific Python distributions.*
+**Important note**: *Most dependencies listed above are installed automatically, however in some cases you need to istall them separately*
 
+- Install **PyQt4** or **PyQt5**:
+	- in case you use conda: ``$ conda install pyqt=4`` (or 5)
+	- otherwise follow the links to install `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_ (a bit eassier).
+
+- in Order to install all other dependencies type:
+
+	``$ pip install -r requirements.txt``
+
+or, incase you use ``conda``
+
+	``$ conda install --file requirements.txt``
+	
 Installation and launching
 ==========================
 
@@ -120,7 +132,7 @@ You may want to do this for fixing bugs, adding the new features, learning how t
 Running ``unittest``
 --------------------
 
-After making any changes in source code you can run the ``unitittest`` to make sure that nothing is broken by typing in your command prompt:
+After making any changes in the source code you can run ``unitittest`` to make sure that nothing is broken by typing in your command prompt:
 
 	``python setup.py test``
 
