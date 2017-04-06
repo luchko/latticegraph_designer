@@ -58,14 +58,16 @@ Dependencies
 **Important note**: *Most dependencies listed above are installed automatically, however in some cases you need to istall them separately*
 
 - Install **PyQt4** or **PyQt5**:
+
 	- in case you use conda type: ``$ conda install pyqt=4`` (or 5)
+	
 	- otherwise follow the links `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_ (a bit eassier).
 
 - in Order to install all other dependencies type:
 
 	``$ pip install -r requirements.txt``
 
-or, incase you use ``conda``
+	or, incase you use ``conda``
 
 	``$ conda install --file requirements.txt``
 	
@@ -90,7 +92,7 @@ Using ``pip`` package manager from `PyPI <https://pypi.python.org/pypi>`_
 
 In order to install the Lattice graph designer type in your command prompt:
 
-    ``$ pip install latticegraph_designer``
+	``$ pip install latticegraph_designer``
 
 **Important note:** *This also installs all dependencies except PyQt4 or PyQt5. Those have to be installed separately after installing Python.*
 
@@ -103,12 +105,12 @@ Installation from source
 - Open the terminal and move to the package root directory.
 - In your command prompt type:
 
-    ``$ python setup.py install``
+	``$ python setup.py install``
 
 Launching the program
 ----------------------
 
-After completing the installation you can launch the program simply typping in your command prompt:
+- After completing the installation you can launch the program simply typping in your command prompt:
 
 	``$ graphdesigner [pathToYourLatticeGraphFile.xml]``
 
