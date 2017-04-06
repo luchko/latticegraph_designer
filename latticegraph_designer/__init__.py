@@ -27,4 +27,4 @@ SOFTWARE.
 
 __version__ = "1.0a1"
 __license__ = __doc__
-__project_url__ = ''
+__project_url__ = 'https://github.com/luchko/latticegraph_designer'
