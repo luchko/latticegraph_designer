@@ -47,8 +47,30 @@ Features
 - `animation manager <https://github.com/luchko/mpl_animationmanager>`_ allows to animate a 3D model and save the animation in mp4 or gif format.
 - preferences manager allows setting the visual theme of the lattice graph displayed on the manipulation pane.
 
-Quickstart
-==========
+Dependencies
+============
+
+**Important note**: Most if not all the dependencies listed below come
+with *Anaconda*, *WinPython* and *Python(x,y)*, so you don't need to install
+them separately when installing one of these Scientific Python
+distributions.
+
+Build dependencies
+-------------------
+
+When installing Spyder from its source package, the only requirement is to have
+a Python version greater than 2.7 (Python 3.2 is not supported anymore).
+
+Runtime dependencies
+---------------------
+
+- **Python** 2.7 or 3.3+
+- **PyQt5** 5.2+ or **PyQt4** 4.6+: PyQt5 is recommended.
+- **NumPy**
+- **Matplotlib**
+
+Installation
+============
 
 Installation (cross-platform way from source)
 ---------------------------------------------
