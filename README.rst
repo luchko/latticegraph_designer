@@ -76,11 +76,11 @@ Using ``pip`` package manager from `PyPI <https://pypi.python.org/pypi>`_
 
 *Not implemented yet*
 
-In order to install the Lattice graph designer in your command prompt type:
+In order to install the Lattice graph designer type in your command prompt:
 
     ``pip install latticegraph_designer``
 
-**Important note:** *This install all dependencies except PyQt4 or PyQt5. Those have to be installed separately after installing Python.*
+**Important note:** *This also installs all dependencies except PyQt4 or PyQt5. Those have to be installed separately after installing Python.*
 
 Installation from source
 ------------------------
@@ -101,7 +101,7 @@ After completing the installation you can launch the program simply typping in y
     ``graphdesigner [pathToYourLatticeGraphFile.xml]``
 
     :note: 
-        If ``pathToYourLatticeGraphFile.xml`` is not provided program will load a default example. 
+        If ``pathToYourLatticeGraphFile.xml`` is not provided the program will load a default example. 
         You can open a lattice graph file later.
 
 - Optionally you can lock a tool's link on the launcher for quick access.
@@ -116,6 +116,13 @@ The fastest way to run LatticeGraph designer is to get the source code using git
 3. Run ``python bootstrap.py`` from the package root directory.
 
 You may want to do this for fixing bugs, adding the new features, learning how the tool works or just getting a taste of it.
+
+Running ``unittest``
+--------------------
+
+After making any changes in source code you can run the ``unitittest`` to make sure that nothing is broken by typing in your command prompt:
+
+	``python setup.py test``
 
 Contacts
 ========
