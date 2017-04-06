@@ -57,17 +57,20 @@ Dependencies
 
 **Important note**: *Most dependencies listed above are installed automatically, however in some cases you need to istall them separately*
 
-- Install PyQt4 or PyQt5:
-	- in case you use conda type: ``$ conda install pyqt=4`` (or 5)
-	- otherwise follow the links `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_ (a bit eassier).
+Install **PyQt4** or **PyQt5**:
+-----------------------------
 
-- in Order to install all other dependencies type:
+- in case you use conda type: ``$ conda install pyqt=4`` (or 5)
+- otherwise follow the links `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_ (a bit eassier).
 
-	``$ pip install -r requirements.txt``
+in Order to install all other dependencies type:
+------------------------------------------------
 
-	or, incase you use ``conda``
+``$ pip install -r requirements.txt``
 
-	``$ conda install --file requirements.txt``
+or, incase you use ``conda``
+
+``$ conda install --file requirements.txt``
 	
 Installation and launching
 ==========================
@@ -81,7 +84,7 @@ Using ``conda`` `scientific package manager <https://conda.io/docs/index.html>`_
 
 *Not implemented yet*
 
-**Note:** *All dependencies are installed by ``conda`` automatically.*
+**Note:** *All dependencies are installed by* ``conda`` *automatically.*
 
 Using ``pip`` package manager from `PyPI <https://pypi.python.org/pypi>`_
 --------------------------------------------------------------------------
