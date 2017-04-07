@@ -1,7 +1,7 @@
 # https://travis-ci.org/luchko/latticegraph_designer
 
 language: python
-sudo: false
+#sudo: false
 
 env:
   global:

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 sudo apt-get update
 
 # Define the value to download
