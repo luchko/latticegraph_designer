@@ -32,8 +32,7 @@ if [ "${USE_CONDA}" = "true" ]; then
 	# configure conda test-environment
 #	conda install conda-build=2.1.0;  # needed to build conda
     conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION;
-    source activate test-environment;
-                
+    source activate test-environment;                
 #    conda install latticegraph_designer
   	# we use this temporarly
 	python setup.py install;
