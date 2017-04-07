@@ -14,9 +14,9 @@ fi
 # conditionally because it saves us some downloading if the version is
 # the same.
 if [ "$TRAVIS_PYTHON_VERSION" = "2.7" ]; then
-    wget "http://repo.continuum.io/miniconda/Miniconda-$MINICONDA_VERSION-$MINICONDA_OS.sh" -O miniconda.sh;
+    wget "http://repo.continuum.io/miniconda/Miniconda2-$MINICONDA_VERSION-$MINICONDA_OS.sh" -O miniconda.sh;
 else
-    wget "http://repo.continuum.io/miniconda/Miniconda3-4.2.12-$MINICONDA_OS.sh" -O miniconda.sh;
+    wget "http://repo.continuum.io/miniconda/Miniconda3-$MINICONDA_VERSION-$MINICONDA_OS.sh" -O miniconda.sh;
 fi
     
 bash miniconda.sh -b -p $HOME/miniconda
@@ -36,12 +36,12 @@ if [ "${USE_CONDA}" = "true" ]; then
                 
 #    conda install latticegraph_designer
   	# we use this temporarly
-	conda install pyqt;
 	python setup.py install;
+	conda install pyqt;
 else
   	# we still use conda to install pyqt
+	python setup.py install;
 	conda install pyqt;   
-	python setup.py install;	  
 fi
 
 # Install alps for printgraph testing
