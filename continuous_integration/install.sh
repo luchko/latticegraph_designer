@@ -49,3 +49,5 @@ if [ "$TRAVIS_PYTHON_VERSION" == "2.7" ]; then
     conda config --add channels conda-forge;
     conda install alps;
 fi
+
+conda list
