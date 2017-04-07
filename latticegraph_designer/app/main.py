@@ -33,7 +33,7 @@ except ImportError:
 # imports requied PyQt modules         
 if pyQtVersion == "PyQt4":
     # Make sure that we are using QT5
-#    matplotlib.use('Qt4Agg')
+    matplotlib.use('Agg')
     from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
     # impoort pyQt modules
     from PyQt4.uic import loadUiType
@@ -42,7 +42,7 @@ if pyQtVersion == "PyQt4":
                              QPushButton, QHBoxLayout, QVBoxLayout)
 else:
     # Make sure that we are using QT5
-#    matplotlib.use('Qt5Agg')
+    matplotlib.use('Agg')
     from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
     # impoort pyQt modules
     from PyQt5.uic import loadUiType
