@@ -9,7 +9,6 @@ setup latticegraph_designer package in your environment
     
 """
 from setuptools import setup, find_packages
-from setuptools.command.test import test as TestCommand
 import os
 import sys
 
@@ -66,16 +65,18 @@ Features
 with open(os.path.abspath('requirements.txt')) as f:
     install_requires = [p for p in f.read().splitlines() if p != '']
 
-class UnitTest(TestCommand):
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
 
-    def run_tests(self):
-        import unittest
-        errcode = unittest.main(self.test_args)
-        sys.exit(errcode)
+
+from setuptools.command.build_ext import build_ext as _build_ext
+
+class build_ext(_build_ext):
+    def finalize_options(self):
+        _build_ext.finalize_options(self)
+        # Prevent numpy from thinking it is still in its setup process:
+        __builtins__.__NUMPY_SETUP__ = False
+        import numpy
+        self.include_dirs.append(numpy.get_include())
+
 
 setup(
     name='latticegraph_designer',
@@ -93,6 +94,8 @@ setup(
               'latticegraph_designer.test', 
               'mpl_animationmanager'],
     scripts=['scripts/graphdesigner'],
+    cmdclass={'build_ext':build_ext},
+    setup_requires=["numpy"],  # due to  a known numpy issue #2434.
     install_requires=install_requires,
     platforms='any',
     include_package_data=True,
