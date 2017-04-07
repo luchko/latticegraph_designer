@@ -17,7 +17,7 @@ matrix:
       os: linux
     # Linux using conda packages
     - python: "2.7"
-      env: USE_QT_API=PyQt4 USE_CONDA=true
+      env: USE_CONDA=true #USE_QT_API=PyQt4
       os: linux
     - python: "2.7"
       env: USE_QT_API=PyQt5 USE_CONDA=true
