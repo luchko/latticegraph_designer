@@ -10,7 +10,7 @@ setup latticegraph_designer package in your environment
 """
 from setuptools import setup, find_packages
 import os
-import sys
+import pip
 
 import latticegraph_designer
 
@@ -65,8 +65,7 @@ Features
 with open(os.path.abspath('requirements.txt')) as f:
     install_requires = [p for p in f.read().splitlines() if p != '']
 
-import pip
-
+# trick required to install numpy
 for package in install_requires:
     pip.main(['install', package])
 
