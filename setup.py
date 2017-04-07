@@ -65,9 +65,10 @@ Features
 with open(os.path.abspath('requirements.txt')) as f:
     install_requires = [p for p in f.read().splitlines() if p != '']
 
-# trick required to install numpy
-for package in install_requires:
-    pip.main(['install', package])
+pip.main(['install', 'numpy'])
+## trick required to install numpy
+#for package in install_requires:
+#    pip.main(['install', package])
 
 setup(
     name='latticegraph_designer',
