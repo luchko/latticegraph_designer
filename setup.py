@@ -97,9 +97,7 @@ setup(
     platforms='any',
     include_package_data=True,
     zip_safe=False,
-    tests_require=['unittest'],
-    cmdclass={'test': UnitTest},
-    test_suite='latticegraph_designer.test.test_designer',
+    test_suite='latticegraph_designer.test',
     keywords='physics material-science graph-visualization crystal-structure lattice alps-project gui',
     classifiers = [
         'Programming Language :: Python',
