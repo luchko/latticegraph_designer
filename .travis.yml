@@ -36,7 +36,7 @@ before_install:
 install:
   - ./continuous_integration/install.sh;
   - if [ "${USE_CONDA}" = "true" ]; then
-	  source activate test-environment;
+		source activate test-environment;
 	fi
 
 script:
