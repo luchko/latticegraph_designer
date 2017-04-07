@@ -35,9 +35,7 @@ before_install:
   
 install:
   - ./continuous_integration/install.sh;
-  - if [ "${USE_CONDA}" = "true" ]; then
-		source activate test-environment;
-	fi
+  - source activate test-environment;
 
 script:
   - python -m unittest discover
