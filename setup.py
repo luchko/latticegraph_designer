@@ -69,6 +69,8 @@ with open(os.path.abspath('requirements.txt')) as f:
 for package in install_requires:
     pip.main(['install', package])
 
+import matplotlib.pyplot
+
 setup(
     name='latticegraph_designer',
     version=latticegraph_designer.__version__,
