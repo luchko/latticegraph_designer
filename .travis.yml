@@ -1,21 +1,59 @@
+# https://travis-ci.org/spyder-ide/spyder
+
 language: python
-python:
-  - "2.7"
-  - "3.6"
+sudo: false
+
+env:
+  global:
+    - MINICONDA_VERSION="latest"
+    - MINICONDA_LINUX="Linux-x86_64"
+    - MINICONDA_OSX="MacOSX-x86_64"
+
+matrix:
+  include:
+    # Linux using pip packages
+    - python: "3.5"
+      env: USE_QT_API=PyQt5 USE_CONDA=false
+      os: linux
+    # Linux using conda packages
+    - python: "2.7"
+      env: USE_QT_API=PyQt4 USE_CONDA=true
+      os: linux
+    - python: "2.7"
+      env: USE_QT_API=PyQt5 USE_CONDA=true
+      os: linux
+    - python: "3.6"
+      env: USE_QT_API=PyQt4 USE_CONDA=true
+      os: linux
+    - python: "3.6"
+      env: USE_QT_API=PyQt5 USE_CONDA=true
+      os: linux
   
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   
 install:
+
   - sudo apt-get update
-  # We do this conditionally because it saves us some downloading if the
-  # version is the same.
-  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
-    else
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+
+    # Define the value to download
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+        MINICONDA_OS=$MINICONDA_LINUX;
+    elif [ "$TRAVIS_OS_NAME" = "osx" ]; then
+        MINICONDA_OS=$MINICONDA_OSX;
     fi
+
+    # You may want to periodically update this, although the conda update
+    # conda line below will keep everything up-to-date.  We do this
+    # conditionally because it saves us some downloading if the version is
+    # the same.
+  - if [ "$TRAVIS_PYTHON_VERSION" = "2.7" ]; then
+        wget "http://repo.continuum.io/miniconda/Miniconda-$MINICONDA_VERSION-$MINICONDA_OS.sh" -O miniconda.sh;
+    else
+        wget "http://repo.continuum.io/miniconda/Miniconda3-4.2.12-$MINICONDA_OS.sh" -O miniconda.sh;
+    fi
+    
   - bash miniconda.sh -b -p $HOME/miniconda
   - export PATH="$HOME/miniconda/bin:$PATH"
   - hash -r
@@ -24,18 +62,28 @@ install:
   # Useful for debugging any issues with conda
   - conda info -a
 
-  # configure conda test-environment
-  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
-  - source activate test-environment
-  - python setup.py install
-  - conda install pyqt
-  
+  - if [ "${USE_CONDA}" = "true" ]; then
+		# configure conda test-environment
+#        conda install conda-build=2.1.0;  # needed to build conda
+	  	conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
+        source activate test-environment;
+                
+#        conda install latticegraph_designer
+	  	
+	  	# we use this temporarly
+		python setup.py install
+	else
+	  	# we still use conda to install pyqt
+    	conda install pyqt   
+		python setup.py install	  
+    fi
+
   # Install alps for printgraph testing
   - if [ "$TRAVIS_PYTHON_VERSION" == "2.7" ]; then
         conda config --add channels conda-forge;
         conda install alps;
     fi
- 
+
 script:
   - python -m unittest discover
 #  - python setup.py test
