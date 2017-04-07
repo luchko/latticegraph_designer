@@ -65,18 +65,10 @@ Features
 with open(os.path.abspath('requirements.txt')) as f:
     install_requires = [p for p in f.read().splitlines() if p != '']
 
+import pip
 
-
-from setuptools.command.build_ext import build_ext as _build_ext
-
-class build_ext(_build_ext):
-    def finalize_options(self):
-        _build_ext.finalize_options(self)
-        # Prevent numpy from thinking it is still in its setup process:
-        __builtins__.__NUMPY_SETUP__ = False
-        import numpy
-        self.include_dirs.append(numpy.get_include())
-
+for package in install_requires:
+    pip.main(['install', package])
 
 setup(
     name='latticegraph_designer',
@@ -94,8 +86,6 @@ setup(
               'latticegraph_designer.test', 
               'mpl_animationmanager'],
     scripts=['scripts/graphdesigner'],
-    cmdclass={'build_ext':build_ext},
-    setup_requires=["numpy"],  # due to  a known numpy issue #2434.
     install_requires=install_requires,
     platforms='any',
     include_package_data=True,
