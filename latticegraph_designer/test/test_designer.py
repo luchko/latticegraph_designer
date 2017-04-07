@@ -66,6 +66,8 @@ class GraphEdgesEditorTest(unittest.TestCase):
         
         from latticegraph_designer.app.core import Vertex, UnitCell, Lattice, CrystalCluster
         from latticegraph_designer.app.mpl_pane import GraphEdgesEditor
+        import matplotlib
+        matplotlib.use('Agg')
         import matplotlib.pyplot as plt
         import numpy as np
         
