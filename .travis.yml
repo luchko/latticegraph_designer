@@ -32,5 +32,6 @@ install:
     fi
  
 script:
-  - python setup.py test
+  - python -m unittest discover
+#  - python setup.py test
   
