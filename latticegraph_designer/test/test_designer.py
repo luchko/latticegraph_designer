@@ -14,13 +14,13 @@ import unittest
 
 # define pyQt version
 try:
-    from PyQt4.QtGui import QApplication
+    from PyQt4.QtGui import QApplication, QDialogButtonBox
     from PyQt4.QtTest import QTest
     from PyQt4.QtCore import Qt
     
 except ImportError:
     try:
-        from PyQt5.QtWidgets import QApplication
+        from PyQt5.QtWidgets import QApplication, QDialogButtonBox
         from PyQt5.QtTest import QTest
         from PyQt5.QtCore import Qt
 
@@ -28,7 +28,9 @@ except ImportError:
         raise ImportError("neither PyQt4 or PyQt5 is found")
 
 from latticegraph_designer.app.main import MainWindow
-from latticegraph_designer.app.dialogs import (DialogImportCryst, DialogDistSearch)
+from latticegraph_designer.app.dialogs import (DialogImportCryst, DialogDistSearch,
+                                               MyDialogPreferences, DialogEditXML)
+from mpl_animationmanager import QDialogAnimManager
 app = QApplication(sys.argv)
 
 test_folder = "latticegraph_designer/test/"
@@ -188,6 +190,76 @@ class MainWindowTest(unittest.TestCase):
         fn_benchmark = os.path.abspath(test_folder+"testLib_output_benchmark.xml")
         self.assertEqual(printgraph(fn_output), printgraph(fn_benchmark))
 
+
+class PreferencesTest(unittest.TestCase):
+    '''Test the Preferences manager'''
+    def setUp(self):
+        '''Create the GUI'''
+        self.mainWindow = MainWindow(TEXT_MODE=False)
+     
+    def test_defaults(self):
+        pass
+ 
+    def test_PrefManager(self):
+        
+        self.dlgPref = MyDialogPreferences(parent = self.mainWindow)
+        self.dlgPref.applySignal.connect(self.mainWindow.applyPref_callback)
+        self.mainWindow.arrowsVisibleChanged.connect(self.dlgPref.prefWidget.checkBox_arrows.setChecked)
+        self.mainWindow.latticeVisibleChanged.connect(self.dlgPref.prefWidget.checkBox_lattice.setChecked)       
+        
+        self.dlgPref.change_theme_callback(2)
+        # check chnages in widget
+        self.dlgPref.btnApply.click()
+        # check changes in main
+        
+        self.dlgPref.btnDefaults.click()
+        # check changes
+        self.dlgPref.btnClose.click()
+
+
+class AnimaManagerTest(unittest.TestCase):
+    '''Test the Animation manager'''
+    def setUp(self):
+        '''Create the GUI'''
+        self.mainWindow = MainWindow(TEXT_MODE=False)
+      
+    def test_AnimManager(self):
+        
+        self.dlgExportAnim = QDialogAnimManager(self.mainWindow.ax)
+        # disable animated GraphEdgeEditor artists
+        self.mainWindow.gee.sc_active.set_visible(False)
+        self.mainWindow.gee.new_edge.set_visible(False)
+        # enabele animated GraphEdgeEditor artists
+        self.dlgExportAnim.closed.connect(self.mainWindow.gee.sc_active.set_visible)
+        self.dlgExportAnim.closed.connect(self.mainWindow.gee.new_edge.set_visible)
+
+        # TESTS
+        
+        self.dlgExportAnim.btnClose.click()
+
+
+class CodeEditorTest(unittest.TestCase):
+    '''Test the Animation manager'''
+    def setUp(self):
+        '''Create the GUI'''
+        self.mainWindow = MainWindow(TEXT_MODE=False)
+      
+    def test_CodeEditor(self):
+        
+        self.dlgEditXML = DialogEditXML(self.mainWindow)
+        
+        # insert xml data from another lib and apply
+        fn = os.path.abspath('./latticegraph_designer/test/triangular_network.xml')
+        with open(fn) as f:
+            self.dlgEditXML.codeEditor.setPlainText(f.read())        
+
+        self.dlgEditXML.buttonBox.button(QDialogButtonBox.Apply).click()
+        # check changes in main window
+        self.assertEqual(self.mainWindow.cluster.UC.num_vertices, 96)
+        self.assertEqual(self.mainWindow.cluster.UC.num_edges, 288)
+
+        self.dlgEditXML.buttonBox.button(QDialogButtonBox.Close).click()
+        
 
 if __name__ == "__main__":
     unittest.main()

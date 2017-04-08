@@ -164,7 +164,7 @@ class QDialogAnimManager(QDilaog, Ui_QDialogAnimManager):
  
         self.btnBrowse.clicked.connect(self.browse_callback)
         self.btnAsk.clicked.connect(self.info_callback)
-        self.btnCancel.clicked.connect(self.cancel_callback)
+        self.btnClose.clicked.connect(self.close_callback)
         self.btnShow.clicked.connect(self.show_anim_callback)
         self.btnExport.clicked.connect(self.export_callback)
                
@@ -367,7 +367,7 @@ For bug reports and feature requests, please go to our
         self.btnShow.setEnabled(True)
         print(" animation exported into '{}'".format(os.path.basename(self.filepath)))
         
-    def cancel_callback(self):
+    def close_callback(self):
         self.anim._stop()
         del self.anim
         self.closed.emit(True)

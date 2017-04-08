@@ -36,7 +36,7 @@
 
 <THEME name="Current theme">
   <VISIBLEARROWS value="True" />
-  <VISIBLELATTICE value="False" />
+  <VISIBLELATTICE value="True" />
   <COLORBACKGROUND value="#000000" />
   <COLORLATTICE value="#b5ff93" />
   <COLORACTIVATE value="#00ff00" />

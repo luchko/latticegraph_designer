@@ -107,8 +107,8 @@ class Lattice(object):
                   
         keys = kwargs.keys()
         if 'cell_lengths' in keys and 'angles' in keys:
-            self.basisMatrix = self.build_basisMatrix(kwargs["cell_lengths"], 
-                                                      kwargs["angles"])
+            self.basisMatrix = self.build_basisMatrix(kwargs.get("cell_lengths"), 
+                                                      kwargs.get("angles"))
         else:
             self.basisMatrix = basisMatrix
             self.a, self.b, self.c = np.linalg.norm(basisMatrix, axis = 0)
