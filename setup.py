@@ -22,21 +22,17 @@ long_description = '''
 Lattice graph designer 
 ***********************
 
-.. image:: https://img.shields.io/pypi/v/latticegraph_designer.svg
-        :target: https://pypi.python.org/pypi/latticegraph-designer
-        :alt: PyPi
-
 .. image:: https://img.shields.io/pypi/status/latticegraph-designer.svg
         :target: https://pypi.python.org/pypi/latticegraph-designer
         :alt: status
-
+        
 .. image:: https://img.shields.io/pypi/l/latticegraph_designer.svg
         :target: https://github.com/luchko/latticegraph_designer/blob/master/LICENSE.txt
         :alt: License
 
 .. image:: https://readthedocs.org/projects/latticegraph-designer/badge/?version=latest
         :target: http://latticegraph-designer.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+        :alt: Docs
 	
 Lattice graph designer is a tool which allows to visualize and create a lattice graph model using the intuitive GUI and interactive 3D drag-and-drop graph manipulation pane. It was primarily created for the `ALPS project <http://alps.comp-phys.org/>`_ to deal with a lattice graph of the `Heisenberg model <https://en.wikipedia.org/wiki/Heisenberg_model_(quantum)>`_ defined in `ALPS xml graph format <http://alps.comp-phys.org/mediawiki/index.php/Tutorials:LatticeHOWTO>`_. Support of the other formats and projects can be extended.
 
