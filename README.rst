@@ -143,6 +143,8 @@ After making any changes in the source code you can run ``unitittest`` to make s
 
 	``$ python setup.py test``
 
+**Note:** *In case ALPS library is installed* ``unitittest`` *also checks for ALPS compatibility of the exported xml lib file using* ``printgraph`` *tool.*
+
 Contacts
 ========
 
