@@ -14,13 +14,14 @@ import unittest
 
 # define pyQt version
 try:
-    from PyQt4.QtGui import QApplication, QDialogButtonBox
+    from PyQt4.QtGui import QApplication, QDialogButtonBox, QTextCursor
     from PyQt4.QtTest import QTest
     from PyQt4.QtCore import Qt
     
 except ImportError:
     try:
         from PyQt5.QtWidgets import QApplication, QDialogButtonBox
+        from PyQt5.QtGui import QTextCursor
         from PyQt5.QtTest import QTest
         from PyQt5.QtCore import Qt
 
@@ -174,7 +175,9 @@ class MainWindowTest(unittest.TestCase):
         self.assertEqual(self.mainWindow.cluster.UC.num_vertices, 8)
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 0)
         # opne "edge length manager" 
-        self.dlgDistSearch = DialogDistSearch(self.mainWindow)
+        self.mainWindow.action_AddDistEdges.trigger()
+        self.dlgDistSearch = self.mainWindow.dlgDistSearch
+        
         lw = self.dlgDistSearch.listWidget        
         # add edges with length 5.514
         data = {"bool": True, "type":0, "dist":5.514, "err":1} 
@@ -243,16 +246,39 @@ class AnimaManagerTest(unittest.TestCase):
       
     def test_AnimManager(self):
         
-        self.dlgExportAnim = QDialogAnimManager(self.mainWindow.ax)
-        # disable animated GraphEdgeEditor artists
-        self.mainWindow.gee.sc_active.set_visible(False)
-        self.mainWindow.gee.new_edge.set_visible(False)
-        # enabele animated GraphEdgeEditor artists
-        self.dlgExportAnim.closed.connect(self.mainWindow.gee.sc_active.set_visible)
-        self.dlgExportAnim.closed.connect(self.mainWindow.gee.new_edge.set_visible)
-
-        # TESTS
+        self.mainWindow.action_ExportAnim.trigger()
+        self.dlgExportAnim = self.mainWindow.dlgExportAnim
         
+        self.dlgExportAnim.btnPause.click()
+        self.dlgExportAnim.btnStart.click()
+
+        # change dpi
+        self.dlgExportAnim.spinBox_dpi.setValue(50)
+        self.assertEqual(self.dlgExportAnim.dpi, 50)
+        # change fps
+        self.dlgExportAnim.spinBox_fps.setValue(10)
+        self.assertEqual(self.dlgExportAnim.fps, 10)
+
+        # change elevation
+        self.dlgExportAnim.spinBox_elev.setValue(10)
+        self.assertEqual(self.dlgExportAnim.elevation, 10)
+        # change rotation period
+        self.dlgExportAnim.spinBox_period_rot.setValue(30)
+        self.assertEqual(self.dlgExportAnim.period_rot, 30)        
+        self.dlgExportAnim.spinBox_period_rot.setValue(3)
+        self.assertEqual(self.dlgExportAnim.period_rot, 3)                
+        
+        # stop
+        self.dlgExportAnim.btnStop.click()
+        # change initial azimut
+        self.dlgExportAnim.spinBox_azim.setValue(-50)
+        self.assertEqual(self.dlgExportAnim.zero_azim, -50)
+
+        # export animation
+        path = os.path.abspath("./latticegraph_designer/test/test")
+        self.dlgExportAnim.lineEdit_name.setText(path)
+        self.dlgExportAnim.btnExport.click()
+
         self.dlgExportAnim.btnClose.click()
 
 
@@ -261,23 +287,44 @@ class CodeEditorTest(unittest.TestCase):
     def setUp(self):
         '''Create the GUI'''
         self.mainWindow = MainWindow(TEXT_MODE=False)
+        self.mainWindow.action_EditXML.trigger()
       
     def test_CodeEditor(self):
-        
-        self.dlgEditXML = DialogEditXML(self.mainWindow)
         
         # insert xml data from another lib and apply
         fn = os.path.abspath('./latticegraph_designer/test/triangular_network.xml')
         with open(fn) as f:
-            self.dlgEditXML.codeEditor.setPlainText(f.read())        
+            self.mainWindow.dlgEditXML.codeEditor.setPlainText(f.read())        
 
-        self.dlgEditXML.buttonBox.button(QDialogButtonBox.Apply).click()
+        self.mainWindow.dlgEditXML.buttonBox.button(QDialogButtonBox.Apply).click()
         # check changes in main window
         self.assertEqual(self.mainWindow.cluster.UC.num_vertices, 96)
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 288)
 
-        self.dlgEditXML.buttonBox.button(QDialogButtonBox.Close).click()
+        self.mainWindow.dlgEditXML.buttonBox.button(QDialogButtonBox.Close).click()
         
+    def test_edge_selection(self):
+                        
+        # select edge from listWidget
+        ind = 0
+        self.mainWindow.listEdges.setCurrentItem(self.mainWindow.listEdges.item(ind))
+        self.assertTrue(self.mainWindow.gee.e_active_ind == ind+1)
+        
+        # select edge from listWidget
+        ind = 5
+        self.mainWindow.listEdges.setCurrentItem(self.mainWindow.listEdges.item(ind))
+        self.assertTrue(self.mainWindow.gee.e_active_ind == ind+1)
+ 
+        # select edge from listWidget
+        ind = 6
+        self.mainWindow.listEdges.setCurrentItem(self.mainWindow.listEdges.item(ind))
+        self.assertTrue(self.mainWindow.gee.e_active_ind is None)
+
+        # move cursor to the bottow of document
+        self.mainWindow.dlgEditXML.codeEditor.moveCursor(QTextCursor.End)
+        
+        self.mainWindow.dlgEditXML.close()
+
 
 if __name__ == "__main__":
     unittest.main()

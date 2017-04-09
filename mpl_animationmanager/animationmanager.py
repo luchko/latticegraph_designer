@@ -167,7 +167,9 @@ class QDialogAnimManager(QDilaog, Ui_QDialogAnimManager):
         self.btnClose.clicked.connect(self.close_callback)
         self.btnShow.clicked.connect(self.show_anim_callback)
         self.btnExport.clicked.connect(self.export_callback)
-               
+        
+        self.lineEdit_name.textChanged.connect(self.fileNameChanged_slot)
+                       
     def rotate(self, i):
         '''called during creation animation frames'''
         
@@ -281,7 +283,7 @@ class QDialogAnimManager(QDilaog, Ui_QDialogAnimManager):
             self.comboBox_writers.addItem(writer)
         if "imagemagick" in w_list:
             self.comboBox_writers.setCurrentIndex(w_list.index("imagemagick"))
-
+            
     def set_extension(self):
         '''set file extension according to chosed VideoWriter'''
         
@@ -292,11 +294,18 @@ class QDialogAnimManager(QDilaog, Ui_QDialogAnimManager):
             self.comboBox_ext.addItem("gif")
         else:
             self.comboBox_ext.addItem("mp4")
-        # set extension in filepath        
-        self.filepath = "{0}.{1}".format(os.path.splitext(self.filepath)[0],
+        # set extension in filepath  
+        self.filepath = "{0}.{1}".format(os.path.splitext(self.lineEdit_name.text())[0],
                                          self.comboBox_ext.currentText()) 
         self.lineEdit_name.setText(self.filepath)
-    
+        
+    def fileNameChanged_slot(self):
+        '''preserve file extension during editing'''
+        
+        pos = self.lineEdit_name.cursorPosition()
+        self.set_extension()
+        self.lineEdit_name.setCursorPosition(pos)
+
     def browse_callback(self):
         '''get the file name where animation will be saved'''
         
