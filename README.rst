@@ -70,7 +70,7 @@ Dependencies
 - in case you use conda type: ``$ conda install pyqt=4`` (or 5)
 - otherwise follow the links `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/installation.html>`_ or `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/installation.html>`_.
 
-**in Order to install all other dependencies type**
+**Install all other dependencies**
 
 ``$ pip install -r requirements.txt``
 
@@ -142,6 +142,8 @@ Running ``unittest``
 After making any changes in the source code you can run ``unitittest`` to make sure that nothing is broken by typing in your command prompt:
 
 	``$ python setup.py test``
+
+**Note:** *In case ALPS library is installed* ``unitittest`` *also checks for ALPS compatibility of the exported xml lib file using ALPS* ``printgraph`` *tool.*
 
 Contacts
 ========
