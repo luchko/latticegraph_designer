@@ -1,9 +1,8 @@
 [run]
 
 omit =
-    # Omit tests
-    */test/*
-
+    *__init__*
+    */test/* 
 
 [report]
 

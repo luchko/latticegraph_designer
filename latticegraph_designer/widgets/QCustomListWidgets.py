@@ -140,39 +140,6 @@ class QCustomListWidget_Add(QWidget):
         self.listWidget.scrollToBottom()
 
 
-class QCustomListWidget_AddRemove(QCustomListWidget_Add):
-    '''QListWidget with customized ItemWidget and add/remove item buttons'''
-
-    def __init__ (self, QCustomWidget, initializationData=[]):
-        """
-        QCustomQWidget - custom widget
-        initializationData  - data for initilaization of QCustomQWidget 
-                              instances
-        """
-        super(QCustomListWidget_AddRemove, self).__init__(QCustomWidget, initializationData)
-         
-        # add control buttons        
-        self.vbox.removeWidget(self.btnAdd)          
-        self.btnAdd.setText("+")
-        sizePolicy = QSizePolicy(QSizePolicy.Maximum,QSizePolicy.Fixed)
-        self.btnAdd.setSizePolicy(sizePolicy)
-        self.btnAdd.setMaximumWidth(40)     
-        self.btnRemove = QPushButton("-")
-        self.btnRemove.setSizePolicy(sizePolicy)
-        self.btnRemove.setMaximumWidth(40)     
-        hbox = QHBoxLayout()
-        hbox.addWidget(self.btnAdd)
-        hbox.addStretch(1)
-        hbox.addWidget(self.btnRemove)
-
-        self.vbox.addLayout(hbox)
-
-        self.btnRemove.clicked.connect(self.remove_item_callback)
-        
-    def remove_item_callback(self):
-        for item in self.listWidget.selectedItems():
-            self.listWidget.takeItem(self.listWidget.row(item))
-
 ##############################################################################
 
 if __name__ == '__main__':

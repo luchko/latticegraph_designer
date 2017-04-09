@@ -81,36 +81,37 @@ class QColorButton(QPushButton):
             self.set_color(dlg.currentColor().name())
             
 
-# test classes
-
-
-def run_test():
-
-    print("\n {} is imported".format(pyQtVersion))
-    # imports requied PyQt modules
-    if pyQtVersion == "PyQt4":
-        from PyQt4.QtGui import QApplication, QSizePolicy
-    else:
-        from PyQt5.QtWidgets import QApplication, QSizePolicy
+##############################################################################
     
-    import sys
-        
-    app = QApplication([])
-            
-    print("\n# run {} test\n".format(QColorButton))
-
-    myBtn = QColorButton()
-    sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-    myBtn.setSizePolicy(sizePolicy)
-    myBtn.setMaximumWidth(10000)     
-    myBtn.setMaximumHeight(10000)
-    myBtn.resize(100,100)
-    myBtn.set_color(u'#00aaff')    
-    myBtn.show()
-
-    sys.exit(app.exec_())
-
-
 if __name__ == '__main__':
+
+    # test classes   
+
+    def run_test():
+    
+        print("\n {} is imported".format(pyQtVersion))
+        # imports requied PyQt modules
+        if pyQtVersion == "PyQt4":
+            from PyQt4.QtGui import QApplication, QSizePolicy
+        else:
+            from PyQt5.QtWidgets import QApplication, QSizePolicy
+        
+        import sys
+            
+        app = QApplication([])
+                
+        print("\n# run {} test\n".format(QColorButton))
+    
+        myBtn = QColorButton()
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        myBtn.setSizePolicy(sizePolicy)
+        myBtn.setMaximumWidth(10000)     
+        myBtn.setMaximumHeight(10000)
+        myBtn.resize(100,100)
+        myBtn.set_color(u'#00aaff')    
+        myBtn.show()
+    
+        sys.exit(app.exec_())
+
     
     run_test()

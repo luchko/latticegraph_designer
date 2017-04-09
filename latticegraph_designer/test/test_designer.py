@@ -124,6 +124,24 @@ class MainWindowTest(unittest.TestCase):
     def setUp(self):
         '''Create the GUI'''
         self.mainWindow = MainWindow(TEXT_MODE=False)
+        
+    
+#    def test_terminalLaunch(self):
+#                
+#        p = subprocess.Popen(['graphdesigner','&'],
+#                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#        
+#        output, error = p.communicate()
+#
+##        p = subprocess.call("graphdesigner", shell=True)
+#        p.kill()            
+#        
+#        if p.returncode == 0:
+#            return output
+#        else:
+#            raise Exception(error)
+#            return "Error"
+        
      
     def test_ImportXML(self):
         
