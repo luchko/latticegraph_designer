@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 """Very weak testing of the basic functionality using unittest and QTest"""
 
+from __future__ import division
+
 __author__ = "Ivan Luchko (luchko.ivan@gmail.com)"
 __version__ = "1.0a1"
 __date__ = "Apr 4, 2017"
@@ -496,8 +498,8 @@ class PreferencesTest(unittest.TestCase):
             # compare gee pref and dialog widgets values
             self.assertEqual(lw.count(), 10)
             # edge linewidth
-            self.assertEqual(self.mainWindow.gee.lw, 
-                             edgePref.sliderSize.value()*7/100)
+            self.assertAlmostEqual(self.mainWindow.gee.lw, 
+                                   edgePref.sliderSize.value()*7/100)
             _type = 4
             data = lw.get_itemData(_type)
             self.assertEqual(self.mainWindow.gee.colors_e[_type], data["color"])
