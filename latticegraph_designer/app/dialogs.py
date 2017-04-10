@@ -760,7 +760,7 @@ class MyWidgetPreferences(WidgetPreferences, Ui_WidgetPreferences):
         self.btn_activateColor = QColorButton()
         self.hbox_colors.insertWidget(7,self.btn_activateColor)    
 
-       # "overload" edgePref/vertPref 
+        # "overload" edgePref/vertPref 
         for prefItem in [self.edgePref, self.vertPref]: 
             self.hbox_pref.removeWidget(prefItem)
             prefItem.setParent(None)

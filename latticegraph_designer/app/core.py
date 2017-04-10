@@ -364,7 +364,7 @@ class ClusterVertices(object):
                     self.lattice.convert_to_Cartesian(vertex.coords)
             self.coords.append(coords)
             count += 1
-
+        
         self.ids = np.array(self.ids, dtype = int)
         self.types = np.array(self.types, dtype = int)
         self.coords = np.vstack(tuple(self.coords))
@@ -573,10 +573,16 @@ class CrystalCluster(object):
 
         self.UC = UC
         self.lattice = lattice
+        self.size = size
+
+        self.initialize_size(size)             
+        self.initialize_atributes()
         
-        self.initialize_size(size)       
+    def initialize_atributes(self):
+        '''generate other cluster atributes like: vertices, edges, lattice, arrows'''
+        
         self.vertices = ClusterVertices(self.UC, self.lattice, self.size)
-        self.edges = ClusterEdges(self.UC,self.vertices,self.lattice,self.size)        
+        self.edges = ClusterEdges(self.UC, self.vertices, self.lattice, self.size)        
         self.sitesCoord = self.lattice.get_finite_lattice_sites(self.size)
         self.generate_lattice()
         self.generate_arrow()
@@ -626,10 +632,10 @@ class CrystalCluster(object):
         self.generate_lattice()
         self.generate_arrow()
     
-    def import_fromFile(self, fileNameXML, LATTICEGRAPH_name):
+    def import_fromFile(self, fileName, LATTICEGRAPH_name):
         '''initialize cluster by importing data from file'''
 		
-        parser = ParseXML(fileName = fileNameXML)
+        parser = ParseXML(fileName = fileName)
         self.lattice, self.UC = parser.parse_LATTICEGRAPH(LATTICEGRAPH_name)
         self.initialize_atributes()
 			

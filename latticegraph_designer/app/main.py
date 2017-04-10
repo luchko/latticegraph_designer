@@ -401,7 +401,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.msb_noActiveEdge.exec_()            
         else:
             self.dlg = DialogChangeEdgeType(self)
-            self.dlg.exec_()
+            self.dlg.show()
  
     def delteEdge_callback(self):
         '''delete selected edge'''        

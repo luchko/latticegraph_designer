@@ -34,7 +34,7 @@ from latticegraph_designer.app.dialogs import (DialogImportCryst, DialogDistSear
 from mpl_animationmanager import QDialogAnimManager
 app = QApplication(sys.argv)
 
-test_folder = "latticegraph_designer/test/"
+test_folder = "./latticegraph_designer/test/"
 
 def printgraph(libFile):
     
@@ -237,9 +237,7 @@ class GraphEdgesEditorTest(unittest.TestCase):
             self.assertTrue(elem.get_visible() != _bool)
 
     def test_mouseMoution(self):
-        
-        # REQUIRE MORE DEVELOPMENT
-        
+                
         self.setUp()
         self.gee.clearEdges_callback() 
         canvas = self.fig.canvas
@@ -261,13 +259,58 @@ class GraphEdgesEditorTest(unittest.TestCase):
         self.assertEqual(self.gee.UC.num_edges, 1)
         self.assertEqual(self.gee.e_active_ind, 1)
         
-    
+        # REQUIRE MORE DEVELOPMENT
+        
+    def test_USE_COLLECTIONS(self):
+        '''testing the usage of lineCollection for depicting edges'''
+
+        GraphEdgesEditor.USE_COLLECTIONS = True
+        self.setUp()
+        try:
+            self.assertEqual(self.gee.UC.num_vertices, 2)        
+            self.assertEqual(self.gee.UC.num_edges, 6)        
+            self.assertEqual(len(self.ax.artists), 6+1) # arrows + new edge
+            self.assertEqual(len(self.gee.edges_lines), 6)
+            # collections: vertices, lattice, edges
+            self.assertEqual(len(self.ax.collections), 1+1+6) 
+
+        except:  # we have to  set USE_COLLECTIONS=False for other tests
+            GraphEdgesEditor.USE_COLLECTIONS = False
+            raise
+            
+        finally:    
+            GraphEdgesEditor.USE_COLLECTIONS = False
+
+    def test_xml_ImportExport(self):
+        
+        self.setUp()
+        
+        # export to lib
+        fn = test_folder+"test_coreExport.xml"
+        self.cluster.export_toFile(fileName = fn, LATTICEGRAPH_name = "test")       
+        self.gee.clearEdges_callback() 
+        self.assertEqual(self.gee.UC.num_vertices, 2)        
+        self.assertEqual(self.gee.UC.num_edges, 0)        
+        
+        # import from lib
+        self.cluster.import_fromFile(fileName = fn, LATTICEGRAPH_name = "test")
+        self.fig = plt.figure()
+        self.ax = self.fig.gca(projection='3d')  # same as ax = Axes3D(fig)    
+        self.gee = GraphEdgesEditor(self.ax, self.cluster, display_report=True)
+        
+        # check initialization
+        self.assertEqual(self.gee.UC.num_vertices, 2)        
+        self.assertEqual(self.gee.UC.num_edges, 6)        
+        self.assertEqual(len(self.ax.artists), 6+1+4*4+4*3) # arrows + new edge + edges
+        self.assertEqual(len(self.gee.edges_lines), 28)
+
+
      
 class MainWindowTest(unittest.TestCase):
     '''Test the MainWindow GUI'''
     def setUp(self):
         '''Create the GUI'''
-        self.mainWindow = MainWindow(TEXT_MODE=False)
+        self.mainWindow = MainWindow(TEXT_MODE=True)
            
 #    def test_terminalLaunch(self):
 #                
@@ -286,11 +329,23 @@ class MainWindowTest(unittest.TestCase):
 #            return "Error"       
      
     def test_ImportXML(self):
-        
+                
         fn_input = os.path.abspath(test_folder+"testLib_input.xml")
         self.mainWindow.importXML_fromFile(fn_input)
         self.assertEqual(self.mainWindow.cluster.UC.num_vertices, 2)
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 6)
+
+    def test_ImportFromALPS_lib(self):
+        
+        fn_input = os.path.abspath(test_folder+"testALPS_lib.xml")
+        self.mainWindow.importXML_fromFile(fn_input)
+        listLG = self.mainWindow.dlgSelectLG.list_LG_names
+        self.assertEqual(listLG.count(), 31)
+        cluster = None
+        for j in range(listLG.count()):
+            listLG.setCurrentItem(listLG.item(j))
+            self.assertTrue(self.mainWindow.cluster is not cluster)
+            cluster = self.mainWindow.cluster
 
     def test_ImportCIF(self):
         
@@ -323,21 +378,26 @@ class MainWindowTest(unittest.TestCase):
         # add edges with length 5.514
         data = {"bool": True, "type":0, "dist":5.514, "err":1} 
         lw.itemWidget(lw.item(0)).set_data(data)
-        self.dlgDistSearch.search_callback()
+        self.dlgDistSearch.btnSearch.click()
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 16)
         # add edges with length 7.55        
         data = {"bool": True, "type":1, "dist":7.55, "err":0.1} 
         lw.itemWidget(lw.item(1)).set_data(data)
-        self.dlgDistSearch.search_callback()
+        self.dlgDistSearch.btnSearch.click()
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 16+4)
+        # test adding new item
+        self.assertEqual(lw.count(), 3)
+        self.dlgDistSearch.btnAdd.click()
+        self.assertEqual(lw.count(), 4)
         # select edges
         lw.setCurrentItem(lw.item(1))
         self.assertEqual(len(self.mainWindow.gee.e_activeDist_ids), 4)
         lw.setCurrentItem(lw.item(0))
         self.assertEqual(len(self.mainWindow.gee.e_activeDist_ids), 16)
         # delete selected edges
-        self.dlgDistSearch.remove_item_callback()
+        self.dlgDistSearch.btnRemove.click()
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 4)
+        self.dlgDistSearch.btnClose.click()
         # export to XML lib
         self.ExportXML(os.path.abspath(test_folder+"testLib_output.xml"))        
  
@@ -382,31 +442,80 @@ class MainWindowTest(unittest.TestCase):
         self.mainWindow.btnChangeType.click()
         self.assertEqual(self.mainWindow.UC.edges[_id].type, new_type)
         
+        # test changing the type using menu action and dialog
+
+        # select edge from listWidget
+        ind, _id = 2, 3
+        self.mainWindow.listEdges.setCurrentItem(self.mainWindow.listEdges.item(ind))
+        self.assertTrue(self.mainWindow.gee.e_active_ind == _id)
+        current_type = self.mainWindow.UC.edges[_id].type
+        # open change type dialog and test cancel
+        self.mainWindow.action_ChangeType.trigger()
+        self.assertEqual(self.mainWindow.dlg.spinBox_current.value(), current_type)
+        self.assertEqual(self.mainWindow.dlg.spinBox_new.value(), current_type)
+        new_type = 7
+        self.mainWindow.dlg.spinBox_new.setValue(new_type)
+        self.mainWindow.dlg.btnCancel.click()
+        self.assertEqual(self.mainWindow.UC.edges[_id].type, current_type)
+        # open change type dialog and test ok
+        self.mainWindow.action_ChangeType.trigger()
+        self.assertEqual(self.mainWindow.dlg.spinBox_current.value(), current_type)
+        self.assertEqual(self.mainWindow.dlg.spinBox_new.value(), current_type)
+        self.mainWindow.dlg.spinBox_new.setValue(new_type)
+        self.mainWindow.dlg.btnOk.click()
+        self.assertEqual(self.mainWindow.UC.edges[_id].type, new_type)
+        
 
 class PreferencesTest(unittest.TestCase):
     '''Test the Preferences manager'''
     def setUp(self):
         '''Create the GUI'''
         self.mainWindow = MainWindow(TEXT_MODE=False)
-     
-    def test_defaults(self):
-        pass
  
     def test_PrefManager(self):
         
-        self.dlgPref = MyDialogPreferences(parent = self.mainWindow)
-        self.dlgPref.applySignal.connect(self.mainWindow.applyPref_callback)
-        self.mainWindow.arrowsVisibleChanged.connect(self.dlgPref.prefWidget.checkBox_arrows.setChecked)
-        self.mainWindow.latticeVisibleChanged.connect(self.dlgPref.prefWidget.checkBox_lattice.setChecked)       
+        self.mainWindow.action_Pref.trigger()
+        dlgPref = self.mainWindow.dlgPref
+        dlgPref.btnDefaults.click()
+        edgePref = dlgPref.prefWidget.edgePref
+        lw = edgePref.listWidget
+
+        try:
+            # compare gee pref and dialog widgets values
+            self.assertEqual(lw.count(), 10)
+            # edge linewidth
+            self.assertEqual(self.mainWindow.gee.lw, 
+                             edgePref.sliderSize.value()*7/100)
+            _type = 4
+            data = lw.get_itemData(_type)
+            self.assertEqual(self.mainWindow.gee.colors_e[_type], data["color"])
+            self.assertEqual(self.mainWindow.gee.visible_e[_type], data["bool"])
+            
+            #change theme but not apply
+            dlgPref.comboBox.setCurrentIndex(2)
+    
+            _type = 4
+            data = lw.get_itemData(_type)
+            data['bool'] = False
+            lw.set_itemData(_type, data)
+            self.assertNotEqual(self.mainWindow.gee.colors_e[_type], data["color"])
+            self.assertNotEqual(self.mainWindow.gee.visible_e[_type], data["bool"])
+            
+            # add new preference item to the list
+            edgePref.btnAdd.click()
+            self.assertEqual(lw.count(), 11)
+            _type = 10
+            data = lw.get_itemData(_type)
+            
+            # Apply and check changes in gee prefs
+            dlgPref.btnApply.click()
+            self.assertEqual(self.mainWindow.gee.colors_e[_type], data["color"])
+            self.assertEqual(self.mainWindow.gee.visible_e[_type], data["bool"])
         
-        self.dlgPref.change_theme_callback(2)
-        # check chnages in widget
-        self.dlgPref.btnApply.click()
-        # check changes in main
-        
-        self.dlgPref.btnDefaults.click()
-        # check changes
-        self.dlgPref.btnClose.click()
+        finally:
+            dlgPref.btnDefaults.click()
+            # check changes
+            dlgPref.btnClose.click()
 
 
 class AnimaManagerTest(unittest.TestCase):
@@ -446,7 +555,7 @@ class AnimaManagerTest(unittest.TestCase):
         self.assertEqual(self.dlgExportAnim.zero_azim, -50)
 
         # export animation
-        path = os.path.abspath("./latticegraph_designer/test/test")
+        path = os.path.abspath(test_folder+"test")
         self.dlgExportAnim.lineEdit_name.setText(path)
         self.dlgExportAnim.btnExport.click()
 
@@ -464,7 +573,7 @@ class CodeEditorTest(unittest.TestCase):
         self.mainWindow.action_EditXML.trigger()
 
         # insert xml data from another lib and apply
-        fn = os.path.abspath('./latticegraph_designer/test/triangular_network.xml')
+        fn = os.path.abspath(test_folder+'triangular_network.xml')
         with open(fn) as f:
             self.mainWindow.dlgEditXML.codeEditor.setPlainText(f.read())        
 

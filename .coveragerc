@@ -3,8 +3,38 @@
 omit =
     *__init__*
     */test/* 
+   # *QColorButton*
 
 [report]
 
+# also exclude part of code that contain modal dialog call
 exclude_lines =
+
     if __name__ == .__main__.:
+    
+    pragma: no cover
+    
+    #required for dealing with modal QFileDialog
+    def getPathString
+    
+    # exclude parts of code from app.core module
+    
+    def __str__
+    
+    # exclude parts of code from app.dialogs module
+
+    # is called as modal dialog
+    class QNotImplemented
+    # is called as modal dialog
+    class DialogExportLG
+    # contain QFondDialog
+    def changeFont_callback
+    # contain  QFileDialog.getOpenFileName
+    def process_cif_callback
+    # site selection dlg is modal
+    def select_all
+    raise ValueError
+    
+    # contain QColorDialog
+    def onColorPicker
+    
