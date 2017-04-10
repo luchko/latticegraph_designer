@@ -355,8 +355,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                                         filter="Images (*.png *.xpm *.jpg);;All files (*.*)")
         path = getPathString(output)
         if path != '':
-            self.canvas.print_figure(path, dpi=self.dpi, bbox_inches='tight', pad_inches=0)
-            self.statusBar().showMessage('Saved to %s' % path, 2000)
+            self.exportIMG(path)
+
+    def exportIMG(self, path):
+        '''Savve image of the Heisenberg model (lattice graph)'''
+                
+        self.canvas.print_figure(path, dpi=self.dpi, bbox_inches='tight', pad_inches=0)
+        self.statusBar().showMessage('Saved to %s' % path, 2000)
     
     def exportAnim_callback(self):
         '''animate lattice graph mpl_pane and open animation manager'''

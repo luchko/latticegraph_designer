@@ -295,7 +295,7 @@ class QDialogAnimManager(QDilaog, Ui_QDialogAnimManager):
         else:
             self.comboBox_ext.addItem("mp4")
         # set extension in filepath  
-        self.filepath = "{0}.{1}".format(os.path.splitext(self.lineEdit_name.text())[0],
+        self.filepath = "{0}.{1}".format(os.path.splitext(str(self.lineEdit_name.text()))[0],
                                          self.comboBox_ext.currentText()) 
         self.lineEdit_name.setText(self.filepath)
         

@@ -23,6 +23,17 @@ exclude_lines =
     
     # exclude parts of code from app.dialogs module
 
+    # contain  QFileDialog.getOpenFileName    
+    def importXMLdlg_callback
+    # contain  QFileDialog.getSaveFileName
+    def saveXML_as_callback
+    # contain  QFileDialog.getSaveFileName
+    def exportIMG_callback
+    def about_callback
+    def doc_callback
+    
+    # exclude parts of code from app.dialogs module
+
     # is called as modal dialog
     class QNotImplemented
     # is called as modal dialog

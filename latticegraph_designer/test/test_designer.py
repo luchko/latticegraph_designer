@@ -349,8 +349,9 @@ class MainWindowTest(unittest.TestCase):
 
     def test_ImportCIF(self):
         
-        fn_cif = os.path.abspath(test_folder+"test.cif")        
-        self.dlgImportCryst = DialogImportCryst(self.mainWindow)
+        fn_cif = os.path.abspath(test_folder+"test.cif")  
+        self.mainWindow.action_ImportCryst.trigger()
+        self.dlgImportCryst = self.mainWindow.dlgImportCryst
         self.dlgImportCryst.process_cif(fn_cif, TESTING=True)
         
         self.assertAlmostEqual(float(self.dlgImportCryst.lineEdit_a.text()), 20.753)
@@ -415,6 +416,11 @@ class MainWindowTest(unittest.TestCase):
         self.ExportXML(fn_output)        
         fn_benchmark = os.path.abspath(test_folder+"testLib_output_benchmark.xml")
         self.assertEqual(printgraph(fn_output), printgraph(fn_benchmark))
+        
+    def test_ExportIMG(self):
+    
+        self.mainWindow.exportIMG(test_folder+"test.png")
+        self.assertTrue(os.path.exists(test_folder+"test.png"))
 
     def test_resetSize(self):
         
@@ -465,6 +471,12 @@ class MainWindowTest(unittest.TestCase):
         self.mainWindow.dlg.btnOk.click()
         self.assertEqual(self.mainWindow.UC.edges[_id].type, new_type)
         
+    def test_changeTEXT_MODE(self):
+        
+        _bool = self.mainWindow.TEXT_MODE
+        self.mainWindow.radioButton_output.toggle()
+        self.assertTrue(self.mainWindow.TEXT_MODE != _bool)
+
 
 class PreferencesTest(unittest.TestCase):
     '''Test the Preferences manager'''
@@ -558,8 +570,11 @@ class AnimaManagerTest(unittest.TestCase):
         path = os.path.abspath(test_folder+"test")
         self.dlgExportAnim.lineEdit_name.setText(path)
         self.dlgExportAnim.btnExport.click()
+        self.assertTrue(os.path.exists(test_folder+"test.gif")
+                        or os.path.exists(test_folder+"test.mp4"))
 
         self.dlgExportAnim.btnClose.click()
+        
 
 
 class CodeEditorTest(unittest.TestCase):
