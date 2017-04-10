@@ -1,7 +1,6 @@
 Lattice graph designer 1.0a1
 **************************************
 
-
 .. image:: https://img.shields.io/pypi/v/latticegraph_designer.svg
         :target: https://pypi.python.org/pypi/latticegraph-designer
         :alt: PyPi
