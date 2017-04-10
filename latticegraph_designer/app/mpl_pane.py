@@ -430,7 +430,7 @@ class GraphEdgesEditor(object):
 
     def button_release_callback(self, event):
         'whenever a mouse button is released'
-        
+                
         if self.v_source_ind is not None: # new Edge was Drawing     
             self.ax.mouse_init(rotate_btn=1) # enable mouse rotation            
             # check if new edge was created
@@ -447,10 +447,10 @@ class GraphEdgesEditor(object):
         elif self.isRotated: # Axes3D was rotated
             self.update_XY_scr()
             self.isRotated = False
-        
+            
         # Axes3D was not rotated             
         # deactivate active edge if no new edge is selected
-        elif self.e_ind is None and self.e_active_ind is not None:      
+        elif self.e_ind is None and self.e_active_ind is not None:  
             color = self.colors_e[self.UC.edges[self.e_active_ind].type]
             self.reset_active_e_color(color, self.lw)                    
             self.e_active_ind = None
@@ -460,7 +460,6 @@ class GraphEdgesEditor(object):
                 print(" active edge unselected")                    
                 
         self.buttonHold = False
-
             
     def set_visible(self, elements_list, boolVisible):
         '''set visibility of artists in elements_list'''

@@ -62,71 +62,192 @@ H=2'''.format(libFile)
             raise Exception(error)
             return "Error"
 
+from latticegraph_designer.app.core import Vertex, Edge, UnitCell, Lattice, CrystalCluster
+from latticegraph_designer.app.mpl_pane import GraphEdgesEditor
+from matplotlib.backend_bases import KeyEvent, MouseEvent
+from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 class GraphEdgesEditorTest(unittest.TestCase):
     '''Test the mpl_pane functionality'''
     def setUp(self):
-        
-        from latticegraph_designer.app.core import Vertex, UnitCell, Lattice, CrystalCluster
-        from latticegraph_designer.app.mpl_pane import GraphEdgesEditor
-#        import matplotlib
-#        matplotlib.use('Agg')
-        import matplotlib.pyplot as plt
-        import numpy as np
-        
+                
         lattice = Lattice(basisMatrix=np.array([[1,0,0],[0,1,0],[0,0,1.3]]).T)
         self.UC = UnitCell()
         self.UC.add_vertex(Vertex(0,0,[0.2,0.2,0.2]))
         self.UC.add_vertex(Vertex(0,0,[0.3,0.3,0.6]))
+        self.UC.add_edge(Edge(0,1,(1,2),(0,0,0)))
+        self.UC.add_edge(Edge(0,2,(2,1),(0,0,1)))
+        self.UC.add_edge(Edge(0,0,(1,1),(1,0,0)))
+        self.UC.add_edge(Edge(0,0,(1,1),(0,1,0)))
+        self.UC.add_edge(Edge(0,0,(2,2),(1,0,0)))
+        self.UC.add_edge(Edge(0,0,(2,2),(0,1,0)))
         
         self.cluster = CrystalCluster(self.UC,lattice,(2,2,2))    
-        self.fig = plt.figure('Graph edges editor', figsize=(5,5), dpi=100)
+        self.fig = plt.figure()
         self.ax = self.fig.gca(projection='3d')  # same as ax = Axes3D(fig)    
         self.gee = GraphEdgesEditor(self.ax, self.cluster, display_report=False)
         
+    def test_setUp(self):
+
+        self.setUp()        
+        self.assertEqual(self.gee.UC.num_vertices, 2)        
+        self.assertEqual(self.gee.UC.num_edges, 6)        
+        self.assertEqual(len(self.ax.artists), 6+1+4*4+4*3) # arrows + new edge + edges
+        self.assertEqual(len(self.gee.edges_lines), 28)
+
     def test_clear(self):
-
+        
+        self.setUp()
         self.gee.clearEdges_callback()
+        
         self.assertEqual(self.gee.UC.num_edges, 0)
-#        self.assertEqual(len(self.ax.artists), 9)
-
+        self.assertEqual(len(self.ax.artists), 6+1) # arrows + new edge
+        self.assertEqual(len(self.gee.edges_lines), 0)
+ 
     def addEdge(self, source, target):
 
         self.gee.v_source_ind = source
         self.gee.v_target_ind = target       
         self.gee.add_edge()
+
+    def test_addRemoveEdges(self):
         
-    def test_addEdges(self):
+        self.setUp()
+        self.gee.clearEdges_callback()
         
-        self.test_clear()
         self.addEdge(0, 8)
         self.assertEqual(self.gee.UC.num_edges, 1)
+        self.assertEqual(len(self.gee.edges_lines), 8)
+        self.assertEqual(len(self.ax.artists), 6+1+8)
+
         self.addEdge(0, 4)
         self.assertEqual(self.gee.UC.num_edges, 2)
-#        self.assertEqual(len(self.ax.artists), 9)
-                
-    def test_searchActiveDistEdge(self):
-
-        self.test_addEdges()
-        self.gee.e_active_ind = 2
-        self.gee.searchActiveDistEdge_callback()
-        self.assertEqual(self.gee.UC.num_edges, 5)
-
-    def test_delete(self):
-        
-        self.test_addEdges()
-        self.gee.e_active_ind = 1
+        self.assertEqual(len(self.gee.edges_lines), 8+4)
+        self.assertEqual(len(self.ax.artists), 6+1+8+4)
+  
+        self.gee.select_edge(1)
         self.gee.delete_active_edge_callback()
         self.assertEqual(self.gee.UC.num_edges, 1)
+        self.assertEqual(len(self.gee.edges_lines), 4)
+        self.assertEqual(len(self.ax.artists), 6+1+4)
+  
+    def test_edgeSelection(self):
+        
+        self.setUp()
+        self.gee.clearEdges_callback()       
+        self.addEdge(0, 8)
+        self.addEdge(0, 4)        
+ 
+        # select edge
+        _id = 2
+        self.gee.select_edge(_id)
+        self.assertTrue(self.gee.e_active_ind == _id)
+        for j in self.gee.edges.array_ind[_id]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == self.gee.color_active)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw_active)
+        
+        # test unselect edge
+        self.gee.select_edge(None)
+        color = self.gee.colors_e[self.UC.edges[_id].type]
+        for j in self.gee.edges.array_ind[_id]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == color)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
+       
+        # test edge unselection by selecting another edge
+        self.gee.select_edge(_id)
+        id_new = 1
+        self.gee.select_edge(id_new)
+        self.assertTrue(self.gee.e_active_ind == id_new)
+        for j in self.gee.edges.array_ind[id_new]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == self.gee.color_active)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw_active)
 
+        color = self.gee.colors_e[self.UC.edges[_id].type]
+        for j in self.gee.edges.array_ind[_id]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == color)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
 
+        # test edge unselection by click on empty spot
+        
+        self.fig.canvas.button_press_event(x=20, y=20, button=1)
+        self.fig.canvas.button_release_event(x=20, y=20, button=1)
+
+        self.assertTrue(self.gee.e_active_ind is None)
+        color = self.gee.colors_e[self.UC.edges[id_new].type]
+        for j in self.gee.edges.array_ind[id_new]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == color)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
+        
+    def test_searchActiveDistEdge(self):
+
+        self.setUp()
+        self.gee.clearEdges_callback()        
+        self.addEdge(0, 8)
+        self.addEdge(0, 4)
+
+        self.assertEqual(self.gee.UC.num_edges, 1+1)
+        self.assertEqual(len(self.gee.edges_lines), 8+4)
+        self.assertEqual(len(self.ax.artists), 6+1+8+4)
+
+        self.gee.select_edge(2)
+        self.gee.searchActiveDistEdge_callback()
+        self.assertEqual(self.gee.UC.num_edges, 1+4) # 4 edges simmilar to 2 found
+        self.assertEqual(len(self.gee.edges_lines), 8+4*4)
+        self.assertEqual(len(self.ax.artists), 6+1+8+4*4)
+
+    def test_keyBindings(self):
+                
+        self.setUp()
+
+        canvas = self.fig.canvas
+        
+        # test ctrl+numKey - change active edge type to numkey
+        _id, new_type = 2, 5
+        self.gee.select_edge(_id)
+        canvas.key_press_event('ctrl+{}'.format(new_type))        
+        self.gee.select_edge(None)
+        self.assertTrue(self.UC.edges[_id].type == new_type)
+        color = self.gee.colors_e[new_type]
+        for j in self.gee.edges.array_ind[_id]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == color)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
+
+        canvas.key_press_event('delete')        
+        
+        canvas.key_press_event('shift+delete') 
+        
+        canvas.key_press_event('ctrl+d')        
+
+        _bool = self.gee.display_report
+        canvas.key_press_event('t')        
+        self.assertTrue(self.gee.display_report != _bool)
+
+        _bool = self.gee.display_lattice
+        canvas.key_press_event('n')        
+        self.assertTrue(self.gee.display_lattice != _bool)
+        self.assertTrue(self.gee.latticeNet.get_visible() != _bool)
+
+        _bool = self.gee.display_arrows
+        canvas.key_press_event('m')        
+        self.assertTrue(self.gee.display_arrows != _bool)
+        for elem in self.gee.arrows:
+            self.assertTrue(elem.get_visible() != _bool)
+
+    def test_mouseMoution(self):
+        
+        # REQUIRE MORE DEVELOPMENT
+
+        self.fig.canvas.motion_notify_event(x=30, y=30)
+        
 class MainWindowTest(unittest.TestCase):
     '''Test the MainWindow GUI'''
     def setUp(self):
         '''Create the GUI'''
         self.mainWindow = MainWindow(TEXT_MODE=False)
-        
-    
+           
 #    def test_terminalLaunch(self):
 #                
 #        p = subprocess.Popen(['graphdesigner','&'],
@@ -141,8 +262,7 @@ class MainWindowTest(unittest.TestCase):
 #            return output
 #        else:
 #            raise Exception(error)
-#            return "Error"
-        
+#            return "Error"       
      
     def test_ImportXML(self):
         
@@ -211,6 +331,32 @@ class MainWindowTest(unittest.TestCase):
         fn_benchmark = os.path.abspath(test_folder+"testLib_output_benchmark.xml")
         self.assertEqual(printgraph(fn_output), printgraph(fn_benchmark))
 
+    def test_resetSize(self):
+        
+        self.test_ImportXML()
+        self.assertEqual(len(self.mainWindow.gee.ax.artists), 1+6+4*4+4*3)
+        self.mainWindow.spinBox_sizeL.setValue(3)
+        self.assertEqual(len(self.mainWindow.gee.ax.artists), 1+6+4*7+6*3)
+        
+        self.mainWindow.spinBox_sizeW.setValue(3)
+        self.assertEqual(len(self.mainWindow.gee.ax.artists), 1+6+4*12+9*3)
+        
+        self.mainWindow.spinBox_sizeH.setValue(3)
+        self.assertEqual(len(self.mainWindow.gee.ax.artists), 1+6+6*12+9*5)
+
+    def test_changeEdgeType(self):
+        
+        self.test_ImportXML()
+        # select edge from listWidget
+        ind, _id = 1, 2
+        self.mainWindow.listEdges.setCurrentItem(self.mainWindow.listEdges.item(ind))
+        self.assertTrue(self.mainWindow.gee.e_active_ind == _id)
+
+        new_type = 5
+        self.mainWindow.spinBox_type.setValue(new_type)
+        self.mainWindow.btnChangeType.click()
+        self.assertEqual(self.mainWindow.UC.edges[_id].type, new_type)
+        
 
 class PreferencesTest(unittest.TestCase):
     '''Test the Preferences manager'''
@@ -287,10 +433,11 @@ class CodeEditorTest(unittest.TestCase):
     def setUp(self):
         '''Create the GUI'''
         self.mainWindow = MainWindow(TEXT_MODE=False)
-        self.mainWindow.action_EditXML.trigger()
       
     def test_CodeEditor(self):
         
+        self.mainWindow.action_EditXML.trigger()
+
         # insert xml data from another lib and apply
         fn = os.path.abspath('./latticegraph_designer/test/triangular_network.xml')
         with open(fn) as f:
@@ -305,6 +452,8 @@ class CodeEditorTest(unittest.TestCase):
         
     def test_edge_selection(self):
                         
+        self.mainWindow.action_EditXML.trigger()
+
         # select edge from listWidget
         ind = 0
         self.mainWindow.listEdges.setCurrentItem(self.mainWindow.listEdges.item(ind))

@@ -256,15 +256,6 @@ class UnitCell(object):
         self.num_edges = 0
         self.new_id = 1
 
-    def insideUnitCell(self, site, i):
-        '''Returns "True" if site is inside the UC box (i=1) or 4UC box (i=0)'''
-        
-        x,y,z = site
-        if i==0: 
-            return (-1<=x<1)and(-1<=y<1)and(-1<=z<1)
-        else:
-            return (0<=x<1)and(0<=y<1)and(0<=z<1)
-
     def get_min_ndigits(self, site):
         '''returns the minimum number of digits after dot for list of floats'''
         
