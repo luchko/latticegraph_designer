@@ -88,7 +88,7 @@ class GraphEdgesEditorTest(unittest.TestCase):
         self.cluster = CrystalCluster(self.UC,lattice,(2,2,2))    
         self.fig = plt.figure()
         self.ax = self.fig.gca(projection='3d')  # same as ax = Axes3D(fig)    
-        self.gee = GraphEdgesEditor(self.ax, self.cluster, display_report=False)
+        self.gee = GraphEdgesEditor(self.ax, self.cluster, display_report=True)
         
     def test_setUp(self):
 
@@ -239,9 +239,30 @@ class GraphEdgesEditorTest(unittest.TestCase):
     def test_mouseMoution(self):
         
         # REQUIRE MORE DEVELOPMENT
-
-        self.fig.canvas.motion_notify_event(x=30, y=30)
         
+        self.setUp()
+        self.gee.clearEdges_callback() 
+        canvas = self.fig.canvas
+        
+        # create edge that connect vertices with source_ind and target_ind
+        source_ind = 0
+        x_data, y_data = self.gee.x_scr[source_ind], self.gee.y_scr[source_ind]
+        canvas.motion_notify_event(x=x_data, y=y_data)
+        self.assertTrue(self.gee.v_active_ind == source_ind)
+        canvas.motion_notify_event(x=30, y=30)
+        canvas.motion_notify_event(x=x_data, y=y_data)  
+        canvas.button_press_event(x=x_data, y=x_data, button=1)
+        
+        target_ind = 8
+        x_data, y_data = self.gee.x_scr[target_ind], self.gee.y_scr[target_ind]
+        canvas.motion_notify_event(x=30, y=30)
+        canvas.motion_notify_event(x=x_data, y=y_data)  
+        canvas.button_release_event(x=x_data, y=y_data, button=1)
+        self.assertEqual(self.gee.UC.num_edges, 1)
+        self.assertEqual(self.gee.e_active_ind, 1)
+        
+    
+     
 class MainWindowTest(unittest.TestCase):
     '''Test the MainWindow GUI'''
     def setUp(self):
@@ -308,9 +329,13 @@ class MainWindowTest(unittest.TestCase):
         data = {"bool": True, "type":1, "dist":7.55, "err":0.1} 
         lw.itemWidget(lw.item(1)).set_data(data)
         self.dlgDistSearch.search_callback()
-        self.assertEqual(self.mainWindow.cluster.UC.num_edges, 20)
-        # delete selected edges
+        self.assertEqual(self.mainWindow.cluster.UC.num_edges, 16+4)
+        # select edges
+        lw.setCurrentItem(lw.item(1))
+        self.assertEqual(len(self.mainWindow.gee.e_activeDist_ids), 4)
         lw.setCurrentItem(lw.item(0))
+        self.assertEqual(len(self.mainWindow.gee.e_activeDist_ids), 16)
+        # delete selected edges
         self.dlgDistSearch.remove_item_callback()
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 4)
         # export to XML lib

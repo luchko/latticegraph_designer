@@ -343,7 +343,7 @@ class GraphEdgesEditor(object):
     def getMouseXYZ(self, event):
         '''return xyz of the mouse in 3D space (like in coord_string)'''
         
-        s = self.ax.format_coord(event.xdata,event.ydata)
+        s = self.ax.format_coord(event.xdata, event.ydata)
         
         return tuple(float(a[a.find('=')+1:]) for a in s.split(','))   
 
