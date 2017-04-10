@@ -67,7 +67,6 @@ H=2'''.format(libFile)
 from latticegraph_designer.app.core import Vertex, Edge, UnitCell, Lattice, CrystalCluster
 from latticegraph_designer.app.mpl_pane import GraphEdgesEditor
 from matplotlib.backend_bases import KeyEvent, MouseEvent
-from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -226,6 +225,7 @@ class GraphEdgesEditorTest(unittest.TestCase):
         _bool = self.gee.display_report
         canvas.key_press_event('t')        
         self.assertTrue(self.gee.display_report != _bool)
+        canvas.key_press_event('t')        
 
         _bool = self.gee.display_lattice
         canvas.key_press_event('n')        
@@ -261,6 +261,12 @@ class GraphEdgesEditorTest(unittest.TestCase):
         self.assertEqual(self.gee.UC.num_edges, 1)
         self.assertEqual(self.gee.e_active_ind, 1)
         
+        canvas.motion_notify_event(x=20, y=20)
+        canvas.button_press_event(x=20, y=20, button=1)
+        canvas.button_release_event(x=20, y=20, button=1)
+
+        # simulate rotatation 
+       
         # REQUIRE MORE DEVELOPMENT
         
     def test_USE_COLLECTIONS(self):
@@ -276,6 +282,33 @@ class GraphEdgesEditorTest(unittest.TestCase):
             # collections: vertices, lattice, edges
             self.assertEqual(len(self.ax.collections), 1+1+6) 
 
+            # select edge
+            _id = 3
+            self.gee.select_edge(_id)
+            self.assertTrue(self.gee.e_active_ind == _id)
+
+            # remove edge
+            self.gee.delete_active_edge_callback()
+            self.assertEqual(self.gee.UC.num_edges, 5)
+            self.assertEqual(len(self.gee.edges_lines), 5)
+            # collections: vertices, lattice, edges
+            self.assertEqual(len(self.ax.collections), 1+1+5) 
+
+            # clear edges
+            self.gee.clearEdges_callback()
+            self.assertEqual(self.gee.UC.num_edges, 0)        
+            self.assertEqual(len(self.ax.artists), 6+1) # arrows + new edge
+            self.assertEqual(len(self.gee.edges_lines), 0)
+            # collections: vertices, lattice, edges
+            self.assertEqual(len(self.ax.collections), 1+1+0) 
+            
+            # add edge
+            self.addEdge(0, 4)
+            self.assertEqual(self.gee.UC.num_edges, 1)
+            self.assertEqual(len(self.gee.edges_lines), 1)
+            # collections: vertices, lattice, edges
+            self.assertEqual(len(self.ax.collections), 1+1+1) 
+                  
         except:  # we have to  set USE_COLLECTIONS=False for other tests
             GraphEdgesEditor.USE_COLLECTIONS = False
             raise
@@ -478,7 +511,8 @@ class MainWindowTest(unittest.TestCase):
         _bool = self.mainWindow.TEXT_MODE
         self.mainWindow.radioButton_output.toggle()
         self.assertTrue(self.mainWindow.TEXT_MODE != _bool)
-
+        self.mainWindow.radioButton_output.toggle()
+ 
 
 class PreferencesTest(unittest.TestCase):
     '''Test the Preferences manager'''
