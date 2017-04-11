@@ -21,6 +21,11 @@ exclude_lines =
     
     pragma: no cover
     
+    .exec()_
+    
+    # suppres includig the app launch into report
+    def run
+    
     #required for dealing with modal QFileDialog
     def getPathString
     
