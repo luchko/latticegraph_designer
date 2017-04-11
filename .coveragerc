@@ -53,6 +53,9 @@ exclude_lines =
     def select_all
     raise ValueError
     
+    # exclude event in mpl_pane
+    if event.inaxes is None:
+    
     # contain QColorDialog
     def onColorPicker
     

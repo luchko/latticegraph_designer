@@ -71,8 +71,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-class GraphEdgesEditorTest(unittest.TestCase):
-    '''Test the mpl_pane functionality'''
+class GeeMethodsTest(unittest.TestCase):
+    '''Test the mpl_pane GraphEdgesEditor methods'''
     def setUp(self):
                 
         lattice = Lattice(basisMatrix=np.array([[1,0,0],[0,1,0],[0,0,1.3]]).T)
@@ -152,6 +152,7 @@ class GraphEdgesEditorTest(unittest.TestCase):
         
         # test unselect edge
         self.gee.select_edge(None)
+        self.assertTrue(self.gee.e_active_ind is None)
         color = self.gee.colors_e[self.UC.edges[_id].type]
         for j in self.gee.edges.array_ind[_id]:             
             self.assertTrue(self.gee.edges_lines[j].get_color() == color)
@@ -165,20 +166,9 @@ class GraphEdgesEditorTest(unittest.TestCase):
         for j in self.gee.edges.array_ind[id_new]:             
             self.assertTrue(self.gee.edges_lines[j].get_color() == self.gee.color_active)
             self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw_active)
-
+        #check if previous active unselected
         color = self.gee.colors_e[self.UC.edges[_id].type]
         for j in self.gee.edges.array_ind[_id]:             
-            self.assertTrue(self.gee.edges_lines[j].get_color() == color)
-            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
-
-        # test edge unselection by click on empty spot
-        
-        self.fig.canvas.button_press_event(x=20, y=20, button=1)
-        self.fig.canvas.button_release_event(x=20, y=20, button=1)
-
-        self.assertTrue(self.gee.e_active_ind is None)
-        color = self.gee.colors_e[self.UC.edges[id_new].type]
-        for j in self.gee.edges.array_ind[id_new]:             
             self.assertTrue(self.gee.edges_lines[j].get_color() == color)
             self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
         
@@ -198,77 +188,30 @@ class GraphEdgesEditorTest(unittest.TestCase):
         self.assertEqual(self.gee.UC.num_edges, 1+4) # 4 edges simmilar to 2 found
         self.assertEqual(len(self.gee.edges_lines), 8+4*4)
         self.assertEqual(len(self.ax.artists), 6+1+8+4*4)
-
-    def test_keyBindings(self):
-                
+        
+    def test_xml_ImportExport(self):
+        
         self.setUp()
-
-        canvas = self.fig.canvas
         
-        # test ctrl+numKey - change active edge type to numkey
-        _id, new_type = 2, 5
-        self.gee.select_edge(_id)
-        canvas.key_press_event('ctrl+{}'.format(new_type))        
-        self.gee.select_edge(None)
-        self.assertTrue(self.UC.edges[_id].type == new_type)
-        color = self.gee.colors_e[new_type]
-        for j in self.gee.edges.array_ind[_id]:             
-            self.assertTrue(self.gee.edges_lines[j].get_color() == color)
-            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
-
-        canvas.key_press_event('delete')        
-        
-        canvas.key_press_event('shift+delete') 
-        
-        canvas.key_press_event('ctrl+d')        
-
-        _bool = self.gee.display_report
-        canvas.key_press_event('t')        
-        self.assertTrue(self.gee.display_report != _bool)
-        canvas.key_press_event('t')        
-
-        _bool = self.gee.display_lattice
-        canvas.key_press_event('n')        
-        self.assertTrue(self.gee.display_lattice != _bool)
-        self.assertTrue(self.gee.latticeNet.get_visible() != _bool)
-
-        _bool = self.gee.display_arrows
-        canvas.key_press_event('m')        
-        self.assertTrue(self.gee.display_arrows != _bool)
-        for elem in self.gee.arrows:
-            self.assertTrue(elem.get_visible() != _bool)
-
-    def test_mouseMoution(self):
-                
-        self.setUp()
+        # export to lib
+        fn = test_folder+"test_coreExport.xml"
+        self.cluster.export_toFile(fileName = fn, LATTICEGRAPH_name = "test")       
         self.gee.clearEdges_callback() 
-        canvas = self.fig.canvas
+        self.assertEqual(self.gee.UC.num_vertices, 2)        
+        self.assertEqual(self.gee.UC.num_edges, 0)        
         
-        # create edge that connect vertices with source_ind and target_ind
-        source_ind = 0
-        x_data, y_data = self.gee.x_scr[source_ind], self.gee.y_scr[source_ind]
-        canvas.motion_notify_event(x=x_data, y=y_data)
-        self.assertTrue(self.gee.v_active_ind == source_ind)
-        canvas.motion_notify_event(x=30, y=30)
-        canvas.motion_notify_event(x=x_data, y=y_data)  
-        canvas.button_press_event(x=x_data, y=x_data, button=1)
+        # import from lib
+        self.cluster.import_fromFile(fileName = fn, LATTICEGRAPH_name = "test")
+        self.fig = plt.figure()
+        self.ax = self.fig.gca(projection='3d')  # same as ax = Axes3D(fig)    
+        self.gee = GraphEdgesEditor(self.ax, self.cluster, display_report=True)
         
-        target_ind = 8
-        x_data, y_data = self.gee.x_scr[target_ind], self.gee.y_scr[target_ind]
-        canvas.motion_notify_event(x=30, y=30)
-        canvas.motion_notify_event(x=x_data, y=y_data)  
-        canvas.button_release_event(x=x_data, y=y_data, button=1)
-        self.assertEqual(self.gee.UC.num_edges, 1)
-        self.assertEqual(self.gee.e_active_ind, 1)
-        
-        canvas.motion_notify_event(x=20, y=20)
-        canvas.button_press_event(x=20, y=20, button=1)
-        canvas.button_release_event(x=20, y=20, button=1)
+        # check initialization
+        self.assertEqual(self.gee.UC.num_vertices, 2)        
+        self.assertEqual(self.gee.UC.num_edges, 6)        
+        self.assertEqual(len(self.ax.artists), 6+1+4*4+4*3) # arrows + new edge + edges
+        self.assertEqual(len(self.gee.edges_lines), 28)
 
-        # simulate rotatation 
-       
-        # REQUIRE MORE DEVELOPMENT
-        
     def test_USE_COLLECTIONS(self):
         '''testing the usage of lineCollection for depicting edges'''
 
@@ -316,30 +259,163 @@ class GraphEdgesEditorTest(unittest.TestCase):
         finally:    
             GraphEdgesEditor.USE_COLLECTIONS = False
 
-    def test_xml_ImportExport(self):
+class GeeInteractionTest(unittest.TestCase):
+    '''Test the mpl_pane keybounding and mouse manipulation'''
+    def setUp(self):
         
+        self.mainWindow = MainWindow(TEXT_MODE=True)
+
+        self.ax = self.mainWindow.ax
+        self.gee = self.mainWindow.gee
+        self.canvas = self.mainWindow.canvas
+ 
+    def test_keyBindings(self):
+                
         self.setUp()
         
-        # export to lib
-        fn = test_folder+"test_coreExport.xml"
-        self.cluster.export_toFile(fileName = fn, LATTICEGRAPH_name = "test")       
+        # test ctrl+numKey - change active edge type to numkey
+        _id, new_type = 2, 5
+        self.gee.select_edge(_id)
+        self.canvas.key_press_event('ctrl+{}'.format(new_type))        
+        self.gee.select_edge(None)
+        self.assertTrue(self.gee.UC.edges[_id].type == new_type)
+        color = self.gee.colors_e[new_type]
+        for j in self.gee.edges.array_ind[_id]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == color)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
+
+        self.canvas.key_press_event('delete')        
+        
+        self.canvas.key_press_event('shift+delete') 
+        
+        self.canvas.key_press_event('ctrl+d')        
+        
+        # test display_report switch
+        _bool = self.gee.display_report
+        self.canvas.key_press_event('t')        
+        self.assertTrue(self.gee.display_report != _bool)
+        self.canvas.key_press_event('t')        
+        self.assertTrue(self.gee.display_report == _bool)
+
+        # test display_lattice switch
+        _bool = self.gee.display_lattice
+        self.canvas.key_press_event('n')        
+        self.assertTrue(self.gee.display_lattice != _bool)
+        self.assertTrue(self.gee.latticeNet.get_visible() != _bool)
+        self.canvas.key_press_event('n')        
+        self.assertTrue(self.gee.display_lattice == _bool)
+        self.assertTrue(self.gee.latticeNet.get_visible() == _bool)
+
+        # test display_arrows switch
+        _bool = self.gee.display_arrows
+        self.canvas.key_press_event('m')        
+        self.assertTrue(self.gee.display_arrows != _bool)
+        for elem in self.gee.arrows:
+            self.assertTrue(elem.get_visible() != _bool)
+        self.canvas.key_press_event('m')        
+        self.assertTrue(self.gee.display_arrows == _bool)
+        for elem in self.gee.arrows:
+            self.assertTrue(elem.get_visible() == _bool)
+
+    def test_mouseManipulation(self):
+                
+        self.setUp()
         self.gee.clearEdges_callback() 
-        self.assertEqual(self.gee.UC.num_vertices, 2)        
-        self.assertEqual(self.gee.UC.num_edges, 0)        
         
-        # import from lib
-        self.cluster.import_fromFile(fileName = fn, LATTICEGRAPH_name = "test")
-        self.fig = plt.figure()
-        self.ax = self.fig.gca(projection='3d')  # same as ax = Axes3D(fig)    
-        self.gee = GraphEdgesEditor(self.ax, self.cluster, display_report=True)
+        # simulate rotation
+        self.canvas.motion_notify_event(x=20, y=20)  
+        self.canvas.button_press_event(x=20, y=20, button=1)        
+        self.assertEqual(self.gee.v_source_ind, None)
+        self.canvas.motion_notify_event(x=20, y=20)
+        azim, elev = self.gee.ax.azim, self.gee.ax.elev
+        # rotate
+        self.assertTrue(self.gee.isRotated)
+        self.canvas.motion_notify_event(x=30, y=30)
+        self.assertTrue(self.gee.isRotated)
+        self.assertTrue(self.gee.ax.elev != elev)
+        self.assertTrue(self.gee.ax.azim != azim)        
+        azim, elev = self.gee.ax.azim, self.gee.ax.elev
+        # rotate more
+        self.canvas.motion_notify_event(x=40, y=40)
+        self.assertTrue(self.gee.ax.elev != elev)
+        self.assertTrue(self.gee.ax.azim != azim)                
+        # release button
+        self.canvas.button_release_event(x=40, y=40, button=1)
+        self.canvas.motion_notify_event(x=40, y=45)
+        # check
+        self.assertEqual(self.gee.UC.num_edges, 0)
+        self.assertEqual(self.gee.e_active_ind, None)
+        self.assertEqual(self.gee.isRotated, False)
+
+        # vertice actiovation/deactivation test
+        source_ind = 0
+        x_data, y_data = self.gee.x_scr[source_ind], self.gee.y_scr[source_ind]
+        # vertice actiovation
+        self.canvas.motion_notify_event(x=x_data, y=y_data)
+        self.assertTrue(self.gee.v_active_ind == source_ind)
+        # vertice deactivation
+        self.canvas.motion_notify_event(x=30, y=30)
+        self.assertTrue(self.gee.v_active_ind == None)
         
-        # check initialization
-        self.assertEqual(self.gee.UC.num_vertices, 2)        
-        self.assertEqual(self.gee.UC.num_edges, 6)        
-        self.assertEqual(len(self.ax.artists), 6+1+4*4+4*3) # arrows + new edge + edges
-        self.assertEqual(len(self.gee.edges_lines), 28)
+        # simulate unsuccessful edge creation atempt
+        # activate source vertex
+        self.canvas.motion_notify_event(x=x_data, y=y_data)  
+        self.canvas.button_press_event(x=x_data, y=x_data, button=1)        
+        self.assertEqual(self.gee.v_source_ind, source_ind)
+        # draw potential edge
+        self.canvas.motion_notify_event(x=30, y=30)
+        # release button at random spot
+        self.canvas.motion_notify_event(x=40, y=40)
+        self.canvas.button_release_event(x=40, y=40, button=1)
+        # check
+        self.assertEqual(self.gee.UC.num_edges, 0)
+        self.assertEqual(self.gee.e_active_ind, None)
 
+        # simulate successful edge creation atempt
+        _id = 1
+        # activate source vertex
+        self.canvas.motion_notify_event(x=x_data, y=y_data)  
+        self.canvas.button_press_event(x=x_data, y=x_data, button=1)        
+        self.assertEqual(self.gee.v_source_ind, source_ind)
+        # draw potential edge
+        self.canvas.motion_notify_event(x=30, y=30)
+        # select target vertex
+        target_ind = 4
+        x_data, y_data = self.gee.x_scr[target_ind], self.gee.y_scr[target_ind]
+        self.canvas.motion_notify_event(x=x_data, y=y_data)  
+        self.canvas.button_release_event(x=x_data, y=y_data, button=1)
+        # check
+        self.assertEqual(self.gee.UC.num_edges, 1)
+        self.assertEqual(self.gee.e_active_ind, _id)
+        
+        # unselect edge by clicking on the empty spot
+        self.canvas.motion_notify_event(x=30, y=30)
+        self.canvas.button_press_event(x=30, y=30, button=1)
+        self.canvas.button_release_event(x=30, y=30, button=1)
+        # check
+        self.assertTrue(self.gee.e_active_ind is None)
+        color = self.gee.colors_e[self.gee.UC.edges[_id].type]
+        for j in self.gee.edges.array_ind[_id]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == color)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw)
 
+        # select the edge
+        source_ind, target_ind = 0, 4
+        x_data = (self.gee.x_scr[source_ind] + self.gee.x_scr[target_ind])/2
+        y_data = (self.gee.y_scr[source_ind] + self.gee.y_scr[target_ind])/2
+        # simulate selection
+        self.canvas.motion_notify_event(x=x_data, y=y_data)
+        self.canvas.button_press_event(x=x_data, y=y_data, button=1)
+        self.canvas.button_release_event(x=x_data, y=y_data, button=1)
+        self.assertTrue(self.gee.e_active_ind == _id)
+        for j in self.gee.edges.array_ind[_id]:             
+            self.assertTrue(self.gee.edges_lines[j].get_color() == self.gee.color_active)
+            self.assertTrue(self.gee.edges_lines[j].get_linewidth() == self.gee.lw_active)
+
+        # search for edges having the same length as selected
+        self.mainWindow.action_AddSimEdges.trigger()
+        self.assertEqual(self.gee.UC.num_edges, 4)
+        self.assertEqual(self.gee.e_active_ind, None)        
      
 class MainWindowTest(unittest.TestCase):
     '''Test the MainWindow GUI'''
@@ -421,6 +497,8 @@ class MainWindowTest(unittest.TestCase):
         lw.itemWidget(lw.item(1)).set_data(data)
         self.dlgDistSearch.btnSearch.click()
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 16+4)
+        # export to XML lib
+        self.ExportXML(os.path.abspath(test_folder+"testLib_output.xml"))        
         # test adding new item
         self.assertEqual(lw.count(), 3)
         self.dlgDistSearch.btnAdd.click()
@@ -433,9 +511,14 @@ class MainWindowTest(unittest.TestCase):
         # delete selected edges
         self.dlgDistSearch.btnRemove.click()
         self.assertEqual(self.mainWindow.cluster.UC.num_edges, 4)
+        # delete more selected edges
+        lw.setCurrentItem(lw.item(0))
+        self.assertEqual(len(self.mainWindow.gee.e_activeDist_ids), 4)
+        self.mainWindow.action_DelEdge.trigger()
+        self.assertEqual(self.mainWindow.cluster.UC.num_edges, 0)
+
         self.dlgDistSearch.btnClose.click()
-        # export to XML lib
-        self.ExportXML(os.path.abspath(test_folder+"testLib_output.xml"))        
+
  
     def ExportXML(self, fn_output):
         
@@ -617,7 +700,7 @@ class CodeEditorTest(unittest.TestCase):
     '''Test the Animation manager'''
     def setUp(self):
         '''Create the GUI'''
-        self.mainWindow = MainWindow(TEXT_MODE=False)
+        self.mainWindow = MainWindow(TEXT_MODE=True)
       
     def test_CodeEditor(self):
         

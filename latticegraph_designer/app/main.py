@@ -38,8 +38,9 @@ if pyQtVersion == "PyQt4":
     # impoort pyQt modules
     from PyQt4.uic import loadUiType
     from PyQt4.QtCore import Qt, pyqtSignal
-    from PyQt4.QtGui import (QMessageBox, QFileDialog, QListWidgetItem,
-                             QPushButton, QHBoxLayout, QVBoxLayout)
+    from PyQt4.QtGui import (QApplication, QMessageBox, QFileDialog, 
+                             QListWidgetItem, QPushButton, QHBoxLayout, 
+                             QVBoxLayout)
 else:
     # Make sure that we are using QT5
     matplotlib.use('Qt5Agg')
@@ -47,8 +48,9 @@ else:
     # impoort pyQt modules
     from PyQt5.uic import loadUiType
     from PyQt5.QtCore import Qt, pyqtSignal
-    from PyQt5.QtWidgets import (QMessageBox, QFileDialog, QListWidgetItem,
-                                 QPushButton, QHBoxLayout, QVBoxLayout)
+    from PyQt5.QtWidgets import (QApplication, QMessageBox, QFileDialog, 
+                                 QListWidgetItem, QPushButton, QHBoxLayout, 
+                                 QVBoxLayout)
 
 def getPathString(output):
     '''
@@ -473,13 +475,7 @@ For bug reports and feature requests, please go to our
 
 def run():
     '''run the application'''
-    
-    # imports requied PyQt modules
-    if pyQtVersion == "PyQt4":
-        from PyQt4.QtGui import QApplication
-    else:
-        from PyQt5.QtWidgets import QApplication
-        
+            
     # check if xml codefile is passed as an input
     if len(sys.argv) == 2:
         fn = sys.argv[1]

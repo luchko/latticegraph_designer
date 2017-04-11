@@ -419,11 +419,6 @@ class GraphEdgesEditor(object):
                                       (self.x_scr[t],self.y_scr[t]))
             if d <= self.lw_active:                
                 self.select_edge(self.edges.ids[i])
-                if self.parent is not None:
-                    self.parent.selectedEdgeChanged.emit(self.e_active_ind)
-                elif self.display_report:
-                    print(" selected edge: {}".format(self.UC.edges[self.e_active_ind]))
-
                 return
             
         self.e_ind = None
@@ -450,14 +445,8 @@ class GraphEdgesEditor(object):
             
         # Axes3D was not rotated             
         # deactivate active edge if no new edge is selected
-        elif self.e_ind is None and self.e_active_ind is not None:  
-            color = self.colors_e[self.UC.edges[self.e_active_ind].type]
-            self.reset_active_e_color(color, self.lw)                    
-            self.e_active_ind = None
-            if self.parent is not None:
-                self.parent.selectedEdgeChanged.emit(self.e_active_ind)
-            elif self.display_report:
-                print(" active edge unselected")                    
+        elif self.e_ind is None and self.e_active_ind is not None:
+            self.select_edge(None)                
                 
         self.buttonHold = False
             
@@ -486,15 +475,23 @@ class GraphEdgesEditor(object):
         self.background = self.canvas.copy_from_bbox(self.ax.bbox)
 
     def select_edge(self, ind):
-        '''select (ativate) edge with index ind'''
+        '''select (ativate) edge with index ind. If ind=None unselect active'''
 
         self.e_ind = ind
         if self.e_active_ind is not None: # deactivate previouse
             color = self.colors_e[self.UC.edges[self.e_active_ind].type]
             self.reset_active_e_color(color, self.lw)
+        
         self.e_active_ind = self.e_ind # activate new edge
         if ind is not None:
-            self.reset_active_e_color(self.color_active, self.lw_active)                
+            self.reset_active_e_color(self.color_active, self.lw_active)
+
+        if self.parent is not None: # pass signals and notifications
+            self.parent.selectedEdgeChanged.emit(self.e_active_ind)
+        elif (ind is None) and self.display_report:
+            print(" active edge unselected")                     
+        elif self.display_report:
+            print(" selected edge: {}".format(self.UC.edges[self.e_active_ind]))               
 
     def select_edges(self, ids):
         '''select (ativate) edge with index in ids list'''
