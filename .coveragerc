@@ -2,8 +2,15 @@
 
 omit =
     *__init__*
+    
+    # mock out test dir
     */test/* 
-   # *QColorButton*
+    
+    # mock out widgets
+    *QCodeEditor*
+    *QColorButton*
+    *QCustomListWidgets*
+    *QPreferencesManager*
 
 [report]
 
