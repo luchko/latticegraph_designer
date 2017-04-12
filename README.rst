@@ -85,14 +85,14 @@ This section explains how to install and launch the latest stable release of the
 Using ``conda`` `scientific package manager <https://conda.io/docs/index.html>`_ (recommended way)
 ---------------------------------------------------------------------------------------------------
 
-*Not implemented yet*
+*PROJECT IS NOT RELEASED YET*
 
 **Note:** *All dependencies are installed by* ``conda`` *automatically.*
 
 Using ``pip`` package manager from `PyPI <https://pypi.python.org/pypi>`_
 --------------------------------------------------------------------------
 
-*Not implemented yet*
+*PROJECT IS NOT RELEASED YET*
 
 In order to install the Lattice graph designer type in your command prompt:
 
