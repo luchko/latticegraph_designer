@@ -89,7 +89,7 @@ Installation using ``conda`` `scientific package manager <https://conda.io/docs/
 
 Type in your command prompt:
 
-``$ pip install conda`` (if ``conda`` is not installed yet)
+``$ pip install conda``		(if ``conda`` is not installed yet)
 
 ``$ conda install latticegraph_designer``
 
@@ -122,11 +122,11 @@ Launching the program
 
 - After completing the installation you can launch the program simply typping in your command prompt:
 
-	``$ graphdesigner [pathToYourLatticeGraphFile.xml]``
+``$ graphdesigner [pathToYourLatticeGraphFile.xml]``
 
-	:note: 
-        	If ``pathToYourLatticeGraphFile.xml`` is not provided the program will load a default example. 
-        	You can open a lattice graph file later.
+:note: 
+	If ``pathToYourLatticeGraphFile.xml`` is not provided the program will load a default example. 
+	You can open a lattice graph file later.
 
 - Optionally you can lock a tool's link on the launcher for quick access.
 
@@ -146,7 +146,7 @@ Running ``unittest``
 
 After making any changes in the source code you can run ``unitittest`` to make sure that nothing is broken by typing in your command prompt:
 
-	``$ python setup.py test``
+``$ python setup.py test``
 
 **Note:** *In case ALPS library is installed* ``unitittest`` *also checks for ALPS compatibility of the exported xml lib file using ALPS* ``printgraph`` *tool.*
 
@@ -155,4 +155,4 @@ Contacts
 
 About the feature extension or bugs report you can `create the issue or feature request <https://github.com/luchko/latticegraph_designer/issues>`_ or feel free to contact me directly by e-mail:
 
-	**Ivan Luchko** - luchko.ivan@gmail.com
+**Ivan Luchko** - luchko.ivan@gmail.com
