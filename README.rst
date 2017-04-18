@@ -156,3 +156,9 @@ Contacts
 About the feature extension or bugs report you can `create the issue or feature request <https://github.com/luchko/latticegraph_designer/issues>`_ or feel free to contact me directly by e-mail:
 
 **Ivan Luchko** - luchko.ivan@gmail.com
+
+Widgets references
+==================
+
+* `Matplotlib animation manager <https://github.com/luchko/mpl_animationmanager>`_
+* `QCodeEditor <https://github.com/luchko/QCodeEditor>`_
