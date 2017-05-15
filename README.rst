@@ -162,3 +162,4 @@ Widgets references
 
 * `Matplotlib animation manager <https://github.com/luchko/mpl_animationmanager>`_
 * `QCodeEditor <https://github.com/luchko/QCodeEditor>`_
+
